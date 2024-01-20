@@ -1,0 +1,44 @@
+@use 'var.scss';
+@use 'common/transition.scss';
+@use 'icon.scss';
+
+:root {
+  @include set-css-var-value('color-white', $color-white);
+  @include set-css-var-value('color-black', $color-black);
+
+  @each $type in (primary, success, warning, danger, error, info) {
+    @include set-css-color-rgb($type);
+  }
+
+  // typography
+  @include set-component-css-var('font-size', $font-size);
+  @include set-component-css-var('font-family', $font-family);
+  @include set-css-var-value('font-weight-primary', 500);
+  @include set-css-var-value('font-line-height-primary', 24px);
+
+  // border
+  @include set-css-var-value('border-width', $border-width);
+  @include set-css-var-value('border-style', $border-style);
+  @include set-css-var-value('border-color-hover', $border-color-hover);
+  @include set-css-var-value('border', getCssVar('border-width') getCssVar('border-style') getCssVar('border-color'));
+
+  // border-radius
+  @include set-component-css-var('border-radius', $border-radius);
+
+  // disable
+  @include set-component-css-var('disabled', $disabled);
+  
+  // component-size
+  @include set-component-css-var('component-size', $common-component-size);
+
+  // svg
+  @include css-var-from-global('svg-monochrome-grey', 'border-color');
+
+  // z-index
+  @include set-component-css-var('index', $z-index);
+
+  // transition
+  @include set-component-css-var('transition-duration', $transition-duration);
+  @include set-component-css-var('transition-function', $transition-function);
+  @include set-component-css-var('transition', $transition);
+}
