@@ -1,0 +1,11 @@
+{
+  "name": "@icxy/el-theme",
+  "version": "0.1.0",
+  "description": "element-plus theme",
+  "keywords": [
+    "element-plus",
+    "theme"
+  ],
+  "author": "2113ic <icxiaoyanz@gmail.com>",
+  "license": "MIT"
+}

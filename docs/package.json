@@ -1,0 +1,8 @@
+{
+  "name": "@icxy/el-theme-docs",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "dev": "vite"
+  }
+}

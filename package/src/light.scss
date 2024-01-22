@@ -1,0 +1,20 @@
+@use 'common/mixins' as *;
+@use 'theme/light' as *;
+
+:root {
+  color-scheme: light;
+
+  @include each-types using ($type) {
+    // --el-[type]-light-&i
+    @include set-css-color-type($colors, $type);
+  }
+
+  // --el-[type], eg: --el-bg-color
+  @include set-component-css-var('bg-color', $bg-color);
+  @include set-component-css-var('text-color', $text-color);
+  @include set-component-css-var('border-color', $border-color);
+  @include set-component-css-var('fill-color', $fill-color);
+  @include set-component-css-var('box-shadow', $box-shadow);
+  @include set-component-css-var('mask-color', $mask-color);
+  @include set-component-css-var('overlay-color', $overlay-color);
+}
