@@ -4,7 +4,7 @@
 @include b(page-header) {
   @include when(contentful) {
     @include e('main') {
-      border-top: 1px solid getCssVar('border-color', 'light');
+      border-top: 1px solid getCSSVar('border-color', 'light');
       margin-top: 16px;
     }
   }
@@ -51,7 +51,7 @@
 
   @include e(content) {
     font-size: 18px;
-    color: getCssVar('text-color', 'primary');
+    color: getCSSVar('text-color', 'primary');
   }
 
   @include e(breadcrumb) {

@@ -12,8 +12,8 @@
   align-self: center;
   margin: 0;
   padding: 0;
-  font-size: getCssVar('text', 'font-size');
-  color: getCssVar('text', 'color');
+  font-size: getCSSVar('text', 'font-size');
+  color: getCSSVar('text', 'color');
   overflow-wrap: break-word;
 
   @include when(truncated) {

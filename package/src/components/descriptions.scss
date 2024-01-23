@@ -58,8 +58,8 @@ $descriptions-cell-font-size: map.merge(
   @include set-component-css-var('descriptions', $descriptions);
 
   box-sizing: border-box;
-  font-size: getCssVar('font-size', 'base');
-  color: getCssVar('text-color', 'primary');
+  font-size: getCSSVar('font-size', 'base');
+  color: getCSSVar('text-color', 'primary');
 
   @include e(header) {
     display: flex;
@@ -68,14 +68,14 @@ $descriptions-cell-font-size: map.merge(
     margin-bottom: map.get($descriptions-header-margin-bottom, 'default');
 
     @include e(title) {
-      color: getCssVar('text-color', 'primary');
+      color: getCSSVar('text-color', 'primary');
       font-size: map.get($descriptions-title-font-size, 'default');
       font-weight: bold;
     }
   }
 
   @include e(body) {
-    background-color: getCssVar('fill-color', 'blank');
+    background-color: getCSSVar('fill-color', 'blank');
 
     .#{$namespace}-descriptions__table {
       border-collapse: collapse;
@@ -103,7 +103,7 @@ $descriptions-cell-font-size: map.merge(
 
       &.is-bordered {
         .#{$namespace}-descriptions__cell {
-          border: getCssVar('descriptions-table-border');
+          border: getCSSVar('descriptions-table-border');
           padding: map.get($descriptions-bordered-cell-padding, 'default');
         }
       }

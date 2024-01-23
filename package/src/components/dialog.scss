@@ -10,12 +10,12 @@
   @include set-component-css-var('dialog', $dialog);
 
   position: relative;
-  margin: var(#{getCssVarName('dialog-margin-top')}, 15vh) auto 50px;
-  background: getCssVar('dialog', 'bg-color');
-  border-radius: getCssVar('dialog', 'border-radius');
-  box-shadow: getCssVar('dialog', 'box-shadow');
+  margin: var(#{getCSSVarName('dialog-margin-top')}, 15vh) auto 50px;
+  background: getCSSVar('dialog', 'bg-color');
+  border-radius: getCSSVar('dialog', 'border-radius');
+  box-shadow: getCSSVar('dialog', 'box-shadow');
   box-sizing: border-box;
-  width: var(#{getCssVarName('dialog-width')}, 50%);
+  width: var(#{getCSSVarName('dialog-width')}, 50%);
 
   &:focus {
     outline: none !important;
@@ -52,7 +52,7 @@
   }
 
   @include e(header) {
-    padding: getCssVar('dialog', 'padding-primary');
+    padding: getCSSVar('dialog', 'padding-primary');
     padding-bottom: 10px;
     margin-right: 16px;
   }
@@ -69,38 +69,38 @@
     outline: none;
     cursor: pointer;
     font-size: var(
-      #{getCssVarName('message-close-size')},
+      #{getCSSVarName('message-close-size')},
       map.get($message, 'close-size')
     );
 
     .#{$namespace}-dialog__close {
-      color: getCssVar('color', 'info');
+      color: getCSSVar('color', 'info');
       font-size: inherit;
     }
 
     &:focus,
     &:hover {
       .#{$namespace}-dialog__close {
-        color: getCssVar('color', 'primary');
+        color: getCSSVar('color', 'primary');
       }
     }
   }
 
   @include e(title) {
-    line-height: getCssVar('dialog-font-line-height');
-    font-size: getCssVar('dialog-title-font-size');
-    color: getCssVar('text-color', 'primary');
+    line-height: getCSSVar('dialog-font-line-height');
+    font-size: getCSSVar('dialog-title-font-size');
+    color: getCSSVar('text-color', 'primary');
   }
 
   @include e(body) {
-    padding: calc(#{getCssVar('dialog-padding-primary')} + 10px)
-      getCssVar('dialog-padding-primary');
-    color: getCssVar('text-color', 'regular');
-    font-size: getCssVar('dialog-content-font-size');
+    padding: calc(#{getCSSVar('dialog-padding-primary')} + 10px)
+      getCSSVar('dialog-padding-primary');
+    color: getCSSVar('text-color', 'regular');
+    font-size: getCSSVar('dialog-content-font-size');
   }
 
   @include e(footer) {
-    padding: getCssVar('dialog-padding-primary');
+    padding: getCSSVar('dialog-padding-primary');
     padding-top: 10px;
     text-align: right;
     box-sizing: border-box;
@@ -112,7 +112,7 @@
 
     @include e(body) {
       text-align: initial;
-      padding: 25px calc(#{getCssVar('dialog-padding-primary')} + 5px) 30px;
+      padding: 25px calc(#{getCSSVar('dialog-padding-primary')} + 5px) 30px;
     }
 
     @include e(footer) {
@@ -131,16 +131,16 @@
 }
 
 .dialog-fade-enter-active {
-  animation: modal-fade-in getCssVar('transition-duration');
+  animation: modal-fade-in getCSSVar('transition-duration');
   .#{$namespace}-overlay-dialog {
-    animation: dialog-fade-in getCssVar('transition-duration');
+    animation: dialog-fade-in getCSSVar('transition-duration');
   }
 }
 
 .dialog-fade-leave-active {
-  animation: modal-fade-out getCssVar('transition-duration');
+  animation: modal-fade-out getCSSVar('transition-duration');
   .#{$namespace}-overlay-dialog {
-    animation: dialog-fade-out getCssVar('transition-duration');
+    animation: dialog-fade-out getCSSVar('transition-duration');
   }
 }
 

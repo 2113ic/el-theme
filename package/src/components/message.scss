@@ -10,17 +10,17 @@
   width: fit-content;
   max-width: calc(100% - 32px);
   box-sizing: border-box;
-  border-radius: getCssVar('border-radius-base');
-  border-width: getCssVar('border-width');
-  border-style: getCssVar('border-style');
-  border-color: getCssVar('message', 'border-color');
+  border-radius: getCSSVar('border-radius-base');
+  border-width: getCSSVar('border-width');
+  border-style: getCSSVar('border-style');
+  border-color: getCSSVar('message', 'border-color');
   position: fixed;
   left: 50%;
   top: 20px;
   transform: translateX(-50%);
-  background-color: getCssVar('message', 'bg-color');
-  transition: opacity getCssVar('transition-duration'), transform 0.4s, top 0.4s;
-  padding: getCssVar('message', 'padding');
+  background-color: getCSSVar('message', 'bg-color');
+  transition: opacity getCSSVar('transition-duration'), transform 0.4s, top 0.4s;
+  padding: getCSSVar('message', 'padding');
   display: flex;
   align-items: center;
 
@@ -51,13 +51,13 @@
       @include css-var-from-global(('message', 'text-color'), ('color', $type));
 
       .#{$namespace}-message__content {
-        color: getCssVar('message', 'text-color');
+        color: getCSSVar('message', 'text-color');
         overflow-wrap: break-word;
       }
     }
 
     & .#{$namespace}-message-icon--#{$type} {
-      color: getCssVar('message', 'text-color');
+      color: getCSSVar('message', 'text-color');
     }
   }
 
@@ -86,14 +86,14 @@
     right: 19px;
     transform: translateY(-50%);
     cursor: pointer;
-    color: getCssVar('message', 'close-icon-color');
-    font-size: getCssVar('message', 'close-size');
+    color: getCSSVar('message', 'close-icon-color');
+    font-size: getCSSVar('message', 'close-size');
 
     &:focus {
       outline-width: 0;
     }
     &:hover {
-      color: getCssVar('message', 'close-hover-color');
+      color: getCSSVar('message', 'close-hover-color');
     }
   }
 }

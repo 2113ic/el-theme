@@ -5,8 +5,8 @@
 @include b(header) {
   @include set-component-css-var('header', $header);
 
-  padding: getCssVar('header-padding');
+  padding: getCSSVar('header-padding');
   box-sizing: border-box;
   flex-shrink: 0;
-  height: getCssVar('header-height');
+  height: getCSSVar('header-height');
 }

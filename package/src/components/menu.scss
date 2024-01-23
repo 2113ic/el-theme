@@ -7,17 +7,17 @@
 @mixin menu-item {
   display: flex;
   align-items: center;
-  height: getCssVar('menu-item-height');
-  line-height: getCssVar('menu-item-height');
-  font-size: getCssVar('menu-item-font-size');
-  color: getCssVar('menu-text-color');
-  padding: 0 getCssVar('menu-base-level-padding');
+  height: getCSSVar('menu-item-height');
+  line-height: getCSSVar('menu-item-height');
+  font-size: getCSSVar('menu-item-font-size');
+  color: getCSSVar('menu-text-color');
+  padding: 0 getCSSVar('menu-base-level-padding');
   list-style: none;
   cursor: pointer;
   position: relative;
-  transition: border-color getCssVar('transition-duration'),
-    background-color getCssVar('transition-duration'),
-    color getCssVar('transition-duration');
+  transition: border-color getCSSVar('transition-duration'),
+    background-color getCSSVar('transition-duration'),
+    color getCSSVar('transition-duration');
   box-sizing: border-box;
   white-space: nowrap;
 
@@ -35,7 +35,7 @@
   }
 
   &:hover {
-    background-color: getCssVar('menu-hover-bg-color');
+    background-color: getCSSVar('menu-hover-bg-color');
   }
 
   @include when(disabled) {
@@ -51,12 +51,12 @@
 }
 
 @include b(menu) {
-  border-right: solid 1px getCssVar('menu-border-color');
+  border-right: solid 1px getCSSVar('menu-border-color');
   list-style: none;
   position: relative;
   margin: 0;
   padding-left: 0;
-  background-color: getCssVar('menu-bg-color');
+  background-color: getCSSVar('menu-bg-color');
   box-sizing: border-box;
 
   @include m(vertical) {
@@ -66,8 +66,8 @@
       & .#{$namespace}-menu-item-group__title {
         white-space: nowrap;
         padding-left: calc(
-          #{getCssVar('menu-base-level-padding')} + #{getCssVar('menu-level')} *
-            #{getCssVar('menu-level-padding')}
+          #{getCSSVar('menu-base-level-padding')} + #{getCSSVar('menu-level')} *
+            #{getCSSVar('menu-level-padding')}
         );
       }
     }
@@ -75,7 +75,7 @@
 
   &:not(.#{$namespace}-menu--collapse) .#{$namespace}-sub-menu__title {
     padding-right: calc(
-      #{getCssVar('menu-base-level-padding')} + #{getCssVar('menu-icon-width')}
+      #{getCSSVar('menu-base-level-padding')} + #{getCSSVar('menu-icon-width')}
     );
   }
 
@@ -89,10 +89,10 @@
     flex-wrap: nowrap;
     border-right: none;
 
-    height: getCssVar('menu-horizontal-height');
+    height: getCSSVar('menu-horizontal-height');
 
     &.#{$namespace}-menu {
-      border-bottom: solid 1px getCssVar('menu-border-color');
+      border-bottom: solid 1px getCSSVar('menu-border-color');
     }
 
     & > .#{$namespace}-menu-item {
@@ -103,7 +103,7 @@
       height: 100%;
       margin: 0;
       border-bottom: 2px solid transparent;
-      color: getCssVar('menu-text-color');
+      color: getCSSVar('menu-text-color');
 
       a,
       a:hover {
@@ -118,37 +118,37 @@
 
       &:hover {
         .#{$namespace}-sub-menu__title {
-          color: getCssVar('menu-hover-text-color');
+          color: getCSSVar('menu-hover-text-color');
         }
       }
 
       &.is-active {
         .#{$namespace}-sub-menu__title {
-          border-bottom: 2px solid getCssVar('menu-active-color');
-          color: getCssVar('menu-active-color');
+          border-bottom: 2px solid getCSSVar('menu-active-color');
+          color: getCSSVar('menu-active-color');
         }
       }
 
       & .#{$namespace}-sub-menu__title {
         height: 100%;
         border-bottom: 2px solid transparent;
-        color: getCssVar('menu-text-color');
+        color: getCSSVar('menu-text-color');
 
         &:hover {
-          background-color: getCssVar('menu-bg-color');
+          background-color: getCSSVar('menu-bg-color');
         }
       }
     }
     & .#{$namespace}-menu {
       & .#{$namespace}-menu-item,
       & .#{$namespace}-sub-menu__title {
-        background-color: getCssVar('menu-bg-color');
+        background-color: getCSSVar('menu-bg-color');
         display: flex;
         align-items: center;
-        height: getCssVar('menu-horizontal-sub-item-height');
-        line-height: getCssVar('menu-horizontal-sub-item-height');
+        height: getCSSVar('menu-horizontal-sub-item-height');
+        line-height: getCSSVar('menu-horizontal-sub-item-height');
         padding: 0 10px;
-        color: getCssVar('menu-text-color');
+        color: getCSSVar('menu-text-color');
       }
 
       & .#{$namespace}-sub-menu__title {
@@ -157,23 +157,23 @@
 
       & .#{$namespace}-menu-item.is-active,
       & .#{$namespace}-sub-menu.is-active > .#{$namespace}-sub-menu__title {
-        color: getCssVar('menu-active-color');
+        color: getCSSVar('menu-active-color');
       }
     }
     & .#{$namespace}-menu-item:not(.is-disabled):hover,
     & .#{$namespace}-menu-item:not(.is-disabled):focus {
       outline: none;
-      color: getCssVar('menu-hover-text-color');
-      background-color: getCssVar('menu-hover-bg-color');
+      color: getCSSVar('menu-hover-text-color');
+      background-color: getCSSVar('menu-hover-bg-color');
     }
     & > .#{$namespace}-menu-item.is-active {
-      border-bottom: 2px solid getCssVar('menu-active-color');
-      color: getCssVar('menu-active-color') !important;
+      border-bottom: 2px solid getCSSVar('menu-active-color');
+      color: getCSSVar('menu-active-color') !important;
     }
   }
   @include m(collapse) {
     width: calc(
-      #{getCssVar('menu-icon-width')} + #{getCssVar('menu-base-level-padding')} *
+      #{getCSSVar('menu-icon-width')} + #{getCSSVar('menu-base-level-padding')} *
         2
     );
 
@@ -186,7 +186,7 @@
       [class^='#{$namespace}-icon'] {
         margin: 0;
         vertical-align: middle;
-        width: getCssVar('menu-icon-width');
+        width: getCSSVar('menu-icon-width');
         text-align: center;
       }
 
@@ -213,7 +213,7 @@
 
     .#{$namespace}-sub-menu {
       &.is-active .#{$namespace}-sub-menu__title {
-        color: getCssVar('menu-active-color');
+        color: getCSSVar('menu-active-color');
       }
     }
   }
@@ -222,8 +222,8 @@
     min-width: 200px;
     border: none;
     padding: 5px 0;
-    border-radius: getCssVar('border-radius-small');
-    box-shadow: getCssVar('box-shadow-light');
+    border-radius: getCSSVar('border-radius-small');
+    box-shadow: getCSSVar('box-shadow-light');
   }
 
   .#{$namespace}-icon {
@@ -236,13 +236,13 @@
 
   & [class^='#{$namespace}-icon'] {
     margin-right: 5px;
-    width: getCssVar('menu-icon-width');
+    width: getCSSVar('menu-icon-width');
     text-align: center;
     font-size: 18px;
     vertical-align: middle;
   }
   @include when(active) {
-    color: getCssVar('menu-active-color');
+    color: getCSSVar('menu-active-color');
     i {
       color: inherit;
     }
@@ -256,7 +256,7 @@
     display: inline-flex;
     align-items: center;
     box-sizing: border-box;
-    padding: 0 getCssVar('menu-base-level-padding');
+    padding: 0 getCSSVar('menu-base-level-padding');
   }
 }
 
@@ -269,15 +269,15 @@
     @include menu-item;
 
     &:hover {
-      background-color: getCssVar('menu-hover-bg-color');
+      background-color: getCSSVar('menu-hover-bg-color');
     }
   }
   & .#{$namespace}-menu {
     border: none;
   }
   & .#{$namespace}-menu-item {
-    height: getCssVar('menu-sub-item-height');
-    line-height: getCssVar('menu-sub-item-height');
+    height: getCSSVar('menu-sub-item-height');
+    line-height: getCSSVar('menu-sub-item-height');
   }
   @include e(hide-arrow) {
     .#{$namespace}-sub-menu__icon-arrow {
@@ -286,7 +286,7 @@
   }
   @include when(active) {
     .#{$namespace}-sub-menu__title {
-      border-bottom-color: getCssVar('menu-active-color');
+      border-bottom-color: getCSSVar('menu-active-color');
     }
   }
   @include when(disabled) {
@@ -300,7 +300,7 @@
   .#{$namespace}-icon {
     vertical-align: middle;
     margin-right: 5px;
-    width: getCssVar('menu-icon-width');
+    width: getCSSVar('menu-icon-width');
     text-align: center;
     font-size: 18px;
 
@@ -311,9 +311,9 @@
   .#{$namespace}-sub-menu__icon-arrow {
     position: absolute;
     top: 50%;
-    right: getCssVar('menu-base-level-padding');
+    right: getCSSVar('menu-base-level-padding');
     margin-top: -6px;
-    transition: transform getCssVar('transition-duration');
+    transition: transform getCSSVar('transition-duration');
     font-size: 12px;
     margin-right: 0;
     width: inherit;
@@ -325,16 +325,16 @@
     padding: 0;
   }
   @include e(title) {
-    padding: 7px 0 7px getCssVar('menu-base-level-padding');
+    padding: 7px 0 7px getCSSVar('menu-base-level-padding');
     line-height: normal;
     font-size: 12px;
-    color: getCssVar('text-color', 'secondary');
+    color: getCSSVar('text-color', 'secondary');
   }
 }
 
 .horizontal-collapse-transition
   .#{$namespace}-sub-menu__title
   .#{$namespace}-sub-menu__icon-arrow {
-  transition: getCssVar('transition-duration-fast');
+  transition: getCSSVar('transition-duration-fast');
   opacity: 0;
 }

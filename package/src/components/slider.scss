@@ -27,9 +27,9 @@ $slider-height: map.merge(
 
   @include e(runway) {
     flex: 1;
-    height: getCssVar('slider-height');
-    background-color: getCssVar('slider-runway-bg-color');
-    border-radius: getCssVar('slider-border-radius');
+    height: getCSSVar('slider-height');
+    background-color: getCSSVar('slider-runway-bg-color');
+    border-radius: getCSSVar('slider-border-radius');
     position: relative;
     cursor: pointer;
 
@@ -42,11 +42,11 @@ $slider-height: map.merge(
       cursor: default;
 
       .#{$namespace}-slider__bar {
-        background-color: getCssVar('slider-disabled-color');
+        background-color: getCSSVar('slider-disabled-color');
       }
 
       .#{$namespace}-slider__button {
-        border-color: getCssVar('slider-disabled-color');
+        border-color: getCSSVar('slider-disabled-color');
       }
 
       .#{$namespace}-slider__button-wrapper {
@@ -85,19 +85,19 @@ $slider-height: map.merge(
   }
 
   @include e(bar) {
-    height: getCssVar('slider-height');
-    background-color: getCssVar('slider-main-bg-color');
-    border-top-left-radius: getCssVar('slider-border-radius');
-    border-bottom-left-radius: getCssVar('slider-border-radius');
+    height: getCSSVar('slider-height');
+    background-color: getCSSVar('slider-main-bg-color');
+    border-top-left-radius: getCSSVar('slider-border-radius');
+    border-bottom-left-radius: getCSSVar('slider-border-radius');
     position: absolute;
   }
 
   @include e(button-wrapper) {
-    height: getCssVar('slider-button-wrapper-size');
-    width: getCssVar('slider-button-wrapper-size');
+    height: getCSSVar('slider-button-wrapper-size');
+    width: getCSSVar('slider-button-wrapper-size');
     position: absolute;
     z-index: 1;
-    top: getCssVar('slider-button-wrapper-offset');
+    top: getCSSVar('slider-button-wrapper-offset');
     transform: translateX(-50%);
     background-color: transparent;
     text-align: center;
@@ -118,14 +118,14 @@ $slider-height: map.merge(
 
   @include e(button) {
     display: inline-block;
-    width: getCssVar('slider-button-size');
-    height: getCssVar('slider-button-size');
+    width: getCSSVar('slider-button-size');
+    height: getCSSVar('slider-button-size');
     vertical-align: middle;
-    border: solid 2px getCssVar('slider-main-bg-color');
-    background-color: getCssVar('color-white');
+    border: solid 2px getCSSVar('slider-main-bg-color');
+    background-color: getCSSVar('color-white');
     border-radius: 50%;
     box-sizing: border-box;
-    transition: getCssVar('transition-duration-fast');
+    transition: getCSSVar('transition-duration-fast');
     user-select: none;
 
     &:hover,
@@ -146,10 +146,10 @@ $slider-height: map.merge(
 
   @include e(stop) {
     position: absolute;
-    height: getCssVar('slider-height');
-    width: getCssVar('slider-height');
-    border-radius: getCssVar('border-radius-circle');
-    background-color: getCssVar('slider-stop-bg-color');
+    height: getCSSVar('slider-height');
+    width: getCSSVar('slider-height');
+    border-radius: getCSSVar('border-radius-circle');
+    background-color: getCSSVar('slider-stop-bg-color');
     transform: translateX(-50%);
   }
 
@@ -163,7 +163,7 @@ $slider-height: map.merge(
       position: absolute;
       transform: translateX(-50%);
       font-size: 14px;
-      color: getCssVar('color-info');
+      color: getCSSVar('color-info');
       margin-top: 15px;
       white-space: pre;
     }
@@ -177,18 +177,18 @@ $slider-height: map.merge(
     flex: 0;
 
     .#{$namespace}-slider__runway {
-      width: getCssVar('slider-height');
+      width: getCSSVar('slider-height');
       height: 100%;
       margin: 0 16px;
     }
     .#{$namespace}-slider__bar {
-      width: getCssVar('slider-height');
+      width: getCSSVar('slider-height');
       height: auto;
       border-radius: 0 0 3px 3px;
     }
     .#{$namespace}-slider__button-wrapper {
       top: auto;
-      left: getCssVar('slider-button-wrapper-offset');
+      left: getCSSVar('slider-button-wrapper-offset');
       transform: translateY(50%);
     }
     .#{$namespace}-slider__stop {

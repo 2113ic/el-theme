@@ -21,17 +21,17 @@
     white-space: nowrap;
     vertical-align: middle;
     background: var(
-      #{getCssVarName('button-bg-color')},
+      #{getCSSVarName('button-bg-color')},
       map.get($button, 'bg-color')
     );
-    border: getCssVar('border');
+    border: getCSSVar('border');
     font-weight: var(
-      #{getCssVarName('button-font-weight')},
+      #{getCSSVarName('button-font-weight')},
       map.get($button, 'font-weight')
     );
     border-left: 0;
     color: var(
-      #{getCssVarName('button-text-color')},
+      #{getCSSVarName('button-text-color')},
       map.get($button, 'text-color')
     );
     -webkit-appearance: none;
@@ -41,7 +41,7 @@
     margin: 0;
     position: relative;
     cursor: pointer;
-    transition: getCssVar('transition-all');
+    transition: getCSSVar('transition-all');
     user-select: none;
 
     @include button-size(
@@ -52,7 +52,7 @@
     );
 
     &:hover {
-      color: getCssVar('color-primary');
+      color: getCSSVar('color-primary');
     }
 
     & [class*='#{$namespace}-icon-'] {
@@ -66,9 +66,9 @@
 
   &:first-child {
     .#{$namespace}-radio-button__inner {
-      border-left: getCssVar('border');
-      border-radius: getCssVar('border-radius-base') 0 0
-        getCssVar('border-radius-base');
+      border-left: getCSSVar('border');
+      border-radius: getCSSVar('border-radius-base') 0 0
+        getCSSVar('border-radius-base');
       box-shadow: none !important;
     }
   }
@@ -103,22 +103,22 @@
 
     &:focus-visible {
       & + .#{$namespace}-radio-button__inner {
-        border-left: getCssVar('border');
+        border-left: getCSSVar('border');
         border-left-color: getCssVarWithDefault(
           'radio-button-checked-border-color',
           map.get($radio-button, 'checked-border-color')
         );
-        outline: 2px solid getCssVar('radio-button-checked-border-color');
+        outline: 2px solid getCSSVar('radio-button-checked-border-color');
         outline-offset: 1px;
         z-index: 2;
-        border-radius: getCssVar('border-radius-base');
+        border-radius: getCSSVar('border-radius-base');
         box-shadow: none;
       }
     }
 
     &:disabled {
       & + .#{$namespace}-radio-button__inner {
-        color: getCssVar('disabled-text-color');
+        color: getCSSVar('disabled-text-color');
         cursor: not-allowed;
         background-image: none;
         background-color: getCssVarWithDefault(
@@ -132,21 +132,21 @@
         box-shadow: none;
       }
       &:checked + .#{$namespace}-radio-button__inner {
-        background-color: getCssVar('radio-button-disabled-checked-fill');
+        background-color: getCSSVar('radio-button-disabled-checked-fill');
       }
     }
   }
 
   &:last-child {
     .#{$namespace}-radio-button__inner {
-      border-radius: 0 getCssVar('border-radius-base')
-        getCssVar('border-radius-base') 0;
+      border-radius: 0 getCSSVar('border-radius-base')
+        getCSSVar('border-radius-base') 0;
     }
   }
 
   &:first-child:last-child {
     .#{$namespace}-radio-button__inner {
-      border-radius: getCssVar('border-radius-base');
+      border-radius: getCSSVar('border-radius-base');
     }
   }
 

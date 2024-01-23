@@ -1,5 +1,6 @@
-@use 'common/mixins' as *;
-@use 'common/utils' as u;
+@use 'common/mixin' as *;
+@use 'mixins/bem' as *;
+@use 'mixins/var' as *;
 @use 'theme/dark' as *;
 
 html.dark {
@@ -24,9 +25,9 @@ $temp-map: (
   card  : $card,
   empty : $empty
 );
-  
+
 @each $key, $val in $temp-map {
-  @include u.dark($key) {
+  @include dark($key) {
     @include set-component-css-var($key, $val);
   }
 }

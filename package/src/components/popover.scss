@@ -6,26 +6,26 @@
   @include set-component-css-var('popover', $popover);
 
   &.#{$namespace}-popper {
-    background: getCssVar('popover-bg-color');
+    background: getCSSVar('popover-bg-color');
     min-width: 150px;
-    border-radius: getCssVar('popover-border-radius');
-    border: 1px solid getCssVar('popover-border-color');
-    padding: getCssVar('popover-padding');
-    z-index: getCssVar('index-popper');
-    color: getCssVar('text-color', 'regular');
+    border-radius: getCSSVar('popover-border-radius');
+    border: 1px solid getCSSVar('popover-border-color');
+    padding: getCSSVar('popover-padding');
+    z-index: getCSSVar('index-popper');
+    color: getCSSVar('text-color', 'regular');
     line-height: 1.4;
-    font-size: getCssVar('popover-font-size');
-    box-shadow: getCssVar('box-shadow-light');
+    font-size: getCSSVar('popover-font-size');
+    box-shadow: getCSSVar('box-shadow-light');
     overflow-wrap: break-word;
     box-sizing: border-box;
 
     @include m(plain) {
-      padding: getCssVar('popover-padding-large');
+      padding: getCSSVar('popover-padding-large');
     }
 
     @include e(title) {
-      color: getCssVar('popover-title-text-color');
-      font-size: getCssVar('popover-title-font-size');
+      color: getCSSVar('popover-title-text-color');
+      font-size: getCSSVar('popover-title-font-size');
       line-height: 1;
       margin-bottom: 12px;
     }
@@ -40,17 +40,17 @@
     @include when(dark) {
       @include set-css-var-value(
         ('popover', 'bg-color'),
-        var(#{getCssVarName('text-color', 'primary')})
+        var(#{getCSSVarName('text-color', 'primary')})
       );
       @include set-css-var-value(
         ('popover', 'border-color'),
-        var(#{getCssVarName('text-color', 'primary')})
+        var(#{getCSSVarName('text-color', 'primary')})
       );
       @include set-css-var-value(
         ('popover', 'title-text-color'),
-        var(#{getCssVarName('bg-color')})
+        var(#{getCSSVarName('bg-color')})
       );
-      color: getCssVar('bg-color');
+      color: getCSSVar('bg-color');
     }
 
     &:focus:active,

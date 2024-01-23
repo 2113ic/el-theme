@@ -30,7 +30,7 @@
       }
 
       .#{$namespace}-time-spinner__item:hover:not(.is-disabled):not(.is-active) {
-        background: getCssVar('fill-color', 'light');
+        background: getCSSVar('fill-color', 'light');
         cursor: default;
       }
     }
@@ -38,18 +38,18 @@
 
   @include e(arrow) {
     font-size: 12px;
-    color: getCssVar('text-color', 'secondary');
+    color: getCSSVar('text-color', 'secondary');
     position: absolute;
     left: 0;
     width: 100%;
-    z-index: getCssVar('index-normal');
+    z-index: getCSSVar('index-normal');
     text-align: center;
     height: 30px;
     line-height: 30px;
     cursor: pointer;
 
     &:hover {
-      color: getCssVar('color-primary');
+      color: getCSSVar('color-primary');
     }
 
     &.arrow-up {
@@ -91,20 +91,20 @@
     height: 32px;
     line-height: 32px;
     font-size: 12px;
-    color: getCssVar('text-color', 'regular');
+    color: getCSSVar('text-color', 'regular');
 
     &:hover:not(.is-disabled):not(.is-active) {
-      background: getCssVar('fill-color', 'light');
+      background: getCSSVar('fill-color', 'light');
       cursor: pointer;
     }
 
     &.is-active:not(.is-disabled) {
-      color: getCssVar('text-color', 'primary');
+      color: getCSSVar('text-color', 'primary');
       font-weight: bold;
     }
 
     &.is-disabled {
-      color: getCssVar('text-color', 'placeholder');
+      color: getCSSVar('text-color', 'placeholder');
       cursor: not-allowed;
     }
   }

@@ -7,7 +7,7 @@
   top: -6px;
   width: 40px;
   height: 24px;
-  background: getCssVar('color-success');
+  background: getCSSVar('color-success');
   text-align: center;
   transform: rotate(45deg);
 
@@ -34,7 +34,7 @@
 
   @include e(tip) {
     font-size: 12px;
-    color: getCssVar('text-color', 'regular');
+    color: getCSSVar('text-color', 'regular');
     margin-top: 7px;
   }
 
@@ -51,12 +51,12 @@
   @include m(picture-card) {
     @include set-css-var-value(('upload', 'picture-card', 'size'), 148px);
 
-    background-color: getCssVar('fill-color', 'lighter');
-    border: 1px dashed getCssVar('border-color', 'darker');
+    background-color: getCSSVar('fill-color', 'lighter');
+    border: 1px dashed getCSSVar('border-color', 'darker');
     border-radius: 6px;
     box-sizing: border-box;
-    width: getCssVar('upload', 'picture-card', 'size');
-    height: getCssVar('upload', 'picture-card', 'size');
+    width: getCSSVar('upload', 'picture-card', 'size');
+    height: getCSSVar('upload', 'picture-card', 'size');
     cursor: pointer;
     vertical-align: top;
 
@@ -64,12 +64,12 @@
 
     > i {
       font-size: 28px;
-      color: getCssVar('text-color', 'secondary');
+      color: getCSSVar('text-color', 'secondary');
     }
 
     &:hover {
-      border-color: getCssVar('color-primary');
-      color: getCssVar('color-primary');
+      border-color: getCSSVar('color-primary');
+      color: getCSSVar('color-primary');
     }
   }
 
@@ -78,20 +78,20 @@
   }
 
   &:focus {
-    border-color: getCssVar('color-primary');
-    color: getCssVar('color-primary');
+    border-color: getCSSVar('color-primary');
+    color: getCSSVar('color-primary');
 
     .#{$namespace}-upload-dragger {
-      border-color: getCssVar('color-primary');
+      border-color: getCSSVar('color-primary');
     }
   }
 }
 
 @include b(upload-dragger) {
-  padding: getCssVar('upload-dragger-padding-horizontal')
-    getCssVar('upload-dragger-padding-vertical');
-  background-color: getCssVar('fill-color', 'blank');
-  border: 1px dashed getCssVar('border-color');
+  padding: getCSSVar('upload-dragger-padding-horizontal')
+    getCSSVar('upload-dragger-padding-vertical');
+  background-color: getCSSVar('fill-color', 'blank');
+  border: 1px dashed getCSSVar('border-color');
   border-radius: 6px;
   box-sizing: border-box;
   text-align: center;
@@ -101,7 +101,7 @@
 
   .#{bem('icon', '', 'upload')} {
     font-size: 67px;
-    color: getCssVar('text-color', 'placeholder');
+    color: getCSSVar('text-color', 'placeholder');
     margin-bottom: 16px;
     line-height: 50px;
   }
@@ -111,31 +111,31 @@
   }
 
   ~ .#{bem('upload', 'files')} {
-    border-top: getCssVar('border');
+    border-top: getCSSVar('border');
     margin-top: 7px;
     padding-top: 5px;
   }
 
   .#{bem('upload', 'text')} {
-    color: getCssVar('text-color', 'regular');
+    color: getCSSVar('text-color', 'regular');
     font-size: 14px;
     text-align: center;
 
     em {
-      color: getCssVar('color-primary');
+      color: getCSSVar('color-primary');
       font-style: normal;
     }
   }
 
   &:hover {
-    border-color: getCssVar('color-primary');
+    border-color: getCSSVar('color-primary');
   }
 
   @include when(dragover) {
-    padding: calc(#{getCssVar('upload-dragger-padding-horizontal')} - 1px)
-      calc(#{getCssVar('upload-dragger-padding-vertical')} - 1px);
-    background-color: getCssVar('color', 'primary', 'light-9');
-    border: 2px dashed getCssVar('color-primary');
+    padding: calc(#{getCSSVar('upload-dragger-padding-horizontal')} - 1px)
+      calc(#{getCSSVar('upload-dragger-padding-vertical')} - 1px);
+    background-color: getCSSVar('color', 'primary', 'light-9');
+    border: 2px dashed getCSSVar('color-primary');
   }
 }
 
@@ -147,7 +147,7 @@
   @include e(item) {
     transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
     font-size: 14px;
-    color: getCssVar('text-color', 'regular');
+    color: getCSSVar('text-color', 'regular');
     margin-bottom: 5px;
     position: relative;
     box-sizing: border-box;
@@ -172,7 +172,7 @@
     }
 
     & .#{bem('icon', '', 'upload-success')} {
-      color: getCssVar('color-success');
+      color: getCSSVar('color-success');
     }
 
     .#{bem('icon', '', 'close')} {
@@ -182,13 +182,13 @@
       top: 50%;
       cursor: pointer;
       opacity: 0.75;
-      color: getCssVar('text-color', 'regular');
-      transition: opacity getCssVar('transition-duration');
+      color: getCSSVar('text-color', 'regular');
+      transition: opacity getCSSVar('transition-duration');
       transform: translateY(-50%);
 
       &:hover {
         opacity: 1;
-        color: getCssVar('color-primary');
+        color: getCSSVar('color-primary');
       }
     }
 
@@ -200,12 +200,12 @@
       font-size: 12px;
       cursor: pointer;
       opacity: 1;
-      color: getCssVar('color-primary');
+      color: getCSSVar('color-primary');
       font-style: normal;
     }
 
     &:hover {
-      background-color: getCssVar('fill-color', 'light');
+      background-color: getCSSVar('fill-color', 'light');
 
       .#{bem('icon', '', 'close')} {
         display: inline-flex;
@@ -231,7 +231,7 @@
 
       .#{bem('upload-list', 'item-name')}:hover,
       .#{bem('upload-list', 'item-name')}:focus {
-        color: getCssVar('color-primary');
+        color: getCSSVar('color-primary');
         cursor: pointer;
       }
 
@@ -262,19 +262,19 @@
   }
 
   @include e(item-name) {
-    color: getCssVar('text-color', 'regular');
+    color: getCSSVar('text-color', 'regular');
     display: inline-flex;
     text-align: center;
     align-items: center;
 
     padding: 0 4px;
 
-    transition: color getCssVar('transition-duration');
-    font-size: getCssVar('font-size', 'base');
+    transition: color getCSSVar('transition-duration');
+    font-size: getCSSVar('font-size', 'base');
 
     .#{$namespace}-icon {
       margin-right: 6px;
-      color: getCssVar('text-color', 'secondary');
+      color: getCSSVar('text-color', 'secondary');
     }
   }
 
@@ -295,7 +295,7 @@
     justify-content: center;
     align-items: center;
 
-    transition: opacity getCssVar('transition-duration');
+    transition: opacity getCSSVar('transition-duration');
   }
 
   @include e(item-delete) {
@@ -303,11 +303,11 @@
     right: 10px;
     top: 0;
     font-size: 12px;
-    color: getCssVar('text-color', 'regular');
+    color: getCSSVar('text-color', 'regular');
     display: none;
 
     &:hover {
-      color: getCssVar('color-primary');
+      color: getCSSVar('color-primary');
     }
   }
 
@@ -321,12 +321,12 @@
 
     .#{bem('upload-list', 'item')} {
       overflow: hidden;
-      background-color: getCssVar('fill-color', 'blank');
-      border: 1px solid getCssVar('border-color');
+      background-color: getCSSVar('fill-color', 'blank');
+      border: 1px solid getCSSVar('border-color');
       border-radius: 6px;
       box-sizing: border-box;
-      width: getCssVar('upload-list', 'picture-card', 'size');
-      height: getCssVar('upload-list', 'picture-card', 'size');
+      width: getCSSVar('upload-list', 'picture-card', 'size');
+      height: getCSSVar('upload-list', 'picture-card', 'size');
       margin: 0 8px 8px 0;
       padding: 0;
 
@@ -384,8 +384,8 @@
       color: #fff;
       opacity: 0;
       font-size: 20px;
-      background-color: getCssVar('overlay-color', 'lighter');
-      transition: opacity getCssVar('transition-duration');
+      background-color: getCSSVar('overlay-color', 'lighter');
+      transition: opacity getCSSVar('transition-duration');
 
       span {
         display: none;
@@ -427,8 +427,8 @@
     .#{bem('upload-list', 'item')} {
       overflow: hidden;
       z-index: 0;
-      background-color: getCssVar('fill-color', 'blank');
-      border: 1px solid getCssVar('border-color');
+      background-color: getCSSVar('fill-color', 'blank');
+      border: 1px solid getCSSVar('border-color');
       border-radius: 6px;
       box-sizing: border-box;
       margin-top: 10px;
@@ -479,7 +479,7 @@
 
       position: relative;
       z-index: 1;
-      background-color: getCssVar('color-white');
+      background-color: getCSSVar('color-white');
     }
 
     .#{bem('upload-list', 'item-status-label')} {
@@ -488,7 +488,7 @@
       top: -7px;
       width: 46px;
       height: 26px;
-      background: getCssVar('color-success');
+      background: getCSSVar('color-success');
       text-align: center;
       transform: rotate(45deg);
 
@@ -552,7 +552,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: getCssVar('overlay-color', 'light');
+    background-color: getCSSVar('overlay-color', 'light');
     text-align: center;
 
     .btn {
@@ -561,7 +561,7 @@
       font-size: 14px;
       cursor: pointer;
       vertical-align: middle;
-      transition: getCssVar('transition-md-fade');
+      transition: getCSSVar('transition-md-fade');
       margin-top: 60px;
 
       i {
@@ -611,7 +611,7 @@
     margin: 0;
     line-height: 36px;
     font-size: 14px;
-    color: getCssVar('text-color', 'primary');
+    color: getCSSVar('text-color', 'primary');
   }
 
   + .#{bem('upload', 'inner')} {

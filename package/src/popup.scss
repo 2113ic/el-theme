@@ -1,32 +1,15 @@
-@use './var' as *;
-@use '../mixins/mixins' as *;
-@use '../mixins/var' as *;
+@use 'common/vars';
+@use 'common/func' as fn;
+@use 'mixins/bem' as *;
+@use 'mixins/var' as *;
 
 :root {
-  @include set-component-css-var('popup', $popup);
+  @include set-component-css-var('popup', vars.$popup);
 }
 
-.v-modal-enter {
-  animation: v-modal-in getCssVar('transition-duration-fast') ease;
-}
-
-.v-modal-leave {
-  animation: v-modal-out getCssVar('transition-duration-fast') ease forwards;
-}
-
-@keyframes v-modal-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-  }
-}
-
-@keyframes v-modal-out {
-  0% {
-  }
-  100% {
-    opacity: 0;
+@include b('popup-parent') {
+  @include m('hidden') {
+    overflow: hidden;
   }
 }
 
@@ -36,12 +19,26 @@
   top: 0;
   width: 100%;
   height: 100%;
-  opacity: getCssVar('popup-modal-opacity');
-  background: getCssVar('popup-modal-bg-color');
-}
+  opacity: fn.getCSSVar('popup-modal-opacity');
+  background: fn.getCSSVar('popup-modal-bg-color');
+  
+  &-enter {
+    animation: v-modal-in fn.getCSSVar('transition-duration-fast') ease;
+    
+    @keyframes v-modal-in {
+      0% { opacity: 0; }
+      100% {}
+    }
+  }
 
-@include b(popup-parent) {
-  @include m(hidden) {
-    overflow: hidden;
+  &-leave {
+    animation: v-modal-out fn.getCSSVar('transition-duration-fast') ease forwards;
+    
+    @keyframes v-modal-out {
+      0% {}
+      100% {
+        opacity: 0;
+      }
+    }
   }
 }

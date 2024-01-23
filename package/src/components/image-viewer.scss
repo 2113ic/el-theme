@@ -6,7 +6,7 @@
   height: 44px;
   font-size: 24px;
   color: #fff;
-  background-color: getCssVar('text-color', 'regular');
+  background-color: getCSSVar('text-color', 'regular');
   border-color: #fff;
 }
 
@@ -62,7 +62,7 @@
     width: 282px;
     height: 44px;
     padding: 0 23px;
-    background-color: getCssVar('text-color', 'regular');
+    background-color: getCSSVar('text-color', 'regular');
     border-color: #fff;
     border-radius: 22px;
 
@@ -109,11 +109,11 @@
 }
 
 .viewer-fade-enter-active {
-  animation: viewer-fade-in getCssVar('transition-duration');
+  animation: viewer-fade-in getCSSVar('transition-duration');
 }
 
 .viewer-fade-leave-active {
-  animation: viewer-fade-out getCssVar('transition-duration');
+  animation: viewer-fade-out getCSSVar('transition-duration');
 }
 
 @keyframes viewer-fade-in {

@@ -8,16 +8,16 @@
   @include set-component-css-var('tour', $tour);
 
   @include e(hollow) {
-    transition: all getCssVar('transition-duration') ease;
+    transition: all getCSSVar('transition-duration') ease;
   }
 
   @include e(content) {
     padding: 0;
-    border-radius: getCssVar('tour-border-radius');
-    border: 1px solid getCssVar('tour-border-color');
-    width: var(#{getCssVarName('tour-width')});
-    background: getCssVar('tour-bg-color');
-    box-shadow: getCssVar('box-shadow-light');
+    border-radius: getCSSVar('tour-border-radius');
+    border: 1px solid getCSSVar('tour-border-color');
+    width: var(#{getCSSVarName('tour-width')});
+    background: getCSSVar('tour-bg-color');
+    box-shadow: getCSSVar('box-shadow-light');
     box-sizing: border-box;
 
     $content-selector: &;
@@ -31,8 +31,8 @@
 
     @include e(arrow) {
       position: absolute;
-      background: getCssVar('tour-bg-color');
-      border: 1px solid getCssVar('tour-border-color');
+      background: getCSSVar('tour-bg-color');
+      border: 1px solid getCSSVar('tour-border-color');
       width: 10px;
       height: 10px;
       pointer-events: none;
@@ -73,40 +73,40 @@
       outline: none;
       cursor: pointer;
       font-size: var(
-        #{getCssVarName('message-close-size')},
+        #{getCSSVarName('message-close-size')},
         map.get($message, 'close-size')
       );
 
       .#{$namespace}-tour__close {
-        color: getCssVar('tour-title-text-color');
+        color: getCSSVar('tour-title-text-color');
         font-size: inherit;
       }
 
       &:focus,
       &:hover {
         .#{$namespace}-tour__close {
-          color: getCssVar('color', 'primary');
+          color: getCSSVar('color', 'primary');
         }
       }
     }
 
     @include e(header) {
-      padding: getCssVar('tour', 'padding-primary');
+      padding: getCSSVar('tour', 'padding-primary');
       padding-bottom: 10px;
       margin-right: 16px;
     }
 
     @include e(title) {
-      line-height: getCssVar('tour-font-line-height');
-      font-size: getCssVar('tour-title-font-size');
-      color: getCssVar('tour-title-text-color');
-      font-weight: getCssVar('tour-title-font-weight');
+      line-height: getCSSVar('tour-font-line-height');
+      font-size: getCSSVar('tour-title-font-size');
+      color: getCSSVar('tour-title-text-color');
+      font-weight: getCSSVar('tour-title-font-weight');
     }
 
     @include e(body) {
-      padding: 0 getCssVar('tour-padding-primary');
-      color: getCssVar('tour-text-color');
-      font-size: getCssVar('tour-font-size');
+      padding: 0 getCSSVar('tour-padding-primary');
+      color: getCSSVar('tour-text-color');
+      font-size: getCSSVar('tour-font-size');
       img,
       video {
         max-width: 100%;
@@ -114,7 +114,7 @@
     }
 
     @include e(footer) {
-      padding: getCssVar('tour-padding-primary');
+      padding: getCSSVar('tour-padding-primary');
       padding-top: 10px;
       box-sizing: border-box;
       display: flex;
@@ -131,11 +131,11 @@
       height: 6px;
       display: inline-block;
       border-radius: 50%;
-      background: getCssVar('color', 'info-light-9');
+      background: getCSSVar('color', 'info-light-9');
       margin-right: 6px;
 
       @include when(active) {
-        background: getCssVar('color', 'primary');
+        background: getCSSVar('color', 'primary');
       }
     }
   }
@@ -143,20 +143,20 @@
   &.#{$namespace}-tour--primary {
     @include set-css-var-value('tour-title-text-color', #fff);
     @include set-css-var-value('tour-text-color', #fff);
-    @include set-css-var-value('tour-bg-color', getCssVar('color', 'primary'));
+    @include set-css-var-value('tour-bg-color', getCSSVar('color', 'primary'));
 
     .#{$namespace}-tour__closebtn {
       &:focus,
       &:hover {
         .#{$namespace}-tour__close {
-          color: getCssVar('tour-title-text-color');
+          color: getCSSVar('tour-title-text-color');
         }
       }
     }
 
     .#{$namespace}-button--default {
-      color: getCssVar('color', 'primary');
-      border-color: getCssVar('color', 'primary');
+      color: getCSSVar('color', 'primary');
+      border-color: getCSSVar('color', 'primary');
       background: #fff;
     }
 

@@ -1,5 +1,6 @@
-@use 'common/mixins' as *;
+@use 'common/mixin' as *;
 @use 'theme/light' as *;
+@use 'mixins/var' as *;
 
 :root {
   color-scheme: light;

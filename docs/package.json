@@ -2,7 +2,20 @@
   "name": "@icxy/el-theme-docs",
   "description": "",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vite"
+  },
+  "dependencies": {
+    "@icxy/el-theme": "workspace:^",
+    "element-plus": "^2.5.3",
+    "vue": "^3.4.15"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "@vitejs/plugin-vue": "^5.0.3",
+    "sass": "^1.70.0",
+    "unplugin-vue-components": "^0.26.0",
+    "vite": "^5.0.12"
   }
 }

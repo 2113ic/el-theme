@@ -1,14 +1,14 @@
 @use 'sass:map';
 @use 'sass:math';
 
-@use '../common/mixins';
+@use '../common/mixin' as mixin;
 @use '../common/color' as *;
 @use 'light';
 
 // color
 $colors: () !default;
 
-@include mixins.each-types using ($type) {
+@include mixin.each-types using ($type) {
   $map: ($type: ('base': map.get(light.$colors, $type, 'base')));
   $colors: map.deep-merge($map, $colors) !global;
 }
@@ -41,7 +41,7 @@ $bg-color: map.merge(
   $bg-color
 );
 
-@include mixins.each-types using ($type) {
+@include mixin.each-types using ($type) {
   @for $i from 1 through 9 {
     // $colors.[type].light-[i]
     @include set-color-mix-level($type, $i, 'light', map.get($bg-color, ''));

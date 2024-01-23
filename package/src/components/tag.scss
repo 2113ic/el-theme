@@ -71,24 +71,24 @@ $tag-icon-span-gap: map.merge(
   }
 
   @include when(hit) {
-    border-color: getCssVar('color', 'primary');
+    border-color: getCSSVar('color', 'primary');
   }
   @include when(round) {
-    border-radius: getCssVar('tag', 'border-radius-rounded');
+    border-radius: getCSSVar('tag', 'border-radius-rounded');
   }
 
   .#{$namespace}-tag__close {
     flex-shrink: 0;
-    color: getCssVar('tag', 'text-color');
+    color: getCSSVar('tag', 'text-color');
     &:hover {
-      color: getCssVar('color-white');
-      background-color: getCssVar('tag-hover-color');
+      color: getCSSVar('color-white');
+      background-color: getCSSVar('tag-hover-color');
     }
   }
 
-  background-color: getCssVar('tag-bg-color');
-  border-color: getCssVar('tag-border-color');
-  color: getCssVar('tag-text-color');
+  background-color: getCSSVar('tag-bg-color');
+  border-color: getCSSVar('tag-border-color');
+  color: getCSSVar('tag-text-color');
 
   display: inline-flex;
   justify-content: center;
@@ -97,11 +97,11 @@ $tag-icon-span-gap: map.merge(
   height: map.get($tag-height, 'default');
   padding: 0 map.get($tag-padding, 'default') - $border-width;
 
-  font-size: getCssVar('tag-font-size');
+  font-size: getCSSVar('tag-font-size');
   line-height: 1;
   border-width: $tag-border-width;
   border-style: solid;
-  border-radius: getCssVar('tag-border-radius');
+  border-radius: getCSSVar('tag-border-radius');
   box-sizing: border-box;
   white-space: nowrap;
 
@@ -112,9 +112,9 @@ $tag-icon-span-gap: map.merge(
     border-radius: 50%;
     cursor: pointer;
 
-    font-size: calc(#{getCssVar('icon-size')} - #{$svg-margin-size * 2});
-    height: getCssVar('icon-size');
-    width: getCssVar('icon-size');
+    font-size: calc(#{getCSSVar('icon-size')} - #{$svg-margin-size * 2});
+    height: getCSSVar('icon-size');
+    width: getCSSVar('icon-size');
   }
 
   .#{$namespace}-tag__close {
@@ -171,7 +171,7 @@ $tag-icon-span-gap: map.merge(
   @each $type in $types {
     &.#{bem('tag', '', $type)} {
       @include when(hit) {
-        border-color: getCssVar('color', $type);
+        border-color: getCSSVar('color', $type);
       }
     }
   }

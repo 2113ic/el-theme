@@ -9,9 +9,9 @@
   @include e(popper) {
     @include set-css-var-type('datepicker', 'border-color', $datepicker);
     @include picker-popper(
-      getCssVar('bg-color', 'overlay'),
-      1px solid getCssVar('datepicker', 'border-color'),
-      getCssVar('box-shadow', 'light')
+      getCSSVar('bg-color', 'overlay'),
+      1px solid getCSSVar('datepicker', 'border-color'),
+      getCSSVar('box-shadow', 'light')
     );
   }
 }
@@ -26,20 +26,20 @@
   &.#{$namespace}-input__wrapper {
     @include inset-input-border(
       var(
-        #{getCssVarName('input-border-color')},
+        #{getCSSVarName('input-border-color')},
         map.get($input, 'border-color')
       )
     );
 
     &:hover {
-      @include inset-input-border(#{getCssVar('input', 'hover-border-color')});
+      @include inset-input-border(#{getCSSVar('input', 'hover-border-color')});
     }
   }
 
   &.#{$namespace}-input,
   &.#{$namespace}-input__wrapper {
-    width: getCssVar('date-editor-width');
-    height: var(#{getCssVarName('input-height')}, getCssVar('component-size'));
+    width: getCSSVar('date-editor-width');
+    height: var(#{getCSSVarName('input-height')}, getCSSVar('component-size'));
   }
 
   @include m((monthrange)) {
@@ -78,14 +78,14 @@
     cursor: pointer;
 
     &:hover {
-      color: getCssVar('text-color', 'secondary');
+      color: getCSSVar('text-color', 'secondary');
     }
   }
 
   .#{$namespace}-range__icon {
     height: inherit;
     font-size: 14px;
-    color: getCssVar('text-color', 'placeholder');
+    color: getCSSVar('text-color', 'placeholder');
     float: left;
 
     svg {
@@ -104,12 +104,12 @@
     padding: 0;
     width: 39%;
     text-align: center;
-    font-size: getCssVar('font-size', 'base');
-    color: getCssVar('text-color', 'regular');
+    font-size: getCSSVar('font-size', 'base');
+    color: getCSSVar('text-color', 'regular');
     background-color: transparent;
 
     &::placeholder {
-      color: getCssVar('text-color', 'placeholder');
+      color: getCSSVar('text-color', 'placeholder');
     }
   }
 
@@ -123,18 +123,18 @@
     margin: 0;
     font-size: 14px;
     overflow-wrap: break-word;
-    color: getCssVar('text-color', 'primary');
+    color: getCSSVar('text-color', 'primary');
   }
 
   .#{$namespace}-range__close-icon {
     font-size: 14px;
-    color: getCssVar('text-color', 'placeholder');
+    color: getCSSVar('text-color', 'placeholder');
     height: inherit;
     width: unset;
     cursor: pointer;
 
     &:hover {
-      color: getCssVar('text-color', 'secondary');
+      color: getCSSVar('text-color', 'secondary');
     }
 
     svg {
@@ -156,18 +156,18 @@
   }
 
   @include when(active) {
-    @include inset-input-border(#{getCssVar('input', 'focus-border-color')});
+    @include inset-input-border(#{getCSSVar('input', 'focus-border-color')});
     &:hover {
-      @include inset-input-border(#{getCssVar('input', 'focus-border-color')});
+      @include inset-input-border(#{getCSSVar('input', 'focus-border-color')});
     }
   }
 
   @each $size in (large, small) {
     @include m($size) {
-      line-height: getCssVar('component-size', $size);
+      line-height: getCSSVar('component-size', $size);
 
       &.#{$namespace}-input__wrapper {
-        height: getCssVar('component-size', $size);
+        height: getCSSVar('component-size', $size);
       }
 
       .#{$namespace}-range-separator {

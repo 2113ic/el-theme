@@ -17,7 +17,7 @@
     }
     &.today {
       .cell {
-        color: getCssVar('color-primary');
+        color: getCSSVar('color-primary');
         font-weight: bold;
       }
       &.start-date .cell,
@@ -27,12 +27,12 @@
     }
 
     &.disabled .cell {
-      background-color: getCssVar('fill-color', 'light');
+      background-color: getCSSVar('fill-color', 'light');
       cursor: not-allowed;
-      color: getCssVar('text-color', 'placeholder');
+      color: getCSSVar('text-color', 'placeholder');
 
       &:hover {
-        color: getCssVar('text-color', 'placeholder');
+        color: getCSSVar('text-color', 'placeholder');
       }
     }
 
@@ -41,18 +41,18 @@
       height: 36px;
       display: block;
       line-height: 36px;
-      color: getCssVar('datepicker-text-color');
+      color: getCSSVar('datepicker-text-color');
       margin: 0 auto;
       border-radius: 18px;
       &:hover {
-        color: getCssVar('datepicker-hover-text-color');
+        color: getCSSVar('datepicker-hover-text-color');
       }
     }
 
     &.in-range div {
-      background-color: getCssVar('datepicker-inrange-bg-color');
+      background-color: getCSSVar('datepicker-inrange-bg-color');
       &:hover {
-        background-color: getCssVar('datepicker-inrange-hover-bg-color');
+        background-color: getCSSVar('datepicker-inrange-hover-bg-color');
       }
     }
     &.start-date div,
@@ -63,7 +63,7 @@
     &.start-date .cell,
     &.end-date .cell {
       color: $color-white;
-      background-color: getCssVar('datepicker-active-color');
+      background-color: getCSSVar('datepicker-active-color');
     }
 
     &.start-date div {
@@ -77,13 +77,13 @@
     }
 
     &.current:not(.disabled) .cell {
-      color: getCssVar('datepicker-active-color');
+      color: getCSSVar('datepicker-active-color');
     }
 
     &:focus-visible {
       outline: none;
       .cell {
-        outline: 2px solid getCssVar('datepicker-active-color');
+        outline: 2px solid getCSSVar('datepicker-active-color');
       }
     }
   }

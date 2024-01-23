@@ -1,7 +1,7 @@
 @use 'sass:map';
 @use 'sass:math';
 
-@use '../common/mixins';
+@use '../common/mixin';
 
 // color
 $colors: () !default;
@@ -39,7 +39,7 @@ $black: map.get($colors, 'black');
   ) !global;
 }
 
-@include mixins.each-types using ($type) {
+@include mixin.each-types using ($type) {
   @for $i from 1 through 9 {
     // $colors.[type].light-[i]
     @include set-color-mix-level($type, $i, 'light');

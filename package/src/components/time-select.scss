@@ -19,19 +19,19 @@
     line-height: 20px;
 
     &.disabled {
-      color: getCssVar('datepicker-border-color');
+      color: getCSSVar('datepicker-border-color');
       cursor: not-allowed;
     }
 
     &:hover {
-      background-color: getCssVar('fill-color', 'light');
+      background-color: getCSSVar('fill-color', 'light');
       font-weight: bold;
       cursor: pointer;
     }
   }
 
   .time-select-item.selected:not(.disabled) {
-    color: getCssVar('color-primary');
+    color: getCSSVar('color-primary');
     font-weight: bold;
   }
 }

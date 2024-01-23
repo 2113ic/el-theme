@@ -7,15 +7,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: getCssVar('pagination-font-size');
-  min-width: getCssVar('pagination-button-width');
-  height: getCssVar('pagination-button-height');
-  line-height: getCssVar('pagination-button-height');
-  color: getCssVar('pagination-button-color');
-  background: getCssVar('pagination-bg-color');
+  font-size: getCSSVar('pagination-font-size');
+  min-width: getCSSVar('pagination-button-width');
+  height: getCSSVar('pagination-button-height');
+  line-height: getCSSVar('pagination-button-height');
+  color: getCSSVar('pagination-button-color');
+  background: getCSSVar('pagination-bg-color');
   padding: 0 4px;
   border: none;
-  border-radius: getCssVar('pagination-border-radius');
+  border-radius: getCSSVar('pagination-border-radius');
   cursor: pointer;
   text-align: center;
   box-sizing: border-box;
@@ -29,29 +29,29 @@
   }
 
   &:hover {
-    color: getCssVar('pagination-hover-color');
+    color: getCSSVar('pagination-hover-color');
   }
 
   &.is-active {
-    color: getCssVar('pagination-hover-color');
+    color: getCSSVar('pagination-hover-color');
     cursor: default;
     font-weight: bold;
 
     &.is-disabled {
       font-weight: bold;
-      color: getCssVar('text-color', 'secondary');
+      color: getCSSVar('text-color', 'secondary');
     }
   }
 
   &:disabled,
   &.is-disabled {
-    color: getCssVar('pagination-button-disabled-color');
-    background-color: getCssVar('pagination-button-disabled-bg-color');
+    color: getCSSVar('pagination-button-disabled-color');
+    background-color: getCSSVar('pagination-button-disabled-bg-color');
     cursor: not-allowed;
   }
 
   &:focus-visible {
-    outline: 1px solid getCssVar('pagination-hover-color');
+    outline: 1px solid getCSSVar('pagination-hover-color');
     outline-offset: -1px;
   }
 }
@@ -60,8 +60,8 @@
   @include set-component-css-var('pagination', $pagination);
 
   white-space: nowrap;
-  color: getCssVar('pagination-text-color');
-  font-size: getCssVar('pagination-font-size');
+  color: getCSSVar('pagination-text-color');
+  font-size: getCSSVar('pagination-font-size');
   font-weight: normal;
   display: flex;
   align-items: center;
@@ -99,34 +99,34 @@
   }
 
   .btn-prev {
-    margin-left: getCssVar('pagination-item-gap');
+    margin-left: getCSSVar('pagination-item-gap');
   }
 
   @include e(sizes) {
-    margin-left: getCssVar('pagination-item-gap');
+    margin-left: getCSSVar('pagination-item-gap');
     font-weight: normal;
-    color: getCssVar('text-color', 'regular');
+    color: getCSSVar('text-color', 'regular');
   }
 
   @include e(total) {
-    margin-left: getCssVar('pagination-item-gap');
+    margin-left: getCSSVar('pagination-item-gap');
     font-weight: normal;
-    color: getCssVar('text-color', 'regular');
+    color: getCSSVar('text-color', 'regular');
 
     &[disabled='true'] {
-      color: getCssVar('text-color', 'placeholder');
+      color: getCSSVar('text-color', 'placeholder');
     }
   }
 
   @include e(jump) {
     display: flex;
     align-items: center;
-    margin-left: getCssVar('pagination-item-gap');
+    margin-left: getCSSVar('pagination-item-gap');
     font-weight: normal;
-    color: getCssVar('text-color', 'regular');
+    color: getCSSVar('text-color', 'regular');
 
     &[disabled='true'] {
-      color: getCssVar('text-color', 'placeholder');
+      color: getCSSVar('text-color', 'placeholder');
     }
 
     @include e(goto) {
@@ -165,27 +165,27 @@
     .btn-next,
     .#{$namespace}-pager li {
       margin: 0 4px;
-      background-color: getCssVar('pagination-button-bg-color');
+      background-color: getCSSVar('pagination-button-bg-color');
 
       &.is-active {
-        background-color: getCssVar('color-primary');
-        color: getCssVar('color-white');
+        background-color: getCSSVar('color-primary');
+        color: getCSSVar('color-white');
       }
 
       &:disabled,
       &.is-disabled {
-        color: getCssVar('text-color', 'placeholder');
-        background-color: getCssVar('disabled-bg-color');
+        color: getCSSVar('text-color', 'placeholder');
+        background-color: getCSSVar('disabled-bg-color');
 
         &.is-active {
-          color: getCssVar('text-color', 'secondary');
-          background-color: getCssVar('fill-color', 'dark');
+          color: getCSSVar('text-color', 'secondary');
+          background-color: getCSSVar('fill-color', 'dark');
         }
       }
     }
 
     .btn-prev {
-      margin-left: getCssVar('pagination-item-gap');
+      margin-left: getCSSVar('pagination-item-gap');
     }
   }
 
@@ -193,15 +193,15 @@
     .btn-prev,
     .btn-next,
     .#{$namespace}-pager li {
-      height: getCssVar('pagination-button-height-small');
-      line-height: getCssVar('pagination-button-height-small');
-      font-size: getCssVar('pagination-font-size-small');
-      min-width: getCssVar('pagination-button-width-small');
+      height: getCSSVar('pagination-button-height-small');
+      line-height: getCSSVar('pagination-button-height-small');
+      font-size: getCSSVar('pagination-font-size-small');
+      min-width: getCSSVar('pagination-button-width-small');
     }
 
     span:not([class*='suffix']),
     button {
-      font-size: getCssVar('pagination-font-size-small');
+      font-size: getCSSVar('pagination-font-size-small');
     }
 
     .#{$namespace}-select {

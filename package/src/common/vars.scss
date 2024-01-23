@@ -1,7 +1,7 @@
 @use 'sass:map';
 
-@use 'mixins';
-@use 'fn';
+@use 'mixin';
+@use 'func' as fn;
 @use '../theme/light';
 
 @forward 'config';
@@ -624,7 +624,7 @@ $button-bg-color: () !default;
 $button-text-color: () !default;
 $button-border-color: () !default;
 
-@include mixins.each-types using ($type) {
+@include mixin.each-types using ($type) {
   $button-border-color: map.merge(
     ($type: map.get(light.$colors, $type, 'base')),
     $button-border-color
@@ -1171,7 +1171,7 @@ $link: map.merge(
 
 $link-text-color: () !default;
 
-@include mixins.each-types using ($type) {
+@include mixin.each-types using ($type) {
   $link-text-color: map.merge(
     $link-text-color,
     ($type: map.get(light.$colors, $type, 'base'))

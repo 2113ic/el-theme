@@ -2,6 +2,12 @@
   "name": "@icxy/el-theme",
   "version": "0.1.0",
   "description": "element-plus theme",
+  "type": "module",
+  "exports": {
+    ".": "./index.scss",
+    "./resolver": "./index.ts",
+    "./c/*": "./src/components/*"
+  },
   "keywords": [
     "element-plus",
     "theme"

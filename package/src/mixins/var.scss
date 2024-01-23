@@ -1,19 +1,5 @@
 @use 'sass:map';
-
-@use 'config' as cfg;
-@use 'fn';
-
-@mixin ns($block) {
-  .#{fn.join-ns($block)} {
-    @content;
-  }
-}
-
-@mixin each-types {
-  @each $type in cfg.$types {
-    @content($type);
-  }
-}
+@use '../common/func' as fn;
 
 /// set css var value, because we need translate value to string
 /// @example scss

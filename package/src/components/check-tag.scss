@@ -2,26 +2,26 @@
 @use '../common/var' as *;
 
 @include b(check-tag) {
-  background-color: getCssVar('color', 'info', 'light-9');
-  border-radius: getCssVar('border-radius', 'base');
-  color: getCssVar('color', 'info');
+  background-color: getCSSVar('color', 'info', 'light-9');
+  border-radius: getCSSVar('border-radius', 'base');
+  color: getCSSVar('color', 'info');
   cursor: pointer;
   display: inline-block;
-  font-size: getCssVar('font-size', 'base');
-  line-height: getCssVar('font-size', 'base');
+  font-size: getCSSVar('font-size', 'base');
+  line-height: getCSSVar('font-size', 'base');
   padding: 7px 15px;
-  transition: getCssVar('transition', 'all');
+  transition: getCSSVar('transition', 'all');
   font-weight: bold;
 
   &:hover {
-    background-color: getCssVar('color', 'info', 'light-7');
+    background-color: getCSSVar('color', 'info', 'light-7');
   }
 
   @include when(checked) {
-    background-color: getCssVar('color', 'primary', 'light-8');
-    color: getCssVar('color', 'primary');
+    background-color: getCSSVar('color', 'primary', 'light-8');
+    color: getCSSVar('color', 'primary');
     &:hover {
-      background-color: getCssVar('color', 'primary', 'light-7');
+      background-color: getCSSVar('color', 'primary', 'light-7');
     }
   }
 }

@@ -96,17 +96,17 @@ $switch-content-padding: map.merge(
   }
 
   @include e(label) {
-    transition: getCssVar('transition-duration-fast');
+    transition: getCSSVar('transition-duration-fast');
     height: map.get($switch-core-height, 'default');
     display: inline-block;
     font-size: map.get($switch-font-size, 'default');
     font-weight: 500;
     cursor: pointer;
     vertical-align: middle;
-    color: getCssVar('text-color', 'primary');
+    color: getCSSVar('text-color', 'primary');
 
     @include when(active) {
-      color: getCssVar('color-primary');
+      color: getCSSVar('color-primary');
     }
 
     @include m(left) {
@@ -138,7 +138,7 @@ $switch-content-padding: map.merge(
 
     &:focus-visible {
       & ~ .#{$namespace}-switch__core {
-        outline: 2px solid getCssVar('switch-on-color');
+        outline: 2px solid getCSSVar('switch-on-color');
         outline-offset: 1px;
       }
     }
@@ -152,20 +152,20 @@ $switch-content-padding: map.merge(
     height: map.get($switch-core-height, 'default');
     border: 1px solid
       var(
-        #{getCssVarName('switch-border-color')},
-        #{getCssVar('switch-off-color')}
+        #{getCSSVarName('switch-border-color')},
+        #{getCSSVar('switch-off-color')}
       );
     outline: none;
     border-radius: map.get($switch-core-border-radius, 'default');
     box-sizing: border-box;
-    background: getCssVar('switch-off-color');
+    background: getCSSVar('switch-off-color');
     cursor: pointer;
-    transition: border-color getCssVar('transition-duration'),
-      background-color getCssVar('transition-duration');
+    transition: border-color getCSSVar('transition-duration'),
+      background-color getCSSVar('transition-duration');
 
     .#{$namespace}-switch__inner {
       width: 100%;
-      transition: all getCssVar('transition-duration');
+      transition: all getCSSVar('transition-duration');
       height: map.get($switch-button-size, 'default');
       display: flex;
       justify-content: center;
@@ -175,7 +175,7 @@ $switch-content-padding: map.merge(
       .is-icon,
       .is-text {
         font-size: 12px;
-        color: getCssVar('color-white');
+        color: getCSSVar('color-white');
         user-select: none;
         @include utils-ellipsis;
       }
@@ -188,29 +188,29 @@ $switch-content-padding: map.merge(
     .#{$namespace}-switch__action {
       position: absolute;
       left: 1px;
-      border-radius: getCssVar('border-radius-circle');
-      transition: all getCssVar('transition-duration');
+      border-radius: getCSSVar('border-radius-circle');
+      transition: all getCSSVar('transition-duration');
       width: map.get($switch-button-size, 'default');
       height: map.get($switch-button-size, 'default');
-      background-color: getCssVar('color-white');
+      background-color: getCSSVar('color-white');
       display: flex;
       justify-content: center;
       align-items: center;
-      color: getCssVar('switch-off-color');
+      color: getCSSVar('switch-off-color');
     }
   }
 
   @include when(checked) {
     .#{$namespace}-switch__core {
       border-color: var(
-        #{getCssVarName('switch-border-color')},
-        #{getCssVar('switch-on-color')}
+        #{getCSSVarName('switch-border-color')},
+        #{getCSSVar('switch-on-color')}
       );
-      background-color: getCssVar('switch-on-color');
+      background-color: getCSSVar('switch-on-color');
 
       .#{$namespace}-switch__action {
         left: calc(100% - #{map.get($switch-button-size, 'default') + 1px});
-        color: getCssVar('switch-on-color');
+        color: getCSSVar('switch-on-color');
       }
 
       .#{$namespace}-switch__inner {

@@ -42,16 +42,16 @@ $rate-size: map.merge(
     position: relative;
     font-size: 0;
     vertical-align: middle;
-    color: getCssVar('rate-void-color');
+    color: getCSSVar('rate-void-color');
     line-height: normal;
   }
 
   & .#{bem('rate', 'icon')} {
     position: relative;
     display: inline-block;
-    font-size: getCssVar('rate-icon-size');
-    margin-right: getCssVar('rate-icon-margin');
-    transition: getCssVar('transition-duration');
+    font-size: getCSSVar('rate-icon-size');
+    margin-right: getCSSVar('rate-icon-margin');
+    transition: getCSSVar('transition-duration');
 
     &.hover {
       transform: scale(1.15);
@@ -64,7 +64,7 @@ $rate-size: map.merge(
     }
 
     @include when(active) {
-      color: getCssVar('rate', 'fill-color');
+      color: getCSSVar('rate', 'fill-color');
     }
   }
 
@@ -74,7 +74,7 @@ $rate-size: map.merge(
     left: 0;
     display: inline-block;
     overflow: hidden;
-    color: getCssVar('rate', 'fill-color');
+    color: getCSSVar('rate', 'fill-color');
 
     @include m('box') {
       position: absolute;
@@ -84,9 +84,9 @@ $rate-size: map.merge(
   }
 
   @include e(text) {
-    font-size: getCssVar('rate-font-size');
+    font-size: getCSSVar('rate-font-size');
     vertical-align: middle;
-    color: getCssVar('rate', 'text-color');
+    color: getCSSVar('rate', 'text-color');
   }
 
   @each $size in (large, small) {
@@ -102,7 +102,7 @@ $rate-size: map.merge(
   @include when(disabled) {
     @include e(item) {
       cursor: auto;
-      color: getCssVar('rate', 'disabled-void-color');
+      color: getCSSVar('rate', 'disabled-void-color');
     }
   }
 }

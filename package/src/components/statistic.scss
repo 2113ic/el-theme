@@ -6,17 +6,17 @@
   @include set-component-css-var('statistic', $statistic);
 
   @include e(head) {
-    font-weight: getCssVar('statistic-title-font-weight');
-    font-size: getCssVar('statistic-title-font-size');
-    color: getCssVar('statistic-title-color');
+    font-weight: getCSSVar('statistic-title-font-weight');
+    font-size: getCSSVar('statistic-title-font-size');
+    color: getCSSVar('statistic-title-color');
     line-height: 20px;
     margin-bottom: 4px;
   }
 
   @include e(content) {
-    font-weight: getCssVar('statistic-content-font-weight');
-    font-size: getCssVar('statistic-content-font-size');
-    color: getCssVar('statistic-content-color');
+    font-weight: getCSSVar('statistic-content-font-weight');
+    font-size: getCSSVar('statistic-content-font-size');
+    color: getCSSVar('statistic-content-color');
 
     @include e(value) {
       display: inline-block;

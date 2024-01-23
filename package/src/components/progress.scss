@@ -10,7 +10,7 @@
 
   @include e(text) {
     font-size: 14px;
-    color: getCssVar('text-color', 'regular');
+    color: getCSSVar('text-color', 'regular');
     margin-left: 5px;
     min-width: 50px;
     line-height: 1;
@@ -61,31 +61,31 @@
 
   @include when(success) {
     .#{$namespace}-progress-bar__inner {
-      background-color: getCssVar('color-success');
+      background-color: getCSSVar('color-success');
     }
 
     .#{$namespace}-progress__text {
-      color: getCssVar('color-success');
+      color: getCSSVar('color-success');
     }
   }
 
   @include when(warning) {
     .#{$namespace}-progress-bar__inner {
-      background-color: getCssVar('color-warning');
+      background-color: getCSSVar('color-warning');
     }
 
     .#{$namespace}-progress__text {
-      color: getCssVar('color-warning');
+      color: getCSSVar('color-warning');
     }
   }
 
   @include when(exception) {
     .#{$namespace}-progress-bar__inner {
-      background-color: getCssVar('color-danger');
+      background-color: getCSSVar('color-danger');
     }
 
     .#{$namespace}-progress__text {
-      color: getCssVar('color-danger');
+      color: getCSSVar('color-danger');
     }
   }
 }
@@ -97,7 +97,7 @@
   @include e(outer) {
     height: 6px;
     border-radius: 100px;
-    background-color: getCssVar('border-color-lighter');
+    background-color: getCSSVar('border-color-lighter');
     overflow: hidden;
     position: relative;
     vertical-align: middle;
@@ -107,7 +107,7 @@
     left: 0;
     top: 0;
     height: 100%;
-    background-color: getCssVar('color-primary');
+    background-color: getCSSVar('color-primary');
     text-align: right;
     border-radius: 100px;
     line-height: 1;

@@ -12,7 +12,7 @@
 }
 
 @mixin safe-padding() {
-  padding-inline-end: getCssVar('table-scrollbar-size');
+  padding-inline-end: getCSSVar('table-scrollbar-size');
 }
 
 @mixin cell-alignment() {
@@ -32,7 +32,7 @@
   position: absolute;
   overflow: hidden;
   top: 0;
-  background-color: getCssVar('bg', 'color');
+  background-color: getCSSVar('bg', 'color');
 }
 
 @mixin hidden-scrollbar {
@@ -133,7 +133,7 @@
 
   @include e('header-row') {
     display: flex;
-    border-bottom: getCssVar('table', 'border');
+    border-bottom: getCSSVar('table', 'border');
 
     @include e('header-cell') {
       @include center-flex;
@@ -142,8 +142,8 @@
       height: 100%;
       user-select: none;
       overflow: hidden;
-      background-color: getCssVar('table-header', 'bg-color');
-      color: getCssVar('table-header', 'text-color');
+      background-color: getCSSVar('table-header', 'bg-color');
+      color: getCSSVar('table-header', 'text-color');
       font-weight: bold;
 
       @include when(sortable) {
@@ -158,7 +158,7 @@
     }
 
     @include e('sort-icon') {
-      transition: opacity, display getCssVar('transition-duration', '');
+      transition: opacity, display getCSSVar('transition-duration', '');
       opacity: 0.6;
       display: none;
 
@@ -170,17 +170,17 @@
   }
 
   @include e('row') {
-    border-bottom: getCssVar('table', 'border');
+    border-bottom: getCSSVar('table', 'border');
 
     @include center-flex;
-    transition: background-color getCssVar('transition-duration', '');
+    transition: background-color getCSSVar('transition-duration', '');
 
     @include when('hovered') {
-      background-color: getCssVar('table-row', 'hover-bg-color');
+      background-color: getCSSVar('table-row', 'hover-bg-color');
     }
 
     &:hover {
-      background-color: getCssVar('table-row', 'hover-bg-color');
+      background-color: getCSSVar('table-row', 'hover-bg-color');
     }
 
     @include e('row-cell') {
@@ -197,7 +197,7 @@
       user-select: none;
 
       svg {
-        transition: transform getCssVar('transition-duration', '');
+        transition: transform getCSSVar('transition-duration', '');
       }
 
       @include when(expanded) {

@@ -25,11 +25,11 @@
 
     .#{$namespace}-icon-close {
       flex: none;
-      background-color: getCssVar('text-color', 'placeholder');
-      color: getCssVar('color-white');
+      background-color: getCSSVar('text-color', 'placeholder');
+      color: getCSSVar('color-white');
 
       &:hover {
-        background-color: getCssVar('text-color', 'secondary');
+        background-color: getCSSVar('text-color', 'secondary');
       }
     }
   }
@@ -41,14 +41,14 @@
   display: inline-block;
   vertical-align: middle;
   position: relative;
-  font-size: getCssVar('font-size', 'base');
+  font-size: getCSSVar('font-size', 'base');
   line-height: map.get($input-height, 'default');
   outline: none;
 
   &:not(.is-disabled):hover {
     .#{$namespace}-input__wrapper {
       cursor: pointer;
-      box-shadow: 0 0 0 1px getCssVar('input', 'hover-border-color') inset;
+      box-shadow: 0 0 0 1px getCSSVar('input', 'hover-border-color') inset;
     }
   }
 
@@ -72,7 +72,7 @@
     }
 
     .icon-arrow-down {
-      transition: transform getCssVar('transition-duration');
+      transition: transform getCSSVar('transition-duration');
       font-size: 14px;
 
       @include when(reverse) {
@@ -82,7 +82,7 @@
 
     .icon-circle-close:hover {
       color: var(
-        #{getCssVarName('input', 'clear-hover-color')},
+        #{getCSSVarName('input', 'clear-hover-color')},
         map.get($input, 'clear-hover-color')
       );
     }
@@ -91,7 +91,7 @@
       .#{$namespace}-input__wrapper {
         box-shadow: 0 0 0 1px
           var(
-            #{getCssVarName('input', 'focus-border-color')},
+            #{getCSSVarName('input', 'focus-border-color')},
             map.get($input, 'focus-border-color')
           )
           inset;
@@ -108,8 +108,8 @@
 
   @include when(disabled) {
     .#{$namespace}-cascader__label {
-      z-index: calc(getCssVar('index', 'normal') + 1);
-      color: getCssVar('disabled-text-color');
+      z-index: calc(getCSSVar('index', 'normal') + 1);
+      color: getCSSVar('disabled-text-color');
     }
   }
 
@@ -118,17 +118,17 @@
   }
 
   @include e(dropdown) {
-    font-size: getCssVar('cascader-menu-font-size');
-    border-radius: getCssVar('cascader-menu-radius');
+    font-size: getCSSVar('cascader-menu-font-size');
+    border-radius: getCSSVar('cascader-menu-radius');
 
     @include picker-popper(
-      getCssVar('cascader-menu-fill'),
-      getCssVar('cascader-menu-border'),
-      getCssVar('cascader-menu-shadow')
+      getCSSVar('cascader-menu-fill'),
+      getCSSVar('cascader-menu-border'),
+      getCSSVar('cascader-menu-shadow')
     );
 
     &.#{$namespace}-popper {
-      box-shadow: getCssVar('cascader-menu-shadow');
+      box-shadow: getCSSVar('cascader-menu-shadow');
     }
   }
 
@@ -143,25 +143,25 @@
     line-height: normal;
     text-align: left;
     box-sizing: border-box;
-    @include cascader-tag-normal(getCssVar('cascader-tag-background'));
+    @include cascader-tag-normal(getCSSVar('cascader-tag-background'));
   }
 
   @include e(collapse-tags) {
     white-space: normal;
-    z-index: getCssVar('index-normal');
-    @include cascader-tag-normal(getCssVar('fill-color'));
+    z-index: getCSSVar('index-normal');
+    @include cascader-tag-normal(getCSSVar('fill-color'));
   }
 
   @include e(suggestion-panel) {
-    border-radius: getCssVar('cascader-menu', 'radius');
+    border-radius: getCSSVar('cascader-menu', 'radius');
   }
 
   @include e(suggestion-list) {
     max-height: 204px;
     margin: 0;
     padding: 6px 0;
-    font-size: getCssVar('font-size', 'base');
-    color: getCssVar('cascader-menu', 'text-color');
+    font-size: getCSSVar('font-size', 'base');
+    color: getCSSVar('cascader-menu', 'text-color');
     text-align: center;
   }
 
@@ -177,11 +177,11 @@
 
     &:hover,
     &:focus {
-      background: getCssVar('cascader-node', 'background-hover');
+      background: getCSSVar('cascader-node', 'background-hover');
     }
 
     &.is-checked {
-      color: getCssVar('cascader', 'menu-selected-text-color');
+      color: getCSSVar('cascader', 'menu-selected-text-color');
       font-weight: bold;
     }
 
@@ -192,7 +192,7 @@
 
   @include e(empty-text) {
     margin: 10px 0;
-    color: getCssVar('cascader', 'color-empty');
+    color: getCSSVar('cascader', 'color-empty');
   }
 
   @include e(search-input) {
@@ -201,7 +201,7 @@
     min-width: 60px;
     margin: 2px 0 2px map.get($input-padding-horizontal, 'default')-$border-width;
     padding: 0;
-    color: getCssVar('cascader', 'menu-text-color');
+    color: getCSSVar('cascader', 'menu-text-color');
     border: none;
     outline: none;
     box-sizing: border-box;

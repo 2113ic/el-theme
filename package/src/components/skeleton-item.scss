@@ -13,19 +13,19 @@
 
 @include b(skeleton) {
   @include e(item) {
-    background: getCssVar('skeleton-color');
+    background: getCSSVar('skeleton-color');
     display: inline-block;
     height: 16px;
-    border-radius: getCssVar('border-radius-base');
+    border-radius: getCSSVar('border-radius-base');
     width: 100%;
   }
 
   @include e(circle) {
     border-radius: 50%;
 
-    width: getCssVar('skeleton-circle-size');
-    height: getCssVar('skeleton-circle-size');
-    line-height: getCssVar('skeleton-circle-size');
+    width: getCSSVar('skeleton-circle-size');
+    height: getCSSVar('skeleton-circle-size');
+    line-height: getCSSVar('skeleton-circle-size');
   }
 
   @include e(button) {
@@ -47,23 +47,23 @@
 
   @include e(text) {
     width: 100%;
-    height: getCssVar('font-size-small');
+    height: getCSSVar('font-size-small');
   }
 
   @include e(caption) {
-    height: getCssVar('font-size-extra-small');
+    height: getCSSVar('font-size-extra-small');
   }
 
   @include e(h1) {
-    height: getCssVar('font-size-extra-large');
+    height: getCSSVar('font-size-extra-large');
   }
 
   @include e(h3) {
-    height: getCssVar('font-size-large');
+    height: getCSSVar('font-size-large');
   }
 
   @include e(h5) {
-    height: getCssVar('font-size-medium');
+    height: getCSSVar('font-size-medium');
   }
 
   @include e(image) {
@@ -74,7 +74,7 @@
     border-radius: 0;
 
     svg {
-      color: getCssVar('svg-monochrome-grey');
+      color: getCSSVar('svg-monochrome-grey');
       fill: currentColor;
       width: 22%;
       height: 22%;

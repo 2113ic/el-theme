@@ -33,22 +33,22 @@
     cursor: pointer;
     border-radius: inherit;
     background-color: var(
-      #{getCssVarName('scrollbar-bg-color')},
+      #{getCSSVarName('scrollbar-bg-color')},
       map.get($scrollbar, 'bg-color')
     );
-    transition: getCssVar('transition-duration') background-color;
+    transition: getCSSVar('transition-duration') background-color;
     opacity: var(
-      #{getCssVarName('scrollbar-opacity')},
+      #{getCSSVarName('scrollbar-opacity')},
       map.get($scrollbar, 'opacity')
     );
 
     &:hover {
       background-color: var(
-        #{getCssVarName('scrollbar-hover-bg-color')},
+        #{getCSSVarName('scrollbar-hover-bg-color')},
         map.get($scrollbar, 'hover-bg-color')
       );
       opacity: var(
-        #{getCssVarName('scrollbar-hover-opacity')},
+        #{getCSSVarName('scrollbar-hover-opacity')},
         map.get($scrollbar, 'hover-opacity')
       );
     }

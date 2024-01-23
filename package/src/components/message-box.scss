@@ -11,15 +11,15 @@
 
 @include b(message-box) {
   display: inline-block;
-  max-width: getCssVar('messagebox-width');
+  max-width: getCSSVar('messagebox-width');
   width: 100%;
   padding-bottom: 10px;
   vertical-align: middle;
-  background-color: getCssVar('bg-color');
-  border-radius: getCssVar('messagebox-border-radius');
-  border: 1px solid getCssVar('border-color-lighter');
-  font-size: getCssVar('messagebox-font-size');
-  box-shadow: getCssVar('box-shadow-light');
+  background-color: getCSSVar('bg-color');
+  border-radius: getCSSVar('messagebox-border-radius');
+  border: 1px solid getCSSVar('border-color-lighter');
+  font-size: getCSSVar('messagebox-font-size');
+  box-shadow: getCSSVar('box-shadow-light');
   text-align: left;
   overflow: hidden;
   backface-visibility: hidden;
@@ -60,49 +60,49 @@
 
   @include e(header) {
     position: relative;
-    padding: getCssVar('messagebox-padding-primary');
+    padding: getCSSVar('messagebox-padding-primary');
     padding-bottom: 10px;
   }
 
   @include e(title) {
     padding-left: 0;
     margin-bottom: 0;
-    font-size: getCssVar('messagebox-font-size');
+    font-size: getCSSVar('messagebox-font-size');
     line-height: 1;
-    color: getCssVar('messagebox-title-color');
+    color: getCSSVar('messagebox-title-color');
   }
 
   @include e(headerbtn) {
     position: absolute;
-    top: getCssVar('messagebox-padding-primary');
-    right: getCssVar('messagebox-padding-primary');
+    top: getCSSVar('messagebox-padding-primary');
+    right: getCSSVar('messagebox-padding-primary');
     padding: 0;
     border: none;
     outline: none;
     background: transparent;
     font-size: var(
-      #{getCssVarName('message-close-size')},
+      #{getCSSVarName('message-close-size')},
       map.get($message, 'close-size')
     );
     cursor: pointer;
 
     .#{$namespace}-message-box__close {
-      color: getCssVar('color-info');
+      color: getCSSVar('color-info');
       font-size: inherit;
     }
 
     &:focus,
     &:hover {
       .#{$namespace}-message-box__close {
-        color: getCssVar('color-primary');
+        color: getCSSVar('color-primary');
       }
     }
   }
 
   @include e(content) {
-    padding: 10px getCssVar('messagebox-padding-primary');
-    color: getCssVar('messagebox-content-color');
-    font-size: getCssVar('messagebox-content-font-size');
+    padding: 10px getCSSVar('messagebox-padding-primary');
+    color: getCSSVar('messagebox-content-color');
+    font-size: getCSSVar('messagebox-content-font-size');
   }
 
   @include e(container) {
@@ -113,10 +113,10 @@
     padding-top: 15px;
 
     & div.invalid > input {
-      border-color: getCssVar('color-error');
+      border-color: getCSSVar('color-error');
 
       &:focus {
-        border-color: getCssVar('color-error');
+        border-color: getCSSVar('color-error');
       }
     }
   }
@@ -146,7 +146,7 @@
     @each $type in (success, info, warning, error) {
       &.#{$namespace}-message-box-icon--#{$type} {
         @include css-var-from-global(('messagebox', 'color'), ('color', $type));
-        color: getCssVar('messagebox-color');
+        color: getCSSVar('messagebox-color');
       }
     }
   }
@@ -161,8 +161,8 @@
   }
 
   @include e(errormsg) {
-    color: getCssVar('color-error');
-    font-size: getCssVar('messagebox-error-font-size');
+    color: getCSSVar('color-error');
+    font-size: getCSSVar('messagebox-error-font-size');
     min-height: 18px;
     margin-top: 2px;
   }
@@ -210,7 +210,7 @@
 
     @include e(content) {
       $padding-horizontal: calc(
-        #{getCssVar('messagebox', 'padding-primary')} + 12px
+        #{getCSSVar('messagebox', 'padding-primary')} + 12px
       );
 
       padding-left: $padding-horizontal;
@@ -223,13 +223,13 @@
 
 .fade-in-linear-enter-active {
   .#{$namespace}-overlay-message-box {
-    animation: msgbox-fade-in getCssVar('transition-duration');
+    animation: msgbox-fade-in getCSSVar('transition-duration');
   }
 }
 
 .fade-in-linear-leave-active {
   .#{$namespace}-overlay-message-box {
-    animation: msgbox-fade-in getCssVar('transition-duration') reverse;
+    animation: msgbox-fade-in getCSSVar('transition-duration') reverse;
   }
 }
 

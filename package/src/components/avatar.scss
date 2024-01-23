@@ -19,11 +19,11 @@
   box-sizing: border-box;
   text-align: center;
   overflow: hidden;
-  color: getCssVar('avatar', 'text-color');
-  background: getCssVar('avatar', 'bg-color');
-  width: getCssVar('avatar', 'size');
-  height: getCssVar('avatar', 'size');
-  font-size: getCssVar('avatar', 'text-size');
+  color: getCSSVar('avatar', 'text-color');
+  background: getCSSVar('avatar', 'bg-color');
+  width: getCSSVar('avatar', 'size');
+  height: getCSSVar('avatar', 'size');
+  font-size: getCSSVar('avatar', 'text-size');
 
   > img {
     display: block;
@@ -36,11 +36,11 @@
   }
 
   @include m(square) {
-    border-radius: getCssVar('avatar', 'border-radius');
+    border-radius: getCSSVar('avatar', 'border-radius');
   }
 
   @include m(icon) {
-    font-size: getCssVar('avatar', 'icon-size');
+    font-size: getCSSVar('avatar', 'icon-size');
   }
 
   @each $size in (small, large) {

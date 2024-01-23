@@ -10,10 +10,10 @@
     height: 100%;
     display: inline-block;
     overflow: hidden;
-    z-index: calc(getCssVar('index', 'normal') - 1);
+    z-index: calc(getCSSVar('index', 'normal') - 1);
 
     @include when(active) {
-      z-index: calc(getCssVar('index', 'normal') - 1);
+      z-index: calc(getCSSVar('index', 'normal') - 1);
     }
 
     @include when(animating) {
@@ -26,7 +26,7 @@
 
       &.is-in-stage {
         cursor: pointer;
-        z-index: getCssVar('index', 'normal');
+        z-index: getCSSVar('index', 'normal');
 
         &:hover .#{$namespace}-carousel__mask,
         &.is-hover .#{$namespace}-carousel__mask {
@@ -35,7 +35,7 @@
       }
 
       &.is-active {
-        z-index: calc(getCssVar('index', 'normal') + 1);
+        z-index: calc(getCSSVar('index', 'normal') + 1);
       }
     }
 
@@ -51,8 +51,8 @@
     height: 100%;
     top: 0;
     left: 0;
-    background-color: getCssVar('color', 'white');
+    background-color: getCSSVar('color', 'white');
     opacity: 0.24;
-    transition: getCssVar('transition-duration', 'fast');
+    transition: getCSSVar('transition-duration', 'fast');
   }
 }

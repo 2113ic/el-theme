@@ -10,9 +10,9 @@
 @include b(tree) {
   position: relative;
   cursor: default;
-  background: getCssVar('fill-color', 'blank');
-  color: getCssVar('tree-text-color');
-  font-size: getCssVar('font-size', 'base');
+  background: getCSSVar('fill-color', 'blank');
+  color: getCSSVar('tree-text-color');
+  font-size: getCSSVar('font-size', 'base');
 
   @include e(empty-block) {
     position: relative;
@@ -27,8 +27,8 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    color: getCssVar('text-color', 'secondary');
-    font-size: getCssVar('font-size', 'base');
+    color: getCSSVar('text-color', 'secondary');
+    font-size: getCSSVar('font-size', 'base');
   }
 
   @include e(drop-indicator) {
@@ -36,7 +36,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background-color: getCssVar('color-primary');
+    background-color: getCSSVar('color-primary');
   }
 }
 
@@ -46,13 +46,13 @@
   &:focus {
     /* focus */
     > .#{$namespace}-tree-node__content {
-      background-color: getCssVar('tree-node-hover-bg-color');
+      background-color: getCSSVar('tree-node-hover-bg-color');
     }
   }
 
   @include when(drop-inner) {
     > .#{$namespace}-tree-node__content .#{$namespace}-tree-node__label {
-      background-color: getCssVar('color-primary');
+      background-color: getCSSVar('color-primary');
       color: #fff;
     }
   }
@@ -62,7 +62,7 @@
 
     display: flex;
     align-items: center;
-    height: getCssVar('tree-node-content-height');
+    height: getCSSVar('tree-node-content-height');
     cursor: pointer;
 
     & > .#{$namespace}-tree-node__expand-icon {
@@ -73,7 +73,7 @@
       margin-right: 8px;
     }
     &:hover {
-      background-color: getCssVar('tree-node-hover-bg-color');
+      background-color: getCSSVar('tree-node-hover-bg-color');
     }
 
     .#{$namespace}-tree.is-dragging & {
@@ -91,11 +91,11 @@
 
   @include e(expand-icon) {
     cursor: pointer;
-    color: getCssVar('tree-expand-icon-color');
+    color: getCSSVar('tree-expand-icon-color');
     font-size: 12px;
 
     transform: rotate(0deg);
-    transition: transform getCssVar('transition-duration') ease-in-out;
+    transition: transform getCSSVar('transition-duration') ease-in-out;
 
     &.expanded {
       transform: rotate(90deg);
@@ -113,8 +113,8 @@
 
   @include e(loading-icon) {
     margin-right: 8px;
-    font-size: getCssVar('font-size', 'base');
-    color: getCssVar('tree-expand-icon-color');
+    font-size: getCSSVar('font-size', 'base');
+    color: getCSSVar('tree-expand-icon-color');
   }
 
   & > .#{$namespace}-tree-node__children {
@@ -130,5 +130,5 @@
 .#{$namespace}-tree--highlight-current
   .#{$namespace}-tree-node.is-current
   > .#{$namespace}-tree-node__content {
-  background-color: getCssVar('color-primary-light-9');
+  background-color: getCSSVar('color-primary-light-9');
 }

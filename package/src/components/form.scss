@@ -150,8 +150,8 @@ $form-item-label-top-margin-bottom: map.merge(
     align-items: flex-start;
 
     flex: 0 0 auto;
-    font-size: getCssVar('form-label-font-size');
-    color: getCssVar('text-color', 'regular');
+    font-size: getCSSVar('form-label-font-size');
+    color: getCSSVar('text-color', 'regular');
 
     height: #{map.get($form-item-line-height, 'default')};
     line-height: #{map.get($form-item-line-height, 'default')};
@@ -174,7 +174,7 @@ $form-item-label-top-margin-bottom: map.merge(
     }
   }
   @include e(error) {
-    color: getCssVar('color-danger');
+    color: getCSSVar('color-danger');
     font-size: 12px;
     line-height: 1;
     padding-top: #{map.get($form-item-error-padding-top, 'default')};
@@ -198,7 +198,7 @@ $form-item-label-top-margin-bottom: map.merge(
         > .#{$namespace}-form-item__label-wrap
         > .#{$namespace}-form-item__label:before {
           content: '*';
-          color: getCssVar('color-danger');
+          color: getCSSVar('color-danger');
           margin-right: 4px;
         }
       }
@@ -207,7 +207,7 @@ $form-item-label-top-margin-bottom: map.merge(
         > .#{$namespace}-form-item__label-wrap
         > .#{$namespace}-form-item__label:after {
           content: '*';
-          color: getCssVar('color-danger');
+          color: getCSSVar('color-danger');
           margin-left: 4px;
         }
       }
@@ -219,7 +219,7 @@ $form-item-label-top-margin-bottom: map.merge(
     .#{$namespace}-textarea__inner,
     .#{$namespace}-select__wrapper {
       &, &:hover, &:focus, &.is-focus {
-        box-shadow: 0 0 0 1px getCssVar('color-danger') inset;
+        box-shadow: 0 0 0 1px getCSSVar('color-danger') inset;
       }
     }
 
@@ -230,7 +230,7 @@ $form-item-label-top-margin-bottom: map.merge(
       }
     }
     .#{$namespace}-input__validateIcon {
-      color: getCssVar('color-danger');
+      color: getCSSVar('color-danger');
     }
   }
 

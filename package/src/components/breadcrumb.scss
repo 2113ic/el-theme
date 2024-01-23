@@ -10,7 +10,7 @@
   @include e(separator) {
     margin: 0 9px;
     font-weight: bold;
-    color: getCssVar('text-color', 'placeholder');
+    color: getCSSVar('text-color', 'placeholder');
 
     &.#{$namespace}-icon {
       margin: 0 6px;
@@ -27,17 +27,17 @@
     align-items: center;
 
     @include e(inner) {
-      color: getCssVar('text-color', 'regular');
+      color: getCSSVar('text-color', 'regular');
 
       &.is-link,
       & a {
         font-weight: bold;
         text-decoration: none;
-        transition: getCssVar('transition', 'color');
-        color: getCssVar('text-color', 'primary');
+        transition: getCSSVar('transition', 'color');
+        color: getCSSVar('text-color', 'primary');
 
         &:hover {
-          color: getCssVar('color-primary');
+          color: getCSSVar('color-primary');
           cursor: pointer;
         }
       }
@@ -49,7 +49,7 @@
         &,
         &:hover {
           font-weight: normal;
-          color: getCssVar('text-color', 'regular');
+          color: getCSSVar('text-color', 'regular');
           cursor: text;
         }
       }

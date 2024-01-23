@@ -44,13 +44,13 @@ $dropdown-divider-width: 1px !default;
 
   display: inline-flex;
   position: relative;
-  color: getCssVar('text-color', 'regular');
-  font-size: getCssVar('font-size', 'base');
+  color: getCSSVar('text-color', 'regular');
+  font-size: getCSSVar('font-size', 'base');
   line-height: 1;
   vertical-align: top;
 
   &.is-disabled {
-    color: getCssVar('text-color', 'placeholder');
+    color: getCSSVar('text-color', 'placeholder');
     cursor: not-allowed;
   }
 
@@ -60,9 +60,9 @@ $dropdown-divider-width: 1px !default;
     // using attributes selector to override
 
     @include picker-popper(
-      getCssVar('bg-color', 'overlay'),
-      1px solid getCssVar('border-color-light'),
-      getCssVar('dropdown-menu-box-shadow')
+      getCSSVar('bg-color', 'overlay'),
+      1px solid getCSSVar('border-color-light'),
+      getCSSVar('dropdown-menu-box-shadow')
     );
 
     .#{$namespace}-dropdown-menu {
@@ -74,7 +74,7 @@ $dropdown-divider-width: 1px !default;
     }
 
     @include b(scrollbar__bar) {
-      z-index: calc(#{getCssVar('dropdown', 'menu-index')} + 1);
+      z-index: calc(#{getCSSVar('dropdown', 'menu-index')} + 1);
     }
 
     @include b(dropdown__list) {
@@ -106,11 +106,11 @@ $dropdown-divider-width: 1px !default;
       top: -1px;
       bottom: -1px;
       left: 0;
-      background: getCssVar('overlay-color', 'lighter');
+      background: getCSSVar('overlay-color', 'lighter');
     }
 
     &.#{$namespace}-button::before {
-      background: getCssVar('border-color');
+      background: getCSSVar('border-color');
       opacity: 0.5;
     }
 
@@ -148,12 +148,12 @@ $dropdown-menu-padding-vertical: map.merge(
   position: relative;
   top: 0;
   left: 0;
-  z-index: getCssVar('dropdown-menu-index');
+  z-index: getCSSVar('dropdown-menu-index');
   padding: map.get($dropdown-menu-padding-vertical, 'default')-$border-width 0;
   margin: 0;
-  background-color: getCssVar('bg-color', 'overlay');
+  background-color: getCSSVar('bg-color', 'overlay');
   border: none;
-  border-radius: getCssVar('border-radius-base');
+  border-radius: getCSSVar('border-radius-base');
   box-shadow: none;
   list-style: none;
 
@@ -165,13 +165,13 @@ $dropdown-menu-padding-vertical: map.merge(
     line-height: map.get($dropdown-item-line-height, 'default');
     padding: map.get($dropdown-item-padding, 'default');
     margin: 0;
-    font-size: getCssVar('font-size', 'base');
-    color: getCssVar('text-color', 'regular');
+    font-size: getCSSVar('font-size', 'base');
+    color: getCSSVar('text-color', 'regular');
     cursor: pointer;
     outline: none;
     &:not(.is-disabled):focus {
-      background-color: getCssVar('dropdown-menuItem-hover-fill');
-      color: getCssVar('dropdown-menuItem-hover-color');
+      background-color: getCSSVar('dropdown-menuItem-hover-fill');
+      color: getCSSVar('dropdown-menuItem-hover-color');
     }
 
     i {
@@ -180,12 +180,12 @@ $dropdown-menu-padding-vertical: map.merge(
 
     @include m(divided) {
       margin: map.get($dropdown-item-divided-margin, 'default');
-      border-top: 1px solid getCssVar('border-color-lighter');
+      border-top: 1px solid getCSSVar('border-color-lighter');
     }
 
     @include when(disabled) {
       cursor: not-allowed;
-      color: getCssVar('text-color-disabled');
+      color: getCSSVar('text-color-disabled');
     }
   }
 

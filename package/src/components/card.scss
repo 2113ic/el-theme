@@ -7,39 +7,39 @@
 }
 
 @include b(card) {
-  border-radius: getCssVar('card', 'border-radius');
-  border: 1px solid getCssVar('card', 'border-color');
-  background-color: getCssVar('card', 'bg-color');
+  border-radius: getCSSVar('card', 'border-radius');
+  border: 1px solid getCSSVar('card', 'border-color');
+  background-color: getCSSVar('card', 'bg-color');
   overflow: hidden;
-  color: getCssVar('text-color', 'primary');
-  transition: getCssVar('transition-duration');
+  color: getCSSVar('text-color', 'primary');
+  transition: getCSSVar('transition-duration');
 
   @include when(always-shadow) {
-    box-shadow: getCssVar('box-shadow', 'light');
+    box-shadow: getCSSVar('box-shadow', 'light');
   }
 
   @include when(hover-shadow) {
     &:hover,
     &:focus {
-      box-shadow: getCssVar('box-shadow', 'light');
+      box-shadow: getCSSVar('box-shadow', 'light');
     }
   }
 
   @include e(header) {
-    padding: calc(#{getCssVar('card', 'padding')} - 2px)
-      getCssVar('card', 'padding');
-    border-bottom: 1px solid getCssVar('card', 'border-color');
+    padding: calc(#{getCSSVar('card', 'padding')} - 2px)
+      getCSSVar('card', 'padding');
+    border-bottom: 1px solid getCSSVar('card', 'border-color');
     box-sizing: border-box;
   }
 
   @include e(body) {
-    padding: getCssVar('card', 'padding');
+    padding: getCSSVar('card', 'padding');
   }
 
   @include e(footer) {
-    padding: calc(#{getCssVar('card', 'padding')} - 2px)
-      getCssVar('card', 'padding');
-    border-top: 1px solid getCssVar('card', 'border-color');
+    padding: calc(#{getCSSVar('card', 'padding')} - 2px)
+      getCSSVar('card', 'padding');
+    border-top: 1px solid getCSSVar('card', 'border-color');
     box-sizing: border-box;
   }
 }

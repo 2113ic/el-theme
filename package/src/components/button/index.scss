@@ -1,6 +1,6 @@
-@use '../mixins/var' as *;
-@use '../mixins/function' as *;
-@use '../common/var' as *;
+@use '#com/vars.scss' as *;
+@use '#com/mixins.scss' as *;
+@use '#com/fn.scss' as *;
 
 @mixin button-plain($type) {
   $button-color-types: (
@@ -30,9 +30,9 @@
     &:hover,
     &:focus,
     &:active {
-      color: getCssVar(color, $type, light-5);
-      background-color: getCssVar(color, $type, light-9);
-      border-color: getCssVar(color, $type, light-8);
+      color: getCSSVar(color, $type, light-5);
+      background-color: getCSSVar(color, $type, light-9);
+      border-color: getCSSVar(color, $type, light-8);
     }
   }
 }

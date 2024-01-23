@@ -1,5 +1,6 @@
 @use 'src/transition';
 @use 'src/common' as *;
+@use 'src/mixins/var' as *;
 @use 'src/light';
 @use 'src/dark';
 

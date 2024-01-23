@@ -29,7 +29,7 @@
 
   @include e(placeholder) {
     @extend %size !optional;
-    background: getCssVar('fill-color', 'light');
+    background: getCSSVar('fill-color', 'light');
   }
 
   @include e(error) {
@@ -38,8 +38,8 @@
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    background: getCssVar('fill-color', 'light');
-    color: getCssVar('text-color', 'placeholder');
+    background: getCSSVar('fill-color', 'light');
+    color: getCSSVar('text-color', 'placeholder');
     vertical-align: middle;
   }
 

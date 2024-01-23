@@ -6,30 +6,30 @@
   @include set-component-css-var('alert', $alert);
 
   width: 100%;
-  padding: getCssVar('alert', 'padding');
+  padding: getCSSVar('alert', 'padding');
   margin: 0;
   box-sizing: border-box;
-  border-radius: getCssVar('alert', 'border-radius-base');
+  border-radius: getCSSVar('alert', 'border-radius-base');
   position: relative;
-  background-color: getCssVar('color', 'white');
+  background-color: getCSSVar('color', 'white');
   overflow: hidden;
   opacity: 1;
   display: flex;
   align-items: center;
-  transition: opacity getCssVar('transition-duration', 'fast');
+  transition: opacity getCSSVar('transition-duration', 'fast');
 
   @include when(light) {
     .#{$namespace}-alert__close-btn {
-      color: getCssVar('text-color', 'placeholder');
+      color: getCSSVar('text-color', 'placeholder');
     }
   }
 
   @include when(dark) {
     .#{$namespace}-alert__close-btn {
-      color: getCssVar('color', 'white');
+      color: getCSSVar('color', 'white');
     }
     .#{$namespace}-alert__description {
-      color: getCssVar('color', 'white');
+      color: getCSSVar('color', 'white');
     }
   }
 
@@ -45,17 +45,17 @@
       );
 
       &.is-light {
-        background-color: getCssVar('alert', 'bg-color');
-        color: getCssVar('color', $type);
+        background-color: getCSSVar('alert', 'bg-color');
+        color: getCSSVar('color', $type);
 
         .#{$namespace}-alert__description {
-          color: getCssVar('color', $type);
+          color: getCSSVar('color', $type);
         }
       }
 
       &.is-dark {
-        background-color: getCssVar('color', $type);
-        color: getCssVar('color', 'white');
+        background-color: getCSSVar('color', $type);
+        color: getCSSVar('color', 'white');
       }
     }
   }
@@ -66,17 +66,17 @@
   }
 
   & .#{$namespace}-alert__icon {
-    font-size: getCssVar('alert', 'icon-size');
-    width: getCssVar('alert', 'icon-size');
+    font-size: getCSSVar('alert', 'icon-size');
+    width: getCSSVar('alert', 'icon-size');
 
     @include when(big) {
-      font-size: getCssVar('alert', 'icon-large-size');
-      width: getCssVar('alert', 'icon-large-size');
+      font-size: getCSSVar('alert', 'icon-large-size');
+      width: getCSSVar('alert', 'icon-large-size');
     }
   }
 
   @include e(title) {
-    font-size: getCssVar('alert', 'title-font-size');
+    font-size: getCSSVar('alert', 'title-font-size');
     line-height: 18px;
     vertical-align: text-top;
     @include when(bold) {
@@ -85,12 +85,12 @@
   }
 
   & .#{$namespace}-alert__description {
-    font-size: getCssVar('alert', 'description-font-size');
+    font-size: getCSSVar('alert', 'description-font-size');
     margin: 5px 0 0 0;
   }
 
   & .#{$namespace}-alert__close-btn {
-    font-size: getCssVar('alert', 'close-font-size');
+    font-size: getCSSVar('alert', 'close-font-size');
     opacity: 1;
     position: absolute;
     top: 12px;
@@ -99,7 +99,7 @@
 
     @include when(customed) {
       font-style: normal;
-      font-size: getCssVar('alert', 'close-customed-font-size');
+      font-size: getCSSVar('alert', 'close-customed-font-size');
       top: 9px;
     }
   }
