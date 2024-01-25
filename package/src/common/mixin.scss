@@ -1,8 +1,0 @@
-@use 'sass:map';
-@use 'config' as cfg;
-
-@mixin each-types {
-  @each $type in cfg.$types {
-    @content($type);
-  }
-}

@@ -1,0 +1,7 @@
+@use '../mixins/ns' as *;
+
+@include b(affix) {
+  @include m(fixed) {
+    position: fixed;
+  }
+}

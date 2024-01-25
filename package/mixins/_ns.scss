@@ -1,0 +1,115 @@
+@use '../vars/config';
+@use 'fn';
+
+$-b: '';
+$-e: '';
+$-m: '';
+
+// block
+@mixin b($block) {
+  $-b: fn.join-ns($block) !global;
+
+  .#{$-b} {
+    @content;
+  }
+}
+
+// element
+@mixin e($element) {
+  $-e: $element !global;
+  $curSelector: '';
+  $selector: &;
+
+  @each $unit in $element {
+    $curSelector: #{
+      $curSelector + '.' + $-b + 
+      config.$element-separator + 
+      $unit + ','
+    };
+  }
+
+  @if fn.hitAllSpecialNestRule($selector) {
+    @at-root #{$selector} #{$curSelector} {
+      @content;
+    }
+  } @else {
+    @at-root #{$curSelector} {
+      @content;
+    }
+  }
+}
+
+// modifier
+@mixin m($modifier) {
+  $selector: &;
+  $curSelector: '';
+
+  @each $unit in $modifier {
+    $curSelector: #{
+      $curSelector + $selector + 
+      config.$modifier-separator + 
+      $unit + ','
+    };
+  }
+
+  @at-root #{$curSelector} {
+    @content;
+  }
+}
+
+@mixin when($state) {
+  @at-root &.#{config.$state-prefix + $state} {
+    @content;
+  }
+}
+
+// dark
+@mixin dark($block) {
+  html.dark {
+    @include b($block) {
+      @content;
+    }
+  }
+}
+
+@mixin configurable-m($modifier, $e-flag: false) {
+  $interpolation: '';
+  $selector: &;
+
+  @if $e-flag {
+    $interpolation: config.$element-separator + $e-flag;
+  }
+
+  @at-root #{$selector} {
+    .#{$-b + $interpolation + config.$modifier-separator + $modifier} {
+      @content;
+    }
+  }
+}
+
+@mixin spec-selector($specSelector: '', $element: $-e, $modifier: false, $block: $-b) {
+  $modifierCombo: '';
+
+  @if $modifier {
+    $modifierCombo: config.$modifier-separator + $modifier;
+  }
+
+  @at-root #{&}#{$specSelector}.#{$block + config.$element-separator + $element + $modifierCombo} {
+    @content;
+  }
+}
+
+@mixin meb($modifier: false, $element: $-e, $block: $-b) {
+  $modifierCombo: '';
+  $selector: &;
+
+  @if $modifier {
+    $modifierCombo: config.$modifier-separator + $modifier;
+  }
+
+  @at-root #{$selector} {
+    .#{$block + config.$element-separator + $element + $modifierCombo} {
+      @content;
+    }
+  }
+}

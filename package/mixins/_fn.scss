@@ -1,0 +1,79 @@
+@use 'sass:string';
+@use '../vars/config';
+
+@function join-ns($list, $separator: '-') {
+  $name: config.$namespace;
+
+  @each $item in $list {
+    @if $item != '' {
+      $name: $name + '-' + $item;
+    }
+  }
+  @return $name;
+}
+
+/// @example scss
+///   @debug joinVarName('button', 'text-color')
+///   //  -> --el-button-text-color
+@function joinVarName($list) {
+  @return #{'--' + join-ns($list)};
+}
+
+/// @example scss
+///   @debug getCSSVar('button', 'text-color')
+///   //  -> var(--el-button-text-color)
+@function getCSSVar($args...) {
+  @return var(#{joinVarName($args)});
+}
+
+/// @example scss
+///   @debug getCSSVarName('button', 'text-color')
+///   //  -> --el-button-text-color
+@function getCSSVarName($args...) {
+  @return joinVarName($args);
+}
+
+/// @example scss
+///   @debug getCSSVarWithDefault(('button', 'text-color'), red)
+///   //  -> var(--el-button-text-color, red)
+@function getCSSVarWithDefault($args, $default) {
+  @return var(#{joinVarName($args)}, #{$default});
+}
+
+@function bem($block, $element: '', $modifier: '') {
+  $name: join-ns($block);
+
+  @if $element != '' {
+    $name: $name + config.$element-separator + $element;
+  }
+  @if $modifier != '' {
+    $name: $name + config.$modifier-separator + $modifier;
+  }
+
+  @return $name;
+}
+
+@function selectorToString($selector) {
+  @return string.slice(inspect($selector), 2, -2);
+}
+
+@function containsModifier($selector) {
+  $selector: selectorToString($selector);
+  @return string.index($selector, config.$modifier-separator);
+}
+
+@function containWhenFlag($selector) {
+  $selector: selectorToString($selector);
+  @return string.index($selector, '.' + config.$state-prefix);
+}
+
+@function containPseudoClass($selector) {
+  $selector: selectorToString($selector);
+  @return string.index($selector, ':');
+}
+
+@function hitAllSpecialNestRule($selector) {
+  @return containsModifier($selector) or 
+    containWhenFlag($selector) or 
+    containPseudoClass($selector);
+}

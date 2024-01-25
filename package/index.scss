@@ -1,14 +1,18 @@
-@use 'src/transition';
-@use 'src/common' as *;
-@use 'src/mixins/var' as *;
-@use 'src/light';
-@use 'src/dark';
+@use 'common/transition';
+@use 'components/icon';
+
+@use 'vars' as *;
+@use 'mixins/fn' as *;
+@use 'mixins/var' as *;
+@use 'mixins/mixin';
+@use 'common/light';
+@use 'common/dark' ;
 
 :root {
   @include set-css-var-value('color-white', $white);
   @include set-css-var-value('color-black', $black);
 
-  @include each-types using ($type) {
+  @include mixin.each-types using ($type) {
     @include set-css-color-rgb($colors, $type);
   }
 
@@ -29,7 +33,7 @@
 
   // disable
   @include set-component-css-var('disabled', $disabled);
-  
+
   // component-size
   @include set-component-css-var('component-size', $common-component-size);
 

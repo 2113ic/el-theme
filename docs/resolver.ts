@@ -111,7 +111,5 @@ function resolveDirective(name: string, options: ElPlusResolverOptionsResolved):
 
 function getSideEffects(dirname: string, options: ElPlusResolverOptionsResolved): SideEffectsInfo {
   if (!options.importStyle) return
-  // return `@/theme/css/el-${dirname}.css`
-  // return `@icxy/theme/c/${dirname}.scss`
   return `@icxy/el-theme/c/${dirname}.scss`
 }

@@ -1,0 +1,8 @@
+// types
+$types: 'primary', 'success', 'warning', 'danger', 'error', 'info';
+
+@mixin each-types {
+  @each $type in $types {
+    @content($type);
+  }
+}

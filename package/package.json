@@ -5,8 +5,8 @@
   "type": "module",
   "exports": {
     ".": "./index.scss",
-    "./resolver": "./index.ts",
-    "./c/*": "./src/components/*"
+    "./c/*": "./components/*",
+    "./resolver": "./index.ts"
   },
   "keywords": [
     "element-plus",
