@@ -1,6 +1,4 @@
-@use '../mixins/var' as *;
-@use '../mixins/ns' as *;
-@use '../mixins/fn';
+@use '../forward' as *;
 @use '../vars';
 
 :root {
@@ -19,11 +17,11 @@
   top: 0;
   width: 100%;
   height: 100%;
-  opacity: fn.getCSSVar('popup-modal-opacity');
-  background: fn.getCSSVar('popup-modal-bg-color');
+  opacity: getCSSVar('popup-modal-opacity');
+  background: getCSSVar('popup-modal-bg-color');
   
   &-enter {
-    animation: v-modal-in fn.getCSSVar('transition-duration-fast') ease;
+    animation: v-modal-in getCSSVar('transition-duration-fast') ease;
     
     @keyframes v-modal-in {
       0% { opacity: 0; }
@@ -32,7 +30,7 @@
   }
 
   &-leave {
-    animation: v-modal-out fn.getCSSVar('transition-duration-fast') ease forwards;
+    animation: v-modal-out getCSSVar('transition-duration-fast') ease forwards;
     
     @keyframes v-modal-out {
       0% {}

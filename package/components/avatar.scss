@@ -1,0 +1,55 @@
+@use 'sass:map';
+
+@use '../vars'    as *;
+@use '../forward' as *;
+
+@include b('avatar') {
+  @include set-component-css-var('avatar', $avatar);
+  @include set-component-css-var('avatar-size', $avatar-size);
+  
+  @include set-css-var-value(
+    ('avatar', 'size'),
+    map.get($avatar-size, 'default')
+  );
+}
+
+@include b('avatar') {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+  width: getCSSVar('avatar', 'size');
+  height: getCSSVar('avatar', 'size');
+  color: getCSSVar('avatar', 'text-color');
+  background: getCSSVar('avatar', 'bg-color');
+  font-size: getCSSVar('avatar', 'text-size');
+
+  > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  @include m('circle') {
+    border-radius: 50%;
+  }
+
+  @include m('square') {
+    border-radius: getCSSVar('avatar', 'border-radius');
+  }
+
+  @include m('icon') {
+    font-size: getCSSVar('avatar', 'icon-size');
+  }
+
+  @each $size in ('small', 'large') {
+    @include m($size) {
+      @include set-css-var-value(
+        ('avatar', 'size'),
+        map.get($avatar-size, $size)
+      );
+    }
+  }
+}

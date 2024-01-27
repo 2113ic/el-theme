@@ -19,61 +19,37 @@
   @return #{'--' + join-ns($list)};
 }
 
-/// @example scss
-///   @debug getCSSVar('button', 'text-color')
-///   //  -> var(--el-button-text-color)
 @function getCSSVar($args...) {
   @return var(#{joinVarName($args)});
 }
 
-/// @example scss
-///   @debug getCSSVarName('button', 'text-color')
-///   //  -> --el-button-text-color
 @function getCSSVarName($args...) {
   @return joinVarName($args);
 }
 
-/// @example scss
-///   @debug getCSSVarWithDefault(('button', 'text-color'), red)
-///   //  -> var(--el-button-text-color, red)
 @function getCSSVarWithDefault($args, $default) {
   @return var(#{joinVarName($args)}, #{$default});
 }
 
-@function bem($block, $element: '', $modifier: '') {
-  $name: join-ns($block);
-
-  @if $element != '' {
-    $name: $name + config.$element-separator + $element;
-  }
-  @if $modifier != '' {
-    $name: $name + config.$modifier-separator + $modifier;
-  }
-
-  @return $name;
+@function hitAllSpecialNestRule($selector) {
+  @return hasModifier($selector) or hasWhenFlag($selector) or hasPseudoClass($selector);
 }
 
 @function selectorToString($selector) {
-  @return string.slice(inspect($selector), 2, -2);
+  @return '' + $selector;
 }
 
-@function containsModifier($selector) {
+@function hasModifier($selector) {
   $selector: selectorToString($selector);
   @return string.index($selector, config.$modifier-separator);
 }
 
-@function containWhenFlag($selector) {
+@function hasWhenFlag($selector) {
   $selector: selectorToString($selector);
   @return string.index($selector, '.' + config.$state-prefix);
 }
 
-@function containPseudoClass($selector) {
+@function hasPseudoClass($selector) {
   $selector: selectorToString($selector);
   @return string.index($selector, ':');
-}
-
-@function hitAllSpecialNestRule($selector) {
-  @return containsModifier($selector) or 
-    containWhenFlag($selector) or 
-    containPseudoClass($selector);
 }
