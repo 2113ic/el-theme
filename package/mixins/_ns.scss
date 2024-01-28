@@ -1,15 +1,41 @@
 @use '../vars/config';
 @use 'fn';
 
-@mixin b($block) {
-  .#{fn.join-ns($block)} {
+// BEM
+$-B: '';
+
+@mixin b($blocks...) {
+  $-B: fn.joinSelector($blocks) !global;
+  
+  #{$-B} {
     @content;
   }
 }
 
 @mixin e($element) {
-  @at-root #{& + config.$element-separator + $element} {
-    @content;
+  $list: string.split($-B, ',');
+  $len: length($list);
+  $carry: '';
+
+  @for $i from 1 through $len {
+    $item: nth($list, $i);
+    $carry: $carry + $item + config.$element-separator + $element;
+
+    @if $i < $len and $item != '' {
+      $carry: $carry + ',';
+    }
+  }
+
+  @if fn.hitAllSpecialNestRule(&) {
+    @at-root & {
+      #{$carry} {
+        @content;
+      }
+    }
+  } @else {
+    @at-root #{$carry} {
+      @content;
+    }
   }
 }
 

@@ -1,7 +1,22 @@
 @use 'sass:string';
 @use '../vars/config';
 
-@function join-ns($list, $separator: '-') {
+@function joinSelector($list) {
+  $result: '';
+  $len: length($list);
+
+  @for $i from 1 through $len {
+    $item: nth($list, $i);
+    $result: $result + '.' + config.$namespace + '-' + $item;
+
+    @if $i < $len and $item != '' {
+      $result: $result + ',';
+    }
+  }
+  @return $result;
+}
+
+@function join-ns($list) {
   $name: config.$namespace;
 
   @each $item in $list {
