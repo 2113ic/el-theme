@@ -19,7 +19,17 @@
   box-sizing: border-box;
   transition: opacity getCSSVar('transition-duration', 'fast');
 
-  // element
+  // element  
+  @include e('icon') {
+    font-size: getCSSVar('alert', 'icon-size');
+    width: getCSSVar('alert', 'icon-size');
+  
+    @include when('big') {
+      font-size: getCSSVar('alert', 'icon-large-size');
+      width: getCSSVar('alert', 'icon-large-size');
+    }
+  }
+
   @include e('content') {
     display: table-cell;
     padding: 0 8px;
@@ -29,9 +39,29 @@
     font-size: getCSSVar('alert', 'title-font-size');
     line-height: 18px;
     vertical-align: text-top;
-    
-    @include when(bold) {
+
+    @include when('bold') {
       font-weight: bold;
+    }
+  }
+
+  @include e('description') {
+    margin: 5px 0 0 0;
+    font-size: getCSSVar('alert', 'description-font-size');
+  }
+
+  @include e('close-btn') {
+    font-size: getCSSVar('alert', 'close-font-size');
+    opacity: 1;
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    cursor: pointer;
+
+    @include when('customed') {
+      font-style: normal;
+      font-size: getCSSVar('alert', 'close-customed-font-size');
+      top: 9px;
     }
   }
 
@@ -47,7 +77,7 @@
         background-color: getCSSVar('alert', 'bg-color');
         color: getCSSVar('color', $type);
 
-        @include bem('alert', 'description') {
+        @include e('description') {
           color: getCSSVar('color', $type);
         }
       }
@@ -60,53 +90,22 @@
   }
 
   // when
+  @include when('center') {
+    justify-content: center;
+  }
+
   @include when('light') {
-    @include bem('alert', 'close-btn') {
+    @include e('close-btn') {
       color: getCSSVar('text-color', 'placeholder');
     }
   }
 
   @include when('dark') {
-    @include bem('alert', 'close-btn') {
+    @include e('close-btn') {
       color: getCSSVar('color', 'white');
     }
-    @include bem('alert', 'description') {
+    @include e('description') {
       color: getCSSVar('color', 'white');
-    }
-  }
-
-  @include when('center') {
-    justify-content: center;
-  }
-
-  // bem
-  @include bem('alert', 'icon') {
-    font-size: getCSSVar('alert', 'icon-size');
-    width: getCSSVar('alert', 'icon-size');
-  
-    @include when('big') {
-      font-size: getCSSVar('alert', 'icon-large-size');
-      width: getCSSVar('alert', 'icon-large-size');
-    }
-  }
-
-  @include bem('alert', 'description') {
-    margin: 5px 0 0 0;
-    font-size: getCSSVar('alert', 'description-font-size');
-  }
-
-  @include bem('alert', 'close-btn') {
-    font-size: getCSSVar('alert', 'close-font-size');
-    opacity: 1;
-    position: absolute;
-    top: 12px;
-    right: 15px;
-    cursor: pointer;
-
-    @include when('customed') {
-      font-style: normal;
-      font-size: getCSSVar('alert', 'close-customed-font-size');
-      top: 9px;
     }
   }
 }

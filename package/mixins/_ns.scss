@@ -59,25 +59,7 @@ $-B: '';
   }
 }
 
-@mixin bem($block, $element: null, $modifier: null) {
-  .#{genSelector($block, $element, $modifier)} {
-    @content;
-  }
-}
-
-@mixin bem-root($block, $element: null, $modifier: null) {
-  @at-root &.#{genSelector($block, $element, $modifier)} {
-    @content;
-  }
-}
-
-@mixin bem-child($block, $element: null, $modifier: null) {
-  @at-root & > #{genSelector($block, $element, $modifier)} {
-    @content;
-  }
-}
-
-@function genSelector($block, $element, $modifier) {
+@function bem($block, $element, $modifier) {
   $el: if($element, config.$element-separator + $element, '');
   $mod: if($modifier, config.$modifier-separator + $modifier, '');
 
