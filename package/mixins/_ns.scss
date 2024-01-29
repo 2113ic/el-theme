@@ -46,7 +46,7 @@ $-B: '';
 }
 
 @mixin when($state) {
-  @at-root &.#{config.$state-prefix + $state} {
+  @at-root &.#{'is-' + $state} {
     @content;
   }
 }

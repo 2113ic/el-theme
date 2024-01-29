@@ -3,10 +3,7 @@
 @use '../vars'    as *;
 @use '../forward' as *;
 @use '../mixins/utils';
-@use '../vars/config';
 @use 'button/index' as *;
-
-$-disabled: '.' + $state-prefix + '-disabled';
 
 $button-icon-span-gap: () !default;
 $button-icon-span-gap: map.merge(
@@ -164,7 +161,7 @@ $button-icon-span-gap: map.merge(
       background-color: transparent !important;
     }
 
-    &:not($-disabled) {
+    &:not(.is-disabled) {
       &:hover,
       &:focus {
         background-color: getCSSVar('fill-color', 'light');
@@ -219,7 +216,7 @@ $button-icon-span-gap: map.merge(
       border-color: transparent !important;
     }
 
-    &:not($-disabled) {
+    &:not(.is-disabled) {
       &:hover,
       &:focus {
         border-color: transparent;
@@ -247,7 +244,7 @@ $button-icon-span-gap: map.merge(
       border-color: transparent !important;
     }
 
-    &:not($-disabled) {
+    &:not(.is-disabled) {
       &:hover,
       &:focus {
         color: getCSSVar('color', 'primary', 'light-3');
