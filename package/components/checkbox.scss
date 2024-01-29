@@ -1,0 +1,292 @@
+@use 'sass:map';
+
+@use '../vars'    as *;
+@use '../forward' as *;
+@use '../mixins/utils';
+@use 'button' as btn;
+
+$checkbox-height: () !default;
+$checkbox-height: map.merge($common-component-size, $checkbox-height);
+
+$checkbox-bordered-input-height: () !default;
+$checkbox-bordered-input-height: map.merge(
+  (
+    'large': 14px,
+    'default': 12px,
+    'small': 12px,
+  ),
+  $checkbox-bordered-input-height
+);
+
+$checkbox-font-size: () !default;
+$checkbox-font-size: map.merge(
+  (
+    'large': 14px,
+    'small': 12px,
+  ),
+  $checkbox-font-size
+);
+
+$checkbox-bordered-input-width: () !default;
+$checkbox-bordered-input-width: map.merge(
+  $checkbox-bordered-input-height,
+  $checkbox-bordered-input-width
+);
+
+@include b('checkbox') {
+  @include set-component-css-var('checkbox', $checkbox);
+}
+
+@include b('checkbox') {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: getCssVarWithDefault('checkbox-height', map.get($checkbox-height, 'default'));
+  margin-right: 30px;
+  color: getCSSVar('checkbox-text-color');
+  font-weight: getCSSVar('checkbox-font-weight');
+  font-size: getCSSVar('font-size', 'base');
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+
+  @include when('disabled') {
+    cursor: not-allowed;
+  }
+
+  @include when('bordered') {
+    padding: 0 map.get($checkbox-bordered-padding-right, 'default') - $border-width
+      0 map.get($checkbox-bordered-padding-left, 'default') - $border-width;
+    border-radius: getCSSVar('border-radius-base');
+    border: getCSSVar('border');
+    box-sizing: border-box;
+
+    @include when('checked') {
+      border-color: getCSSVar('color-primary');
+    }
+
+    @include when('disabled') {
+      border-color: getCSSVar('border-color-lighter');
+    }
+
+    @each $size in ('large', 'small') {
+      &.#{bem('checkbox', '', $size)} {
+        $-padding-left: map.get($checkbox-bordered-padding-right, $size) - $border-width;
+        $-padding-right: map.get($checkbox-bordered-padding-left, $size) - $border-width;
+        padding: 0 $-padding-left 0 $-padding-right;
+        border-radius: map.get($button-border-radius, $size);
+
+        @include e('label') {
+          font-size: map.get($button-font-size, $size);
+        }
+
+        @include e('inner') {
+          height: map.get($checkbox-bordered-input-height, $size);
+          width: map.get($checkbox-bordered-input-width, $size);
+        }
+      }
+    }
+
+    &.#{bem('checkbox', '', 'small')} {
+      @include e('inner') {
+        &::after {
+          height: 6px;
+          width: 2px;
+        }
+      }
+    }
+  }
+
+  input:focus-visible {
+    & + .#{bem('checkbox', 'inner')} {
+      outline: 2px solid getCSSVar('checkbox-input-border-color-hover');
+      outline-offset: 1px;
+      border-radius: getCSSVar('checkbox-border-radius');
+    }
+  }
+
+  @include e('input') {
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    display: inline-flex;
+    position: relative;
+
+    @include when('disabled') {
+      @include e('inner') {
+        background-color: getCSSVar('checkbox-disabled-input-fill');
+        border-color: getCSSVar('checkbox-disabled-border-color');
+        cursor: not-allowed;
+
+        &::after {
+          cursor: not-allowed;
+          border-color: getCSSVar('checkbox-disabled-icon-color');
+        }
+      }
+
+      @include when('checked') {
+        @include e('inner') {
+          background-color: getCSSVar('checkbox', 'disabled-checked-input-fill');
+          border-color: getCSSVar('checkbox', 'disabled-checked-input-border-color');
+
+          &::after {
+            border-color: getCSSVar('checkbox', 'disabled-checked-icon-color');
+          }
+        }
+      }
+
+      @include when('indeterminate') {
+        @include e('inner') {
+          background-color: getCSSVar('checkbox', 'disabled-checked-input-fill');
+          border-color: getCSSVar('checkbox', 'disabled-checked-input-border-color');
+
+          &::before {
+            background-color: getCSSVar('checkbox', 'disabled-checked-icon-color');
+            border-color: getCSSVar('checkbox', 'disabled-checked-icon-color');
+          }
+        }
+      }
+
+      & + span.#{bem('checkbox', 'label')} {
+        color: getCSSVar('disabled-text-color');
+        cursor: not-allowed;
+      }
+    }
+
+    @include when('checked') {
+      @include e('inner') {
+        background-color: getCSSVar('checkbox-checked-bg-color');
+        border-color: getCSSVar('checkbox-checked-input-border-color');
+
+        &::after {
+          transform: rotate(45deg) scaleY(1);
+          border-color: getCSSVar('checkbox-checked-icon-color');
+        }
+      }
+
+      & + .#{bem('checkbox', 'label')} {
+        color: getCSSVar('checkbox-checked-text-color');
+      }
+    }
+
+    @include when('focus') {
+      // Visually distinguish when focus
+      &:not(.is-checked) {
+
+        .#{bem('checkbox', 'original')}:not(:focus-visible) {
+          border-color: getCSSVar('checkbox-input-border-color-hover');
+        }
+      }
+    }
+
+    @include when('indeterminate') {
+      @include e('inner') {
+        background-color: getCSSVar('checkbox-checked-bg-color');
+        border-color: getCSSVar('checkbox-checked-input-border-color');
+
+        &::before {
+          content: '';
+          position: absolute;
+          display: block;
+          background-color: getCSSVar('checkbox-checked-icon-color');
+          height: 2px;
+          transform: scale(0.5);
+          left: 0;
+          right: 0;
+          top: 5px;
+        }
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include e('inner') {
+    display: inline-block;
+    position: relative;
+    border: getCSSVar('checkbox-input-border');
+    border-radius: getCSSVar('checkbox-border-radius');
+    box-sizing: border-box;
+    width: getCSSVar('checkbox-input-width');
+    height: getCSSVar('checkbox-input-height');
+    background-color: getCSSVar('checkbox-bg-color');
+    z-index: getCSSVar('index-normal');
+    transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
+      background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
+      outline 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
+
+    &:hover {
+      border-color: getCSSVar('checkbox-input-border-color-hover');
+    }
+
+    &::after {
+      box-sizing: content-box;
+      content: '';
+      border: 1px solid transparent;
+      border-left: 0;
+      border-top: 0;
+      height: 7px;
+      left: 4px;
+      position: absolute;
+      top: 1px;
+      transform: rotate(45deg) scaleY(0);
+      width: 3px;
+      transition: transform 0.15s ease-in 0.05s;
+      transform-origin: center;
+    }
+  }
+
+  @include e('original') {
+    opacity: 0;
+    outline: none;
+    position: absolute;
+    margin: 0;
+    width: 0;
+    height: 0;
+    z-index: -1;
+  }
+
+  @include e('label') {
+    display: inline-block;
+    padding-left: 8px;
+    line-height: 1;
+    font-size: getCSSVar('checkbox-font-size');
+  }
+
+  @each $size in ('large', 'small') {
+    &.#{bem('checkbox', '', $size)} {
+      height: map.get($checkbox-height, $size);
+      @include e(label) {
+        font-size: map.get($checkbox-font-size, $size);
+      }
+      @include e(inner) {
+        width: map.get($checkbox-font-size, $size);
+        height: map.get($checkbox-font-size, $size);
+      }
+    }
+  }
+
+  &.#{bem('checkbox', '', 'small')} {
+    @include e('input') {
+      @include when('indeterminate') {
+        @include e('inner') {
+          &::before {
+            top: 4px;
+          }
+        }
+      }
+    }
+    @include e('inner') {
+      &::after {
+        width: 2px;
+        height: 6px;
+      }
+    }
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}

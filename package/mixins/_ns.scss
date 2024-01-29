@@ -59,7 +59,7 @@ $-B: '';
   }
 }
 
-@function bem($block, $element, $modifier) {
+@function bem($block, $element: null, $modifier: null) {
   $el: if($element, config.$element-separator + $element, '');
   $mod: if($modifier, config.$modifier-separator + $modifier, '');
 
