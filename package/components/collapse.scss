@@ -1,6 +1,5 @@
 @use '../vars'    as *;
 @use '../forward' as *;
-@use '../common/transition';
 
 @include b('collapse') {
   @include set-component-css-var('collapse', $collapse);

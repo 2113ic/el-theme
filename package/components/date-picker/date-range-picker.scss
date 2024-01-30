@@ -1,0 +1,113 @@
+@use '../../vars'    as *;
+@use '../../forward' as *;
+
+@include b(date-range-picker) {
+  @include set-component-css-var('datepicker', $datepicker);
+}
+
+@include b(date-range-picker) {
+  width: 646px;
+
+  &.has-sidebar {
+    width: 756px;
+  }
+
+  &.has-time .#{bem('picker-panel', 'body-wrapper')} {
+    position: relative;
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  .#{bem('picker-panel', 'body')} {
+    min-width: 513px;
+  }
+
+  .#{bem('picker-panel', 'content')} {
+    margin: 0;
+  }
+
+  @include e(header) {
+    position: relative;
+    text-align: center;
+    height: 28px;
+
+    [class*=arrow-left] {
+      float: left;
+    }
+
+    [class*=arrow-right] {
+      float: right;
+    }
+
+    div {
+      font-size: 16px;
+      font-weight: 500;
+      margin-right: 50px;
+    }
+  }
+
+  @include e(content) {
+    float: left;
+    width: 50%;
+    margin: 0;
+    padding: 16px;
+    box-sizing: border-box;
+
+    @include e('header') {
+      div {
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+    }
+
+    @include when(left) {
+      border-right: 1px solid getCSSVar('datepicker', 'inner-border-color');
+    }
+  }
+
+  @include e(editors-wrap) {
+    box-sizing: border-box;
+    display: table-cell;
+
+    @include when(right) {
+      text-align: right;
+    }
+  }
+
+  @include e(time-header) {
+    position: relative;
+    border-bottom: 1px solid getCSSVar('datepicker', 'inner-border-color');
+    font-size: 12px;
+    padding: 8px 5px 5px 5px;
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+
+    > .#{bem('icon-arrow-right')} {
+      font-size: 20px;
+      vertical-align: middle;
+      display: table-cell;
+      color: getCSSVar('datepicker', 'icon-color');
+    }
+  }
+
+  @include e(time-picker-wrap) {
+    position: relative;
+    display: table-cell;
+    padding: 0 5px;
+
+    .#{bem('picker-panel')} {
+      position: absolute;
+      top: 13px;
+      right: 0;
+      z-index: 1;
+      background: $color-white;
+    }
+    .#{bem('time-panel')} {
+      position: absolute;
+    }
+  }
+}
