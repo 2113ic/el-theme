@@ -3,7 +3,7 @@
 @use '../vars'    as *;
 @use '../forward' as *;
 @use '../mixins/utils';
-@use 'button' as *;
+@use 'button/index' as *;
 
 $button-icon-span-gap: () !default;
 $button-icon-span-gap: map.merge(

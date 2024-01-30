@@ -3,7 +3,7 @@
 @use '../vars'    as *;
 @use '../forward' as *;
 @use '../mixins/utils';
-@use 'button' as btn;
+@use 'button/index' as btn;
 
 $checkbox-height: () !default;
 $checkbox-height: map.merge($common-component-size, $checkbox-height);

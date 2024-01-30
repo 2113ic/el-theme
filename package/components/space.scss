@@ -1,0 +1,20 @@
+@use '../vars'    as *;
+@use '../forward' as *;
+
+@include b(space) {
+  display: inline-flex;
+  vertical-align: top;
+
+  @include e(item) {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > * {
+      flex: 1;
+    }
+  }
+
+  @include m(vertical) {
+    flex-direction: column;
+  }
+}

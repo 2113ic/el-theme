@@ -1,0 +1,36 @@
+@use '../vars'    as *;
+@use '../forward' as *;
+@use 'date-picker/picker';
+@use 'date-picker/date-picker';
+
+.time-select {
+  margin: 5px 0;
+  min-width: 0;
+
+  .#{$namespace}-picker-panel__content {
+    max-height: 200px;
+    margin: 0;
+  }
+
+  &-item {
+    padding: 8px 10px;
+    font-size: 14px;
+    line-height: 20px;
+
+    &.disabled {
+      color: getCSSVar('datepicker-border-color');
+      cursor: not-allowed;
+    }
+
+    &:hover {
+      background-color: getCSSVar('fill-color', 'light');
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+
+  .time-select-item.selected:not(.disabled) {
+    color: getCSSVar('color-primary');
+    font-weight: bold;
+  }
+}
