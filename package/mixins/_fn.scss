@@ -13,7 +13,7 @@
 }
 
 /// @example scss
-///   @debug joinVarName('button', 'text-color')
+///   @debug joinVarName(('button', 'text-color'))
 ///   //  -> --el-button-text-color
 @function joinVarName($list) {
   @return #{'--' + join-ns($list)};

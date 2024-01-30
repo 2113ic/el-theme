@@ -31,16 +31,14 @@ $-B: '';
 
 @mixin m($modifiers...) {
   @at-root {
-    $curSelector: selectorHandle($modifiers, &, 'modifier');
-
-    #{$curSelector} {
+    #{$selectorHandle($modifiers, &, 'mod')} {
       @content;
     }
   }
 }
 
 @mixin when($state) {
-  @at-root &.#{config.$state-prefix + $state} {
+  @at-root &.#{'is-' + $state} {
     @content;
   }
 }
