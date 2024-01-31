@@ -19,7 +19,7 @@
   box-sizing: border-box;
   transition: opacity getCSSVar('transition-duration', 'fast');
 
-  // element  
+  // element
   @include e('icon') {
     font-size: getCSSVar('alert', 'icon-size');
     width: getCSSVar('alert', 'icon-size');
@@ -50,18 +50,18 @@
     font-size: getCSSVar('alert', 'description-font-size');
   }
 
-  @include e('close-btn') {
-    font-size: getCSSVar('alert', 'close-font-size');
-    opacity: 1;
+  & .#{bem('alert', 'close-btn')} {
     position: absolute;
     top: 12px;
     right: 15px;
+    opacity: 1;
+    font-size: getCSSVar('alert', 'close-font-size');
     cursor: pointer;
 
     @include when('customed') {
+      top: 9px;
       font-style: normal;
       font-size: getCSSVar('alert', 'close-customed-font-size');
-      top: 9px;
     }
   }
 

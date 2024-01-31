@@ -46,7 +46,7 @@
 
 @function hasWhenFlag($selector) {
   $selector: selectorToString($selector);
-  @return string.index($selector, '.' + config.$state-prefix);
+  @return string.index($selector, '.' + 'is-');
 }
 
 @function hasPseudoClass($selector) {
