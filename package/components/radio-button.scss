@@ -2,7 +2,7 @@
 
 @use '../vars'    as *;
 @use '../forward' as *;
-@use '../button' as btn;
+@use 'button/index' as btn;
 
 @include b(radio-button) {
   @include set-component-css-var('radio-button', $radio-button);
@@ -42,7 +42,7 @@
     transition: getCSSVar('transition-all');
     user-select: none;
 
-    @include button-size(
+    @include btn.button-size(
       map.get($button-padding-vertical, 'default') - $button-border-width,
       map.get($button-padding-horizontal, 'default') - $button-border-width,
       map.get($button-font-size, 'default'),

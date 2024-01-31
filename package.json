@@ -2,10 +2,18 @@
   "name": "@icxy/el-theme-root",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "pnpm -F @icxy/el-theme-docs dev"
+    "dev": "pnpm -F @icxy/el-theme-docs dev",
+    "build": "pnpm tsx ./build.ts"
   },
   "devDependencies": {
-    "unplugin-vue-components": "^0.26.0"
+    "@types/fs-extra": "^11.0.4",
+    "fast-glob": "^3.3.2",
+    "fs-extra": "^11.2.0",
+    "sass": "^1.70.0",
+    "taze": "^0.13.1",
+    "tsx": "^4.7.0",
+    "vite": "^5.0.12"
   }
 }

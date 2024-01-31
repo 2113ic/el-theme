@@ -75,7 +75,7 @@
       &.start-date,
       &.end-date {
         .#{bem('date-table-cell', 'text')} {
-          color: $color-white;
+          color: $white;
         }
       }
     }
@@ -94,7 +94,7 @@
 
     &.current:not(.disabled) {
       .#{bem('date-table-cell', 'text')} {
-        color: $color-white;
+        color: $white;
         background-color: getCSSVar('datepicker', 'active-color');
       }
       &:focus-visible {
@@ -106,7 +106,7 @@
     }
     &.start-date .#{bem('date-table-cell')},
     &.end-date .#{bem('date-table-cell')} {
-      color: $color-white;
+      color: $white;
     }
 
     &.start-date .#{bem('date-table-cell', 'text')},
@@ -146,7 +146,7 @@
 
     &.selected .#{bem('date-table-cell', 'text')} {
       background-color: getCSSVar('datepicker', 'active-color');
-      color: $color-white;
+      color: $white;
       border-radius: 15px;
     }
 

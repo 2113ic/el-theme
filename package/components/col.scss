@@ -69,7 +69,7 @@
         right: (math.div(1, 24) * $i * 100) * 1%;
       }
 
-      .#{join-ns(('col', $font-size, 'push', $i))} {
+      .#{join-ns(('col', $size, 'push', $i))} {
         position: relative;
         left: (math.div(1, 24) * $i * 100) * 1%;
       }

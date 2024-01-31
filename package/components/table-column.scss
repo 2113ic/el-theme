@@ -15,7 +15,7 @@
 @include b(table-filter) {
   border: solid 1px getCSSVar('border-color-lighter');
   border-radius: 2px;
-  background-color: $color-white;
+  background-color: $white;
   box-shadow: map.get($dropdown, 'menu-box-shadow');
   box-sizing: border-box;
 
@@ -40,7 +40,7 @@
 
     @include when(active) {
       background-color: getCSSVar('color-primary');
-      color: $color-white;
+      color: $white;
     }
   }
 

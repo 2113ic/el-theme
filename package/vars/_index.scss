@@ -6,6 +6,8 @@
 @forward 'config';
 @forward 'light';
 
+$types: 'primary', 'success', 'warning', 'danger', 'error', 'info';
+
 // typography
 $font-size: () !default;
 $font-size: map.merge(

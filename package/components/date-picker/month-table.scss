@@ -24,7 +24,7 @@
       }
       &.start-date .cell,
       &.end-date .cell {
-        color: $color-white;
+        color: $white;
       }
     }
 
@@ -60,12 +60,12 @@
     }
     &.start-date div,
     &.end-date div {
-      color: $color-white;
+      color: $white;
     }
 
     &.start-date .cell,
     &.end-date .cell {
-      color: $color-white;
+      color: $white;
       background-color: getCSSVar('datepicker', 'active-color');
     }
 

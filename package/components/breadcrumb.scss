@@ -12,10 +12,10 @@
     font-weight: bold;
     color: getCSSVar('text-color', 'placeholder');
 
-    @include bem-root('icon') {
+    .#{bem('icon')} {
       margin: 0 6px;
       font-weight: normal;
-
+  
       svg { vertical-align: middle; }
     }
   }

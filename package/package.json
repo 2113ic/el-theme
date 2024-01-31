@@ -1,17 +1,23 @@
 {
   "name": "@icxy/el-theme",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "element-plus theme",
   "type": "module",
   "exports": {
-    ".": "./index.scss",
-    "./c/*": "./components/*",
-    "./resolver": "./index.ts"
+    ".": "./dist/index.css",
+    "./c/*": "./dist/styles/*",
+    "./resolver": "./dist/index.js"
   },
   "keywords": [
     "element-plus",
     "theme"
   ],
+  "dependencies": {
+    "unplugin-vue-components": "^0.26.0"
+  },
+  "peerDependencies": {
+    "unplugin-vue-components": "^0.26.0"
+  },
   "author": "2113ic <icxiaoyanz@gmail.com>",
   "license": "MIT"
 }
