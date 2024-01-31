@@ -3,21 +3,31 @@
 
 @use '../mixins/color' as *;
 @use '../mixins/mixin';
-@use 'light';
 
 // color
 $colors: () !default;
+$colors: map.deep-merge(
+  (
+    'white': #fff,
+    'black': #000,
+    'primary': ('base': #3E88C5),
+    'success': ('base': #419466),
+    'warning': ('base': #B17629),
+    'danger' : ('base': #C06868),
+    'error'  : ('base': #C06868),
+    'info'   : ('base': #808392),
+  ),
+  $colors
+);
 
-@include mixin.each-types using ($type) {
-  $map: ($type: ('base': map.get(light.$colors, $type, 'base')));
-  $colors: map.deep-merge($map, $colors) !global;
-}
+$white: map.get($colors, 'white');
+$black: map.get($colors, 'black');
 
 @mixin set-color-mix-level(
   $type,
   $num,
   $mode: 'light',
-  $mix-color: light.$white
+  $mix-color: $white
 ) {
   $mix: mix(
     $mix-color,
@@ -171,7 +181,7 @@ $card: map.merge(
 $empty: () !default;
 $empty: map.merge(
   (
-    'fill-color-0': light.$black,
+    'fill-color-0': $black,
     'fill-color-1': #4b4b52,
     'fill-color-2': #36383d,
     'fill-color-3': #1e1e20,
