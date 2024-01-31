@@ -5,7 +5,7 @@ import { build } from 'vite'
 import * as sass from 'sass'
 
 const pkgPath = resolve('./package')
-const compPath = resolve(pkgPath, './components')
+const compPath = resolve(pkgPath, 'src', './components')
 
 start()
 
@@ -30,7 +30,7 @@ async function start() {
   })
 
   const result = sass.compile(
-    resolve(pkgPath, 'index.scss'),
+    resolve(pkgPath, 'src/index.scss'),
     { style: 'compressed' }
   )
 
@@ -40,9 +40,10 @@ async function start() {
     comps.map(c => {
       const name = basename(c, '.scss')
       const result = sass.compile(c, { style: 'compressed' })
+      const filename = name === 'display' ? name : `el-${name}`
 
       return fs.outputFile(
-        resolve(pkgPath, `./dist/styles/el-${name}.css`), 
+        resolve(pkgPath, `./dist/styles/${filename}.css`), 
         result.css
       )
     }),
