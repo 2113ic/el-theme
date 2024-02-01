@@ -8,6 +8,11 @@
     "./c/*": "./dist/styles/*",
     "./resolver": "./dist/index.js"
   },
+  "files": [
+    "dist",
+    "src",
+    "*.ts"
+  ],
   "keywords": [
     "element-plus",
     "theme"
@@ -17,6 +22,13 @@
   },
   "peerDependencies": {
     "unplugin-vue-components": "^0.26.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2113ic/el-theme"
+  },
+  "bugs": {
+    "url": "https://github.com/2113ic/el-theme/issues"
   },
   "author": "2113ic <icxiaoyanz@gmail.com>",
   "license": "MIT"
