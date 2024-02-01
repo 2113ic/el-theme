@@ -30,11 +30,11 @@ async function start() {
   })
 
   const result = sass.compile(
-    resolve(pkgPath, 'src/index.scss'),
+    resolve(pkgPath, 'src/base.scss'),
     { style: 'compressed' }
   )
 
-  fs.outputFile(resolve(pkgPath, 'dist/index.css'), result.css)
+  fs.outputFile(resolve(pkgPath, 'dist/base.css'), result.css)
 
   Promise.all(
     comps.map(c => {
