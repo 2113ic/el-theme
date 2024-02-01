@@ -64,7 +64,7 @@
             map.get($input, 'border-color')
         )
     );
-    border-radius: getCssVarWithDefault(
+    border-radius: getCSSVarWithDefault(
         'input-border-radius',
         map.get($input, 'border-radius')
     );
@@ -72,7 +72,7 @@
     border: none;
 
     &::placeholder {
-      color: getCssVarWithDefault(
+      color: getCSSVarWithDefault(
           'input-placeholder-color',
           map.get($input, 'placeholder-color')
       );
@@ -175,7 +175,7 @@
         map.get($input, 'bg-color')
     );
     background-image: none;
-    border-radius: getCssVarWithDefault(
+    border-radius: getCSSVarWithDefault(
         'input-border-radius',
         map.get($input, 'border-radius')
     );
@@ -229,7 +229,7 @@
     }
 
     &::placeholder {
-      color: getCssVarWithDefault(
+      color: getCSSVarWithDefault(
           'input-placeholder-color',
           map.get($input, 'placeholder-color')
       );

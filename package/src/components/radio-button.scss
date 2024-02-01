@@ -79,20 +79,20 @@
 
     &:checked {
       & + .#{$namespace}-radio-button__inner {
-        color: getCssVarWithDefault(
+        color: getCSSVarWithDefault(
           ('radio-button', 'checked-text-color'),
           map.get($radio-button, 'checked-text-color')
         );
-        background-color: getCssVarWithDefault(
+        background-color: getCSSVarWithDefault(
           'radio-button-checked-bg-color',
           map.get($radio-button, 'checked-bg-color')
         );
-        border-color: getCssVarWithDefault(
+        border-color: getCSSVarWithDefault(
           'radio-button-checked-border-color',
           map.get($radio-button, 'checked-border-color')
         );
         box-shadow: -1px 0 0 0
-          getCssVarWithDefault(
+          getCSSVarWithDefault(
             'radio-button-checked-border-color',
             map.get($radio-button, 'checked-border-color')
           );
@@ -102,7 +102,7 @@
     &:focus-visible {
       & + .#{$namespace}-radio-button__inner {
         border-left: getCSSVar('border');
-        border-left-color: getCssVarWithDefault(
+        border-left-color: getCSSVarWithDefault(
           'radio-button-checked-border-color',
           map.get($radio-button, 'checked-border-color')
         );
@@ -119,11 +119,11 @@
         color: getCSSVar('disabled-text-color');
         cursor: not-allowed;
         background-image: none;
-        background-color: getCssVarWithDefault(
+        background-color: getCSSVarWithDefault(
           'button-disabled-bg-color',
           map.get($button, 'disabled-bg-color')
         );
-        border-color: getCssVarWithDefault(
+        border-color: getCSSVarWithDefault(
           'button-disabled-border-color',
           map.get($button, 'disabled-border-color')
         );

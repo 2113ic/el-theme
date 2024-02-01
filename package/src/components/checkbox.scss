@@ -41,7 +41,7 @@ $checkbox-bordered-input-width: map.merge(
   position: relative;
   display: inline-flex;
   align-items: center;
-  height: getCssVarWithDefault('checkbox-height', map.get($checkbox-height, 'default'));
+  height: getCSSVarWithDefault('checkbox-height', map.get($checkbox-height, 'default'));
   margin-right: 30px;
   color: getCSSVar('checkbox-text-color');
   font-weight: getCSSVar('checkbox-font-weight');
