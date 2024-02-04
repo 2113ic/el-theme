@@ -3,13 +3,15 @@
     "target": "es2020",
     "module": "esnext",
     "moduleResolution": "Bundler",
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "isolatedModules": true,
     "types": ["vite/client", "element-plus/global"],
     "paths": {
       "@/*": ["./src/*"],
-    }
+    },
+
+    "allowJs": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
   },
 }

@@ -3,7 +3,7 @@ import { defineConfig } from 'vite'
 
 import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
-import ElementPlusResolver from '@icxy/el-theme'
+import ElementPlusResolver from '../packages/theme/index'
 
 export default defineConfig({
   plugins: [
