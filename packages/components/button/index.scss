@@ -1,0 +1,304 @@
+@use 'sass:map';
+
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+@use '@el-theme/mixins/utils';
+@use 'mixin' as *;
+
+$button-icon-span-gap: () !default;
+$button-icon-span-gap: map.merge(
+  (
+    'large'  : 8px,
+    'default': 6px,
+    'small'  : 4px,
+  ),
+  $button-icon-span-gap
+);
+
+@include b('button') {
+  @include set-component-css-var('button', $button);
+}
+
+@include b('button') {
+  @include utils.inline-flex-center;
+  -webkit-appearance: none;
+  // min-height will expand when in flex
+  height: map.get($input-height, 'default');
+  line-height: 1;
+  text-align: center;
+  font-weight: getCSSVar('button', 'font-weight');
+  color: getCSSVar('button', 'text-color');
+  background-color: getCSSVar('button', 'bg-color');
+  white-space: nowrap;
+  vertical-align: middle;
+  outline: none;
+  border: getCSSVar('border');
+  border-color: getCSSVar('button', 'border-color');
+  transition: 0.1s;
+  user-select: none;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: getCSSVar('button', 'hover', 'text-color');
+    border-color: getCSSVar('button', 'hover', 'border-color');
+    background-color: getCSSVar('button', 'hover', 'bg-color');
+    outline: none;
+  }
+
+  &:active {
+    color: getCSSVar('button', 'active', 'text-color');
+    border-color: getCSSVar('button', 'active', 'border-color');
+    background-color: getCSSVar('button', 'active', 'bg-color');
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid getCSSVar('button', 'outline-color');
+    outline-offset: 1px;
+  }
+
+  > span {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  & + & {
+    margin-left: 12px;
+  }
+
+  @include button-size(
+    map.get($button-padding-vertical, 'default') - $button-border-width,
+    map.get($button-padding-horizontal, 'default') - $button-border-width,
+    map.get($button-font-size, 'default'),
+    map.get($button-border-radius, 'default')
+  );
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  [class*=#{join-ns('icon')}] {
+    & + span {
+      margin-left: map.get($button-icon-span-gap, 'default');
+    }
+    svg {
+      vertical-align: bottom;
+    }
+  }
+
+  @include when('plain') {
+    @include css-var-from-global(
+      ('button', 'hover', 'text-color'),
+      ('color', 'primary')
+    );
+    @include css-var-from-global(
+      ('button', 'hover', 'bg-color'),
+      ('fill-color', 'blank')
+    );
+    @include css-var-from-global(
+      ('button', 'hover', 'border-color'),
+      ('color', 'primary')
+    );
+  }
+
+  @include when('round') {
+    border-radius: getCSSVar('border-radius', 'round');
+  }
+
+  @include when('circle') {
+    width: map.get($input-height, 'default');
+    padding: map.get($button-padding-vertical, 'default') - $button-border-width;
+    border-radius: 50%;
+  }
+
+  @include when('text') {
+    color: getCSSVar('button', 'text-color');
+    background-color: transparent;
+    border: 0 solid transparent;
+
+    @include when('disabled') {
+      color: getCSSVar('button', 'disabled', 'text-color');
+      background-color: transparent !important;
+    }
+
+    &:not(.is-disabled) {
+      &:hover,
+      &:focus {
+        background-color: getCSSVar('fill-color', 'light');
+      }
+
+      &:focus-visible {
+        outline: 2px solid getCSSVar('button', 'outline-color');
+        outline-offset: 1px;
+      }
+
+      &:active {
+        background-color: getCSSVar('fill-color');
+      }
+
+      @include when('has-bg') {
+        background-color: getCSSVar('fill-color', 'light');
+
+        &:hover,
+        &:focus {
+          background-color: getCSSVar('fill-color');
+        }
+
+        &:active {
+          background-color: getCSSVar('fill-color', 'dark');
+        }
+      }
+    }
+  }
+
+  @include when('link') {
+    border-color: transparent;
+    color: getCSSVar('button', 'text-color');
+    background: transparent;
+    padding: 2px;
+    height: auto;
+
+    &:hover,
+    &:focus {
+      color: getCSSVar('button', 'hover', 'link-text-color');
+    }
+
+    @include when('disabled') {
+      color: getCSSVar('button', 'disabled', 'text-color');
+      background-color: transparent !important;
+      border-color: transparent !important;
+    }
+
+    &:not(.is-disabled) {
+      &:hover,
+      &:focus,
+      &:active {
+        border-color: transparent;
+        background-color: transparent;
+      }
+
+      &:active {
+        color: getCSSVar('button', 'active-color');
+      }
+    }
+  }
+
+  @include when('active') {
+    color: getCSSVar('button', 'active', 'text-color');
+    background-color: getCSSVar('button', 'active', 'bg-color');
+    border-color: getCSSVar('button', 'active', 'border-color');
+    outline: none;
+  }
+
+  @include when('disabled') {
+    &,
+    &:hover,
+    &:focus {
+      color: getCSSVar('button', 'disabled', 'text-color');
+      background-image: none;
+      background-color: getCSSVar('button', 'disabled', 'bg-color');
+      border-color: getCSSVar('button', 'disabled', 'border-color');
+      cursor: not-allowed;
+    }
+  }
+
+  @include when('loading') {
+    position: relative;
+    pointer-events: none;
+
+    &:before {
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      // mask the button
+      z-index: 1;
+      background-color: getCSSVar('mask-color', 'extra-light');
+      border-radius: inherit;
+    }
+  }
+
+  @include e('text') {
+    @include m('expand') {
+      margin-right: -0.3em;
+      letter-spacing: 0.3em;
+    }
+  }
+
+  @include e('link') {
+    @include m('expand') {
+      margin-right: -0.3em;
+      letter-spacing: 0.3em;
+    }
+  }
+
+  @include m('text') {
+    padding-left: 0;
+    padding-right: 0;
+    color: getCSSVar('color', 'primary');
+    background: transparent;
+    border-color: transparent;
+
+    @include when('disabled') {
+      color: getCSSVar('button', 'disabled', 'text-color');
+      background-color: transparent !important;
+      border-color: transparent !important;
+    }
+
+    &:not(.is-disabled) {
+      &:hover,
+      &:focus,
+      &:active {
+        color: getCSSVar('color', 'primary', 'light-3');
+        background-color: transparent;
+        border-color: transparent;
+      }
+
+      &:active {
+        color: getCSSVar('color', 'primary', 'dark-2');
+      }
+    }
+  }
+
+  @each $type in ('primary', 'success', 'warning', 'danger', 'info') {
+    @include m($type) {
+      @include button-variant($type);
+    }
+  }
+
+  @each $size in ('large', 'small') {
+    @include m($size) {
+      @include set-css-var-value(
+        ('button', 'size'),
+        map.get($input-height, $size)
+      );
+    }
+
+    @include m($size) {
+      height: getCSSVar('button', 'size');
+
+      @include button-size(
+        map.get($button-padding-vertical, $size) - $button-border-width,
+        map.get($button-padding-horizontal, $size) - $button-border-width,
+        map.get($button-font-size, $size),
+        map.get($button-border-radius, $size)
+      );
+
+      [class*="#{bem('icon')}"] {
+        & + span {
+          margin-left: map.get($button-icon-span-gap, $size);
+        }
+      }
+
+      @include when('circle') {
+        width: getCSSVar('button', 'size');
+        padding: map.get($button-padding-vertical, $size) - $button-border-width;
+      }
+    }
+  }
+}

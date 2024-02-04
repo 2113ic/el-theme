@@ -1,0 +1,89 @@
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+
+@include b('time-panel') {
+  position: relative;
+  left: 0;
+  z-index: getCSSVar('index-top');
+  width: 180px;
+  border-radius: 2px;
+  user-select: none;
+  box-sizing: content-box;
+
+  @include e('content') {
+    position: relative;
+    overflow: hidden;
+    font-size: 0;
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      height: 32px;
+      margin-top: -16px;
+      padding-top: 6px;
+      text-align: left;
+      box-sizing: border-box;
+    }
+
+    &::after {
+      left: 50%;
+      margin-left: 12%;
+      margin-right: 12%;
+    }
+
+    &::before {
+      padding-left: 50%;
+      margin-right: 12%;
+      margin-left: 12%;
+      border-top: 1px solid getCSSVar('border-color-light');
+      border-bottom: 1px solid getCSSVar('border-color-light');
+    }
+
+    &.has-seconds {
+      &::after {
+        left: calc(100% / 3 * 2);
+      }
+
+      &::before {
+        padding-left: calc(100% / 3);
+      }
+    }
+  }
+
+  @include e('footer') {
+    padding: 4px;
+    height: 36px;
+    line-height: 25px;
+    text-align: right;
+    border-top: getCSSVarWithDefault(
+      ('timepicker', 'inner-border-color'),
+      getCSSVar('border-color-light')
+    );
+    box-sizing: border-box;
+  }
+
+  @include e('btn') {
+    padding: 0 5px;
+    margin: 0 5px;
+    line-height: 28px;
+    font-size: 12px;
+    background-color: transparent;
+    color: getCSSVar('text-color', 'primary');
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &.confirm {
+      font-weight: 800;
+      color: getCSSVarWithDefault(
+        ('timepicker', 'active-color'),
+        getCSSVar('color-primary')
+      );
+    }
+  }
+}

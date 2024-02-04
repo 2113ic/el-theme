@@ -1,0 +1,9 @@
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+
+@include b(radio-group) {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 0;
+}

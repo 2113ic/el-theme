@@ -1,0 +1,175 @@
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+
+@include b('date-table') {
+  font-size: 12px;
+  user-select: none;
+
+  @include when('week-mode') {
+    @include e(row) {
+      &:hover {
+        @include b('data-table-cell') {
+          background-color: getCSSVar('datepicker', 'inrange-bg-color');
+
+          td:first-child & {
+            margin-left: 5px;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+          }
+
+          td:last-child & {
+            margin-right: 5px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+          }
+        }
+
+        td.available:hover {
+          color: getCSSVar('datepicker', 'text-color');
+        }
+      }
+
+      &.current .#{bem('date-table-cell')} {
+        background-color: getCSSVar('datepicker', 'inrange-bg-color');
+      }
+    }
+  }
+
+  td {
+    position: relative;
+    width: 32px;
+    height: 30px;
+    padding: 4px 0;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    @include b('date-table-cell') {
+      height: 30px;
+      padding: 3px 0;
+      box-sizing: border-box;
+
+      @include e('text') {
+        position: absolute;
+        left: 50%;
+        display: block;
+        width: 24px;
+        height: 24px;
+        margin: 0 auto;
+        line-height: 24px;
+        border-radius: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    &.next-month,
+    &.prev-month {
+      color: getCSSVar('datepicker', 'off-text-color');
+    }
+
+    &.today {
+      position: relative;
+
+      .#{bem('date-table-cell', 'text')} {
+        color: getCSSVar('color-primary');
+        font-weight: bold;
+      }
+
+      &.start-date,
+      &.end-date {
+        .#{bem('date-table-cell', 'text')} {
+          color: $white;
+        }
+      }
+    }
+
+    &.available:hover {
+      color: getCSSVar('datepicker', 'hover-text-color');
+    }
+
+    &.in-range .#{bem('date-table-cell')} {
+      background-color: getCSSVar('datepicker', 'inrange-bg-color');
+
+      &:hover {
+        background-color: getCSSVar('datepicker', 'inrange-hover-bg-color');
+      }
+    }
+
+    &.current:not(.disabled) {
+      .#{bem('date-table-cell', 'text')} {
+        color: $white;
+        background-color: getCSSVar('datepicker', 'active-color');
+      }
+      &:focus-visible {
+        .#{bem('date-table-cell', 'text')} {
+          outline: 2px solid getCSSVar('datepicker', 'active-color');
+          outline-offset: 1px;
+        }
+      }
+    }
+
+    &.start-date .#{bem('date-table-cell')} {
+      margin-left: 5px;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+    }
+
+    &.end-date .#{bem('date-table-cell')} {
+      margin-right: 5px;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+
+    &.start-date, &.end-date {
+      & .#{bem('date-table-cell')} {
+        color: $white;
+      }
+
+      & .#{bem('date-table-cell', 'text')} {
+        background-color: getCSSVar('datepicker', 'active-color');
+      }
+    }
+
+    &.disabled .#{bem('date-table-cell')} {
+      opacity: 1;
+      background-color: getCSSVar('fill-color', 'light');
+      color: getCSSVar('text-color', 'placeholder');
+      cursor: not-allowed;
+    }
+
+    &.selected {
+      .#{bem('date-table-cell')} {
+        margin-left: 5px;
+        margin-right: 5px;
+        background-color: getCSSVar('datepicker', 'inrange-bg-color');
+        border-radius: 15px;
+  
+        &:hover {
+          background-color: getCSSVar('datepicker', 'inrange-hover-bg-color');
+        }
+      }
+
+      .#{bem('date-table-cell', 'text')} {
+        color: $white;
+        background-color: getCSSVar('datepicker', 'active-color');
+        border-radius: 15px;
+      }
+    }
+
+    &.week {
+      font-size: 80%;
+      color: getCSSVar('datepicker', 'header-text-color');
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  th {
+    padding: 5px;
+    font-weight: 400;
+    color: getCSSVar('datepicker', 'header-text-color');
+    border-bottom: solid 1px getCSSVar('border-color', 'lighter');
+  }
+}

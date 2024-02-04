@@ -1,0 +1,103 @@
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+
+@include b(notification) {
+  @include set-component-css-var('notification', $notification);
+}
+
+@include b(notification) {
+  display: flex;
+  width: getCSSVar('notification-width');
+  padding: getCSSVar('notification-padding');
+  border-radius: getCSSVar('notification-radius');
+  box-sizing: border-box;
+  border: 1px solid getCSSVar('notification-border-color');
+  position: fixed;
+  background-color: getCSSVar('bg-color', 'overlay');
+  box-shadow: getCSSVar('notification-shadow');
+  transition: opacity getCSSVar('transition-duration'),
+    transform getCSSVar('transition-duration'),
+    left getCSSVar('transition-duration'),
+    right getCSSVar('transition-duration'), top 0.4s,
+    bottom getCSSVar('transition-duration');
+  overflow-wrap: break-word;
+  overflow: hidden;
+  z-index: 9999;
+
+  &.right {
+    right: 16px;
+  }
+
+  &.left {
+    left: 16px;
+  }
+
+  @include e(group) {
+    margin-left: getCSSVar('notification-group-margin-left');
+    margin-right: getCSSVar('notification-group-margin-right');
+  }
+
+  @include e(title) {
+    font-weight: bold;
+    font-size: getCSSVar('notification-title-font-size');
+    line-height: getCSSVar('notification-icon-size');
+    color: getCSSVar('notification-title-color');
+    margin: 0;
+  }
+
+  @include e(content) {
+    font-size: getCSSVar('notification-content-font-size');
+    line-height: 24px;
+    margin: 6px 0 0;
+    color: getCSSVar('notification-content-color');
+
+    p {
+      margin: 0;
+    }
+  }
+
+  & .#{$namespace}-notification__icon {
+    height: getCSSVar('notification-icon-size');
+    width: getCSSVar('notification-icon-size');
+    font-size: getCSSVar('notification-icon-size');
+  }
+
+  & .#{$namespace}-notification__closeBtn {
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    cursor: pointer;
+    color: getCSSVar('notification-close-color');
+    font-size: getCSSVar('notification-close-font-size');
+
+    &:hover {
+      color: getCSSVar('notification-close-hover-color');
+    }
+  }
+
+  @each $type in (success, info, warning, error) {
+    & .#{$namespace}-notification--#{$type} {
+      @include css-var-from-global(
+        ('notification', 'icon-color'),
+        ('color', $type)
+      );
+      color: getCSSVar('notification-icon-color');
+    }
+  }
+}
+
+.#{$namespace}-notification-fade-enter-from {
+  &.right {
+    right: 0;
+    transform: translateX(100%);
+  }
+
+  &.left {
+    left: 0;
+    transform: translateX(-100%);
+  }
+}
+
+.#{$namespace}-notification-fade-leave-to {
+  opacity: 0;
+}

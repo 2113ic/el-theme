@@ -1,0 +1,11 @@
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+
+@include b(header) {
+  @include set-component-css-var('header', $header);
+
+  padding: getCSSVar('header-padding');
+  box-sizing: border-box;
+  flex-shrink: 0;
+  height: getCSSVar('header-height');
+}

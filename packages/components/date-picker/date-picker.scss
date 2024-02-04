@@ -1,0 +1,110 @@
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+@use './picker-panel.scss';
+
+@include b('date-picker') {
+  @include set-component-css-var('datepicker', $datepicker);
+}
+
+@include b('date-picker') {
+  width: 322px;
+
+  &.has-sidebar.has-time {
+    width: 434px;
+  }
+
+  &.has-sidebar {
+    width: 438px;
+  }
+
+  &.has-time .#{bem('picker-panel', 'body-wrapper')} {
+    position: relative;
+  }
+
+  .#{bem('picker-panel', 'content')} {
+    width: 292px;
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  @include e('editor-wrap') {
+    position: relative;
+    display: table-cell;
+    padding: 0 5px;
+  }
+
+  @include e('time-header') {
+    position: relative;
+    display: table;
+    width: 100%;
+    padding: 8px 5px 5px;
+    font-size: 12px;
+    border-bottom: 1px solid getCSSVar('datepicker', 'inner-border-color');
+    box-sizing: border-box;
+  }
+
+  @include e('header') {
+    margin: 12px;
+    text-align: center;
+
+    @include m('bordered') {
+      margin-bottom: 0;
+      padding-bottom: 12px;
+      border-bottom: solid 1px getCSSVar('border-color-lighter');
+
+      & + .#{bem('picker-panel', 'content')} {
+        margin-top: 0;
+      }
+    }
+  }
+
+  @include e('header-label') {
+    padding: 0 5px;
+    font-size: 16px;
+    font-weight: 500;
+    color: getCSSVar('text-color', 'regular');
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      color: getCSSVar('datepicker', 'hover-text-color');
+    }
+
+    &:focus-visible {
+      outline: none;
+      color: getCSSVar('datepicker', 'hover-text-color');
+    }
+
+    &.active {
+      color: getCSSVar('datepicker', 'active-color');
+    }
+  }
+
+  @include e('prev-btn') {
+    float: left;
+  }
+
+  @include e('next-btn') {
+    float: right;
+  }
+
+  @include e('time-wrap') {
+    padding: 10px;
+    text-align: center;
+  }
+
+  @include e('time-label') {
+    float: left;
+    cursor: pointer;
+    line-height: 30px;
+    margin-left: 10px;
+  }
+
+  @include b('time-panel') {
+    position: absolute;
+  }
+}

@@ -1,0 +1,33 @@
+@use '@el-theme/common/vars';
+@use '@el-theme/common/dark' as *;
+@use '@el-theme/mixins/var' as *;
+@use '@el-theme/mixins/ns' as *;
+
+html.dark {
+  color-scheme: dark;
+
+  @each $type in vars.$types {
+    // --el-[type]-light-&i
+    @include set-css-color-type($colors, $type);
+  }
+
+  // --el-[p1], eg: --el-bg-color
+  @include set-component-css-var('bg-color', $bg-color);
+  @include set-component-css-var('text-color', $text-color);
+  @include set-component-css-var('border-color', $border-color);
+  @include set-component-css-var('fill-color', $fill-color);
+  @include set-component-css-var('box-shadow', $box-shadow);
+  @include set-component-css-var('mask-color', $mask-color);
+}
+
+$temp-map: (
+  button: $button,
+  card  : $card,
+  empty : $empty
+);
+
+@each $key, $val in $temp-map {
+  @include dark($key) {
+    @include set-component-css-var($key, $val);
+  }
+}

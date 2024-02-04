@@ -1,13 +1,16 @@
 {
-  "name": "@icxy/el-theme-root",
+  "name": "@el-theme/theme-monorepo",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "pnpm -F @icxy/el-theme-docs dev",
+    "dev": "pnpm -F @el-theme/theme-docs dev",
     "build": "pnpm tsx ./build.ts"
   },
   "devDependencies": {
+    "@el-theme/common": "workspace:^",
+    "@el-theme/comps": "workspace:^",
+    "@el-theme/mixins": "workspace:^",
     "@types/fs-extra": "^11.0.4",
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",

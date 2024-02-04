@@ -1,0 +1,88 @@
+@use 'sass:map';
+
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+
+@include b(link) {
+  @include set-component-css-var('link', $link);
+}
+
+@include b(link) {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  position: relative;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: getCSSVar('link', 'font-size');
+  font-weight: getCSSVar('link', 'font-weight');
+
+  color: getCSSVar('link', 'text-color');
+
+  &:hover {
+    color: getCSSVar('link', 'hover-text-color');
+  }
+
+  @include when(underline) {
+    &:hover:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 0;
+      bottom: 0;
+      border-bottom: 1px solid getCSSVar('link', 'hover-text-color');
+    }
+  }
+
+  @include when(disabled) {
+    color: getCSSVar('link', 'disabled-text-color');
+    cursor: not-allowed;
+  }
+
+  & [class*='#{$namespace}-icon-'] {
+    & + span {
+      margin-left: 5px;
+    }
+  }
+
+  &.#{$namespace}-link--default {
+    &:after {
+      border-color: getCSSVar('link', 'hover-text-color');
+    }
+  }
+
+  @include e(inner) {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @each $type in $types {
+    &.#{$namespace}-link--#{$type} {
+      @include css-var-from-global(('link', 'text-color'), ('color', $type));
+      @include css-var-from-global(
+        ('link', 'hover-text-color'),
+        ('color', $type, 'light-3')
+      );
+      @include css-var-from-global(
+        ('link', 'disabled-text-color'),
+        ('color', $type, 'light-5')
+      );
+
+      &:after {
+        border-color: getCSSVar('link', 'text-color');
+      }
+
+      @include when(underline) {
+        &:hover:after {
+          border-color: getCSSVar('link', 'text-color');
+        }
+      }
+    }
+  }
+}

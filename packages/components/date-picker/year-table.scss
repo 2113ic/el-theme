@@ -1,0 +1,59 @@
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+
+@include b('year-table') {
+  margin: -1px;
+  font-size: 12px;
+  border-collapse: collapse;
+
+  @include b('icon') {
+    color: getCSSVar('datepicker', 'icon-color');
+  }
+
+  td {
+    padding: 20px 3px;
+    text-align: center;
+    cursor: pointer;
+
+    &.today .cell {
+      color: getCSSVar('color', 'primary');
+      font-weight: bold;
+    }
+
+    &.disabled .cell {
+      background-color: getCSSVar('fill-color', 'light');
+      color: getCSSVar('text-color', 'placeholder');
+      cursor: not-allowed;
+
+      &:hover {
+        color: getCSSVar('text-color', 'placeholder');
+      }
+    }
+
+    .cell {
+      display: block;
+      width: 48px;
+      height: 36px;
+      margin: 0 auto;
+      line-height: 36px;
+      color: getCSSVar('datepicker', 'text-color');
+      border-radius: 18px;
+
+      &:hover {
+        color: getCSSVar('datepicker', 'hover-text-color');
+      }
+    }
+
+    &.current:not(.disabled) .cell {
+      color: getCSSVar('datepicker', 'active-color');
+    }
+
+    &:focus-visible {
+      outline: none;
+
+      .cell {
+        outline: 2px solid getCSSVar('datepicker', 'active-color');
+      }
+    }
+  }
+}

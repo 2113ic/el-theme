@@ -1,0 +1,8 @@
+@use '@el-theme/mixins' as *;
+
+@include b('aside') {
+  flex-shrink: 0;
+  width: getCSSVarWithDefault('aside' 'width', 300px);
+  box-sizing: border-box;
+  overflow: auto;
+}

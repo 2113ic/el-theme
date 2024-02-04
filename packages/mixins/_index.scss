@@ -1,0 +1,94 @@
+@use '@el-theme/common/vars';
+@use 'fn';
+@use 'ns';
+
+@forward 'fn';
+@forward 'ns';
+@forward 'var';
+
+@mixin extend-rule($name) {
+  @extend #{'%shared-' + $name} !optional;
+}
+
+@mixin share-rule($name) {
+  $rule-name: '%shared-' + $name;
+
+  @at-root #{$rule-name} {
+    @content;
+  }
+}
+
+@mixin pseudo($pseudo) {
+  @at-root #{& + ':#{$pseudo}'} {
+    @content;
+  }
+}
+
+// Break-points
+@mixin res($key, $map: vars.$breakpoints) {
+  // loop breakpoint Map, return if present
+  @if map-has-key($map, $key) {
+    @media only screen and #{unquote(map-get($map, $key))} {
+      @content;
+    }
+  } @else {
+    @warn "Undefined points: `#{$map}`";
+  }
+}
+
+// Scrollbar
+@mixin scroll-bar {
+  &::-webkit-scrollbar {
+    z-index: 11;
+    width: 6px;
+
+    &:horizontal {
+      height: 6px;
+    }
+
+    &-thumb {
+      width: 6px;
+      border-radius: 5px;
+      background: fn.getCSSVar('text-color', 'disabled');
+    }
+
+    &-corner, &-track, &-piece {
+      background: fn.getCSSVar('fill-color', 'blank');
+    }
+
+    &-track &-piece {
+      width: 6px;
+    }
+  }
+}
+
+@mixin inset-input-border($color, $important: false) {
+  @if $important == true {
+    box-shadow: 0 0 0 1px $color inset !important;
+  } @else {
+    box-shadow: 0 0 0 1px $color inset;
+  }
+}
+
+@mixin picker-popper($background, $border, $box-shadow) {
+  &.#{ns.bem(popper)} {
+    background: $background;
+    border: $border;
+    box-shadow: $box-shadow;
+
+    .#{ns.bem(popper, arrow)} {
+      &::before {
+        border: $border;
+      }
+    }
+
+    @each $placement, $adjacency in ('top': 'left', 'bottom': 'right', 'left': 'bottom', 'right': 'top') {
+      &[data-popper-placement^='#{$placement}'] {
+        .#{ns.bem(popper, arrow)}::before {
+          border-#{$placement}-color: transparent;
+          border-#{$adjacency}-color: transparent;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@el-theme/theme",
+  "version": "0.0.1",
+  "description": "element-plus theme",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./index.ts",
+      "require": "./dist/index.cjs",
+      "types": "./index.d.ts"
+    },
+    "./c/*": "./dist/styles/*",
+    "./default": "./default.scss"
+  },
+  "files": ["dist", "src", "*.ts"],
+  "keywords": ["element-plus", "theme"],
+  "dependencies": {
+    "unplugin-vue-components": "^0.26.0"
+  },
+  "peerDependencies": {
+    "unplugin-vue-components": "^0.26.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2113ic/el-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/2113ic/el-theme/issues"
+  },
+  "author": "2113ic <icxiaoyanz@gmail.com>",
+  "license": "MIT"
+}

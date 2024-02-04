@@ -1,0 +1,42 @@
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+
+@include b('card') {
+  @include set-component-css-var('card', $card);
+}
+
+@include b('card') {
+  color: getCSSVar('text-color', 'primary');
+  background-color: getCSSVar('card', 'bg-color');
+  border: 1px solid getCSSVar('card', 'border-color');
+  border-radius: getCSSVar('card', 'border-radius');
+  transition: getCSSVar('transition-duration');
+  overflow: hidden;
+
+  @include e('header') {
+    padding: calc(#{getCSSVar('card', 'padding')} - 2px) getCSSVar('card', 'padding');
+    border-bottom: 1px solid getCSSVar('card', 'border-color');
+    box-sizing: border-box;
+  }
+
+  @include e('body') {
+    padding: getCSSVar('card', 'padding');
+  }
+
+  @include e('footer') {
+    padding: calc(#{getCSSVar('card', 'padding')} - 2px) getCSSVar('card', 'padding');
+    border-top: 1px solid getCSSVar('card', 'border-color');
+    box-sizing: border-box;
+  }
+
+  @include when('always-shadow') {
+    box-shadow: getCSSVar('box-shadow', 'light');
+  }
+
+  @include when('hover-shadow') {
+    &:hover,
+    &:focus {
+      box-shadow: getCSSVar('box-shadow', 'light');
+    }
+  }
+}

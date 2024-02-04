@@ -1,0 +1,114 @@
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+
+@include b('date-range-picker') {
+  @include set-component-css-var('datepicker', $datepicker);
+}
+
+@include b('date-range-picker') {
+  width: 646px;
+
+  &.has-sidebar {
+    width: 756px;
+  }
+
+  &.has-time .#{bem('picker-panel', 'body-wrapper')} {
+    position: relative;
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  .#{bem('picker-panel', 'body')} {
+    min-width: 513px;
+  }
+
+  .#{bem('picker-panel', 'content')} {
+    margin: 0;
+  }
+
+  @include e('header') {
+    position: relative;
+    text-align: center;
+    height: 28px;
+
+    [class*=arrow-left] {
+      float: left;
+    }
+
+    [class*=arrow-right] {
+      float: right;
+    }
+
+    div {
+      margin-right: 50px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  @include e('content') {
+    float: left;
+    width: 50%;
+    margin: 0;
+    padding: 16px;
+    box-sizing: border-box;
+
+    @include e('header') {
+      div {
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+    }
+
+    @include when('left') {
+      border-right: 1px solid getCSSVar('datepicker', 'inner-border-color');
+    }
+  }
+
+  @include e('editors-wrap') {
+    display: table-cell;
+    box-sizing: border-box;
+
+    @include when('right') {
+      text-align: right;
+    }
+  }
+
+  @include e('time-header') {
+    position: relative;
+    display: table;
+    width: 100%;
+    padding: 8px 5px 5px 5px;
+    font-size: 12px;
+    border-bottom: 1px solid getCSSVar('datepicker', 'inner-border-color');
+    box-sizing: border-box;
+
+    > .#{bem('icon-arrow-right')} {
+      display: table-cell;
+      font-size: 20px;
+      vertical-align: middle;
+      color: getCSSVar('datepicker', 'icon-color');
+    }
+  }
+
+  @include e('time-picker-wrap') {
+    position: relative;
+    display: table-cell;
+    padding: 0 5px;
+
+    .#{bem('picker-panel')} {
+      position: absolute;
+      top: 13px;
+      right: 0;
+      z-index: 1;
+      background: $white;
+    }
+
+    .#{bem('time-panel')} {
+      position: absolute;
+    }
+  }
+}

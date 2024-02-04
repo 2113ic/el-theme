@@ -1,0 +1,60 @@
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+
+@include b(popover) {
+  @include set-component-css-var('popover', $popover);
+
+  &.#{$namespace}-popper {
+    background: getCSSVar('popover-bg-color');
+    min-width: 150px;
+    border-radius: getCSSVar('popover-border-radius');
+    border: 1px solid getCSSVar('popover-border-color');
+    padding: getCSSVar('popover-padding');
+    z-index: getCSSVar('index-popper');
+    color: getCSSVar('text-color', 'regular');
+    line-height: 1.4;
+    font-size: getCSSVar('popover-font-size');
+    box-shadow: getCSSVar('box-shadow-light');
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+
+    @include m(plain) {
+      padding: getCSSVar('popover-padding-large');
+    }
+
+    @include e(title) {
+      color: getCSSVar('popover-title-text-color');
+      font-size: getCSSVar('popover-title-font-size');
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    @include e(reference) {
+      &:focus:not(.focusing),
+      &:focus:hover {
+        outline-width: 0;
+      }
+    }
+
+    @include when(dark) {
+      @include set-css-var-value(
+        ('popover', 'bg-color'),
+        var(#{getCSSVarName('text-color', 'primary')})
+      );
+      @include set-css-var-value(
+        ('popover', 'border-color'),
+        var(#{getCSSVarName('text-color', 'primary')})
+      );
+      @include set-css-var-value(
+        ('popover', 'title-text-color'),
+        var(#{getCSSVarName('bg-color')})
+      );
+      color: getCSSVar('bg-color');
+    }
+
+    &:focus:active,
+    &:focus {
+      outline-width: 0;
+    }
+  }
+}

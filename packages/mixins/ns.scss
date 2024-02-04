@@ -1,0 +1,62 @@
+@use 'sass:string';
+
+@use '@el-theme/common/config';
+@use 'fn' as *;
+
+$-B: '';
+
+@mixin b($blocks...) {
+  $-B: joinBlock($blocks) !global;
+
+  #{$-B} {
+    @content;
+  }
+}
+
+@mixin e($elements...) {
+  $blocks: string.split($-B, ',');
+  $curSelector: selectorHandle($elements, $blocks);
+
+  @if hitAllSpecialNestRule(&) {
+    @at-root & {
+      #{$curSelector} {
+        @content;
+      }
+    }
+  } @else {
+    @at-root #{$curSelector} {
+      @content;
+    }
+  }
+}
+
+@mixin m($modifiers...) {
+  @at-root {
+    #{selectorHandle($modifiers, &, 'm')} {
+      @content;
+    }
+  }
+}
+
+@mixin when($states...) {
+  @at-root {
+    #{selectorHandle($states, &, 'is')} {
+      @content;
+    }
+  }
+}
+
+@mixin dark($block) {
+  html.dark {
+    @include b($block) {
+      @content;
+    }
+  }
+}
+
+@function bem($block, $element: null, $modifier: null) {
+  $el: if($element, config.$e-separator + $element, '');
+  $mod: if($modifier, config.$m-separator + $modifier, '');
+
+  @return config.$namespace + '-' + $block + $el + $mod;
+}

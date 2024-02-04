@@ -1,0 +1,30 @@
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+
+@include b('backtop') {
+  @include set-component-css-var('backtop', $backtop);
+}
+
+@include b('backtop') {
+  position: fixed;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: getCSSVar('backtop', 'text-color');
+  background-color: getCSSVar('backtop', 'bg-color');
+  box-shadow: getCSSVar('box-shadow', 'lighter');
+  cursor: pointer;
+
+  &:hover {
+    background-color: getCSSVar('backtop', 'hover-bg-color');
+  }
+
+  @include e('icon') {
+    font-size: 20px;
+  }
+}

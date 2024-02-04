@@ -1,0 +1,127 @@
+@use '@el-theme/mixins/fn';
+
+// fade in linear
+.fade-in-linear,
+.#{fn.join-ns('fade-in-linear')} {
+  &-enter-from, &-leave-to {
+    opacity: 0;
+  }
+
+  &-enter-active, &-leave-active {
+    transition: fn.getCSSVar('transition-fade', 'linear');
+  }
+}
+
+// fade-in
+.#{fn.join-ns('fade-in')} {
+  &-enter-from, &-leave-to {
+    opacity: 0;
+  }
+
+  &-enter-active, &-leave-active {
+    transition: all fn.getCSSVar('transition-duration') cubic-bezier(0.55, 0, 0.1, 1);
+  }
+}
+
+// zoom-in-center
+.#{fn.join-ns('fade-in')} {
+  &-enter-from, &-leave-to {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  &-enter-active, &-leave-active {
+    transition: all fn.getCSSVar('transition-duration') cubic-bezier(0.55, 0, 0.1, 1);
+  }
+}
+
+// zoom-in-top
+.#{fn.join-ns('zoom-in-top')} {
+  &-enter-from, &-leave-active {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+
+  &-enter-active, &-leave-active {
+    opacity: 1;
+    transform: scaleY(1);
+    transition: fn.getCSSVar('transition-md-fade');
+    transform-origin: center top;
+
+    &[data-popper-placement^='top'] {
+      transform-origin: center bottom;
+    }
+  }
+}
+
+// zoom-in-bottom
+.#{fn.join-ns('zoom-in-top')} {
+  &-enter-from, &-leave-active {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+
+  &-enter-active, &-leave-active {
+    opacity: 1;
+    transform: scaleY(1);
+    transition: fn.getCSSVar('transition-md-fade');
+    transform-origin: center bottom;
+  }
+}
+
+// zoom-in-left
+.#{fn.join-ns('zoom-in-top')} {
+  &-enter-from, &-leave-active {
+    opacity: 0;
+    transform: scale(0.45, 0.45);
+  }
+
+  &-enter-active, &-leave-active {
+    opacity: 1;
+    transform: scaleY(1);
+    transition: fn.getCSSVar('transition-md-fade');
+    transform-origin: top left;
+  }
+}
+
+// collapse-transition
+.collapse-transition {
+  transition-duration: fn.getCSSVar('transition-duration');
+  transition: height ease-in-out, padding-top ease-in-out, padding-bottom ease-in-out;
+}
+
+.#{fn.join-ns('collapse-transition')} {
+  &-enter-active, &-leave-active {
+    transition-duration: fn.getCSSVar('transition-duration');
+    transition: max-height ease-in-out, padding-top ease-in-out, padding-bottom ease-in-out;
+  }
+}
+
+// horizontal-collapse-transition
+.#{fn.join-ns('horizontal-collapse-transition')} {
+  &-enter-active, &-leave-active {
+    transition-duration: fn.getCSSVar('transition-duration');
+    transition: width ease-in-out, padding-left ease-in-out, padding-right ease-in-out;
+  }
+}
+
+// list
+.#{fn.join-ns('list')} {
+  &-enter-from, &-leave-active {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  &-enter-active, &-leave-active {
+    transition: all 1s;
+  }
+
+  &-leave-active {
+    position: absolute !important;
+  }
+}
+
+// opacity-transition
+.#{fn.join-ns('opacity-transition')} {
+  transition: opacity fn.getCSSVar('transition-duration') cubic-bezier(0.55, 0, 0.1, 1);
+}

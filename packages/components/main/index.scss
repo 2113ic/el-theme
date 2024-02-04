@@ -1,0 +1,13 @@
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+
+@include b(main) {
+  @include set-component-css-var('main', $main);
+
+  display: block;
+  flex: 1;
+  flex-basis: auto;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: getCSSVar('main-padding');
+}

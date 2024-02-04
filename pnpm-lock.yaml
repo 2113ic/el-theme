@@ -8,6 +8,15 @@ importers:
 
   .:
     devDependencies:
+      '@el-theme/common':
+        specifier: workspace:^
+        version: link:packages/common
+      '@el-theme/comps':
+        specifier: workspace:^
+        version: link:packages/components
+      '@el-theme/mixins':
+        specifier: workspace:^
+        version: link:packages/mixins
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -32,12 +41,12 @@ importers:
 
   docs:
     dependencies:
+      '@el-theme/theme':
+        specifier: workspace:^
+        version: link:../packages/theme
       '@element-plus/icons-vue':
         specifier: ^2.3.1
         version: 2.3.1(vue@3.4.15)
-      '@icxy/el-theme':
-        specifier: workspace:^
-        version: link:../package
       element-plus:
         specifier: ^2.5.3
         version: 2.5.3(vue@3.4.15)
@@ -64,7 +73,13 @@ importers:
         specifier: ^5.0.12
         version: 5.0.12(@types/node@20.11.5)(sass@1.70.0)
 
-  package:
+  packages/common: {}
+
+  packages/components: {}
+
+  packages/mixins: {}
+
+  packages/theme:
     dependencies:
       unplugin-vue-components:
         specifier: ^0.26.0

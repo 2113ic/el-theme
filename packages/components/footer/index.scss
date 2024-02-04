@@ -1,0 +1,11 @@
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+
+@include b(footer) {
+  @include set-component-css-var('footer', $footer);
+
+  padding: getCSSVar('footer-padding');
+  box-sizing: border-box;
+  flex-shrink: 0;
+  height: getCSSVar('footer-height');
+}

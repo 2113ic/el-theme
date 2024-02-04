@@ -1,0 +1,218 @@
+@use 'sass:map';
+
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+
+@mixin cascader-tag-normal($background-color) {
+
+  @include b('tag') {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    margin: 2px 0 2px 6px;
+    text-overflow: ellipsis;
+    background: $background-color;
+
+    &:not(.is-hit) {
+      border-color: transparent;
+    }
+
+    > span {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @include b('icon-close') {
+      flex: none;
+      color: getCSSVar('color-white');
+      background-color: getCSSVar('text-color', 'placeholder');
+
+      &:hover {
+        background-color: getCSSVar('text-color', 'secondary');
+      }
+    }
+  }
+}
+
+@include b('cascader') {
+  @include set-component-css-var('cascader', $cascader);
+}
+
+@include b('cascader') {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: getCSSVar('font-size', 'base');
+  line-height: map.get($input-height, 'default');
+  outline: none;
+
+  &:not(.is-disabled):hover {
+    .#{bem('input', 'wrapper')} {
+      cursor: pointer;
+      box-shadow: 0 0 0 1px getCSSVar('input', 'hover-border-color') inset;
+    }
+  }
+
+  @include b('input') {
+    display: flex;
+    cursor: pointer;
+
+    @include e('inner') {
+      text-overflow: ellipsis;
+      cursor: pointer;
+    }
+
+    @include e('suffix-inner') {
+      @include b('icon') {
+        height: calc(100% - 2px);
+
+        svg {
+          vertical-align: middle;
+        }
+      }
+    }
+
+    .icon-arrow-down {
+      font-size: 14px;
+      transition: transform getCSSVar('transition-duration');
+
+      @include when('reverse') {
+        transform: rotateZ(180deg);
+      }
+    }
+
+    .icon-circle-close:hover {
+      color: getCSSVarWithDefault(
+        'input' 'clear-hover-color', 
+        map.get($input, 'clear-hover-color')
+      );
+    }
+
+    @include when('focus') {
+      @include e('wrapper') {
+        box-shadow: 0 0 0 1px
+          getCSSVarWithDefault(
+            ('input', 'focus-border-color'),
+            map.get($input, 'focus-border-color')
+          )
+          inset;
+      }
+    }
+  }
+
+  @include e('dropdown') {
+    @include set-component-css-var('cascader', $cascader);
+  }
+
+  @include e('dropdown') {
+    font-size: getCSSVar('cascader', 'menu-font-size');
+    border-radius: getCSSVar('cascader', 'menu-radius');
+
+    @include picker-popper(
+      getCSSVar('cascader', 'menu-fill'),
+      getCSSVar('cascader', 'menu-border'),
+      getCSSVar('cascader', 'menu-shadow')
+    );
+
+    &.#{bem('popper')} {
+      box-shadow: getCSSVar('cascader', 'menu-shadow');
+    }
+  }
+
+  @include e('tags') {
+    position: absolute;
+    left: 0;
+    right: 30px;
+    top: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    line-height: normal;
+    text-align: left;
+    box-sizing: border-box;
+    transform: translateY(-50%);
+
+    @include cascader-tag-normal(getCSSVar('cascader', 'tag-background'));
+  }
+
+  @include e('collapse-tags') {
+    white-space: normal;
+    z-index: getCSSVar('index-normal');
+    @include cascader-tag-normal(getCSSVar('fill-color'));
+  }
+
+  @include e('suggestion-panel') {
+    border-radius: getCSSVar('cascader', 'menu-radius');
+  }
+
+  @include e('suggestion-list') {
+    max-height: 204px;
+    margin: 0;
+    padding: 6px 0;
+    font-size: getCSSVar('font-size', 'base');
+    color: getCSSVar('cascader', 'menu-text-color');
+    text-align: center;
+  }
+
+  @include e('suggestion-item') {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 34px;
+    padding: 0 15px;
+    text-align: left;
+    outline: none;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background: getCSSVar('cascader', 'node-background-hover');
+    }
+    
+    > span {
+      margin-right: 10px;
+    }
+
+    @include when('checked') {
+      color: getCSSVar('cascader', 'menu-selected-text-color');
+      font-weight: bold;
+    }
+  }
+
+  @include e('empty-text') {
+    margin: 10px 0;
+    color: getCSSVar('cascader', 'color-empty');
+  }
+
+  @include e('search-input') {
+    flex: 1;
+    height: 24px;
+    min-width: 60px;
+    margin: 2px 0 2px map.get($input-padding-horizontal, 'default') - $border-width;
+    padding: 0;
+    color: getCSSVar('cascader', 'menu-text-color');
+    background: transparent;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+
+    &::placeholder {
+      // two input overlap
+      color: transparent;
+    }
+  }
+
+  @each $size in ('large', 'small') {
+    @include m($size) {
+      font-size: map.get($input-font-size, $size);
+      line-height: map.get($input-height, $size);
+    }
+  }
+
+  @include when('disabled') {
+    @include e('label') {
+      z-index: calc(getCSSVar('index', 'normal') + 1);
+      color: getCSSVar('disabled-text-color');
+    }
+  }
+}

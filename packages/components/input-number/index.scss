@@ -1,0 +1,175 @@
+@use 'sass:math';
+@use 'sass:map';
+
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+
+@include b(input-number) {
+  position: relative;
+  display: inline-flex;
+  width: map.get($input-number-width, 'default');
+  line-height: #{map.get($input-height, 'default') - 2};
+
+  .#{$namespace}-input {
+    &__wrapper {
+      padding-left: #{map.get($input-height, 'default') + 10};
+      padding-right: #{map.get($input-height, 'default') + 10};
+    }
+
+    &__inner {
+      -webkit-appearance: none;
+      -moz-appearance: textfield;
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        margin: 0;
+        -webkit-appearance: none;
+      }
+      text-align: center;
+      line-height: 1;
+    }
+  }
+
+  @include e(increase, decrease) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+
+    position: absolute;
+    z-index: 1;
+    top: 1px;
+    bottom: 1px;
+
+    width: map.get($input-height, 'default');
+    background: getCSSVar('fill-color', 'light');
+    color: getCSSVar('text-color', 'regular');
+    cursor: pointer;
+    font-size: 13px;
+    user-select: none;
+
+    &:hover {
+      color: getCSSVar('color-primary');
+
+      & ~ .#{$namespace}-input:not(.is-disabled) .#{$namespace}-input__wrapper {
+        box-shadow: 0 0 0 1px
+          var(
+            #{getCSSVarName('input', 'focus-border-color')},
+            map.get($input, 'focus-border-color')
+          )
+          inset;
+      }
+    }
+
+    &.is-disabled {
+      color: getCSSVar('disabled-text-color');
+      cursor: not-allowed;
+    }
+  }
+
+  @include e(increase) {
+    right: 1px;
+    border-radius: 0 getCSSVar('border-radius-base')
+      getCSSVar('border-radius-base') 0;
+    border-left: getCSSVar('border');
+  }
+
+  @include e(decrease) {
+    left: 1px;
+    border-radius: getCSSVar('border-radius-base') 0 0
+      getCSSVar('border-radius-base');
+    border-right: getCSSVar('border');
+  }
+
+  @include when(disabled) {
+    @include e(increase, decrease) {
+      border-color: getCSSVar('disabled-border-color');
+      color: getCSSVar('disabled-border-color');
+
+      &:hover {
+        color: getCSSVar('disabled-border-color');
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  @each $size in (large, small) {
+    @include m($size) {
+      width: map.get($input-number-width, $size);
+      line-height: #{map.get($input-height, $size) - 2};
+
+      @include e(increase, decrease) {
+        width: map.get($input-height, $size);
+        font-size: map.get($input-font-size, $size);
+      }
+
+      .#{$namespace}-input__wrapper {
+        padding-left: #{map.get($input-height, $size) + 7};
+        padding-right: #{map.get($input-height, $size) + 7};
+      }
+    }
+  }
+
+  @include m(small) {
+    @include e(increase, decrease) {
+      [class*='#{$namespace}-icon'] {
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  @include when(without-controls) {
+    .#{$namespace}-input__wrapper {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  @include when(controls-right) {
+    .#{$namespace}-input__wrapper {
+      padding-left: 15px;
+      padding-right: #{map.get($input-height, 'default') + 10};
+    }
+
+    @include e(increase, decrease) {
+      @include set-css-var-value(
+        ('input', 'number-controls-height'),
+        math.div(map.get($input-height, 'default') - 2, 2)
+      );
+
+      height: getCSSVar('input-number-controls-height');
+      line-height: getCSSVar('input-number-controls-height');
+
+      [class*='#{$namespace}-icon'] {
+        transform: scale(0.8);
+      }
+    }
+
+    @include e(increase) {
+      bottom: auto;
+      left: auto;
+      border-radius: 0 getCSSVar('border-radius-base') 0 0;
+      border-bottom: getCSSVar('border');
+    }
+
+    @include e(decrease) {
+      right: 1px;
+      top: auto;
+      left: auto;
+      border-right: none;
+      border-left: getCSSVar('border');
+      border-radius: 0 0 getCSSVar('border-radius-base') 0;
+    }
+
+    @each $size in (large, small) {
+      &[class*='#{$size}'] {
+        [class*='increase'],
+        [class*='decrease'] {
+          @include set-css-var-value(
+            ('input', 'number-controls-height'),
+            math.div(map.get($input-height, $size) - 2, 2)
+          );
+        }
+      }
+    }
+  }
+}

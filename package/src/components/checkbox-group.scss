@@ -1,6 +1,0 @@
-@use '../forward' as *;
-
-@include b('checkbox-group') {
-  font-size: 0;
-  line-height: 0;
-}

@@ -1,0 +1,88 @@
+@use 'sass:string';
+@use '@el-theme/common/config';
+
+@function join-ns($list) {
+  $name: config.$namespace;
+
+  @each $item in $list {
+    @if $item != '' {
+      $name: $name + '-' + $item;
+    }
+  }
+  @return $name;
+}
+
+@function joinVarName($list) {
+  @return #{'--' + join-ns($list)};
+}
+
+@function getCSSVar($args...) {
+  @return var(#{joinVarName($args)});
+}
+
+@function getCSSVarName($args...) {
+  @return joinVarName($args);
+}
+
+@function getCSSVarWithDefault($args, $default) {
+  @return var(#{joinVarName($args)}, #{$default});
+}
+
+@function joinBlock($list) {
+  $result: '';
+  $len: length($list);
+
+  @for $i from 1 through $len {
+    $item: nth($list, $i);
+    $result: $result + '.' + config.$namespace + '-' + $item;
+
+    @if $i < $len and $item != '' {
+      $result: $result + ',';
+    }
+  }
+  @return $result;
+}
+
+@function selectorHandle($list, $parent, $mode: 'e') {
+  $result: '';
+
+  @each $item in $parent {
+    @each $unit in $list {
+      @if $mode == 'e' {
+        $result: $result + $item + config.$e-separator;
+      }
+      @else if $mode == 'm' {
+        $result: $result + $item + config.$m-separator;
+      }
+      @else {
+        $result: $result + $item + '.' + config.$state-prefix;
+      }
+
+      $result: $result + $unit + ',';
+    }
+  }
+  @return $result;
+}
+
+@function hitAllSpecialNestRule($selector) {
+  @return hasModifier($selector) or hasWhenFlag($selector) or hasPseudoClass($selector);
+}
+
+@function selectorToString($selector) {
+  @return '' + $selector;
+}
+
+@function hasModifier($selector) {
+  $selector: selectorToString($selector);
+  @return string.index($selector, config.$m-separator);
+}
+
+@function hasWhenFlag($selector) {
+  $selector: selectorToString($selector);
+  @return string.index($selector, '.' + config.$state-prefix);
+}
+
+@function hasPseudoClass($selector) {
+  $selector: selectorToString($selector);
+  @return string.index($selector, ':');
+}

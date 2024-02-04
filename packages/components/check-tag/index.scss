@@ -1,0 +1,28 @@
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+
+@include b('check-tag') {
+  display: inline-block;
+  padding: 7px 15px;
+  line-height: getCSSVar('font-size', 'base');
+  font-weight: bold;
+  font-size: getCSSVar('font-size', 'base');
+  color: getCSSVar('color', 'info');
+  background-color: getCSSVar('color', 'info', 'light-9');
+  border-radius: getCSSVar('border-radius', 'base');
+  transition: getCSSVar('transition', 'all');
+  cursor: pointer;
+
+  &:hover {
+    background-color: getCSSVar('color', 'info', 'light-7');
+  }
+
+  @include when('checked') {
+    background-color: getCSSVar('color', 'primary', 'light-8');
+    color: getCSSVar('color', 'primary');
+
+    &:hover {
+      background-color: getCSSVar('color', 'primary', 'light-7');
+    }
+  }
+}

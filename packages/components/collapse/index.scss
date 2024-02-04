@@ -1,0 +1,75 @@
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+
+@include b('collapse') {
+  @include set-component-css-var('collapse', $collapse);
+}
+
+@include b('collapse') {
+  border-top: 1px solid getCSSVar('collapse', 'border-color');
+  border-bottom: 1px solid getCSSVar('collapse', 'border-color');
+}
+
+@include b('collapse-item') {
+  @include when('disabled') {
+    @include e('header') {
+      color: getCSSVar('text-color', 'disabled');
+      cursor: not-allowed;
+    }
+  }
+
+  @include e('header') {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    border: none;
+    outline: none;
+    height: getCSSVar('collapse', 'header-height');
+    line-height: getCSSVar('collapse', 'header-height');
+    font-size: getCSSVar('collapse', 'header-font-size');
+    font-weight: 500;
+    color: getCSSVar('collapse', 'header-text-color');
+    background-color: getCSSVar('collapse', 'header-bg-color');
+    border-bottom: 1px solid getCSSVar('collapse', 'border-color');
+    transition: border-bottom-color getCSSVar('transition-duration');
+    cursor: pointer;
+
+    @include e('arrow') {
+      margin: 0 8px 0 auto;
+      font-weight: 300;
+      transition: transform getCSSVar('transition-duration');
+
+      @include when('active') {
+        transform: rotate(90deg);
+      }
+    }
+
+    &.focusing:focus:not(:hover) {
+      color: getCSSVar('color-primary');
+    }
+
+    @include when('active') {
+      border-bottom-color: transparent;
+    }
+  }
+
+  @include e('wrap') {
+    will-change: height;
+    background-color: getCSSVar('collapse', 'content-bg-color');
+    border-bottom: 1px solid getCSSVar('collapse', 'border-color');
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  @include e('content') {
+    padding-bottom: 25px;
+    font-size: getCSSVar('collapse', 'content-font-size');
+    color: getCSSVar('collapse', 'content-text-color');
+    line-height: 1.769230769230769;
+  }
+
+  &:last-child {
+    margin-bottom: -1px;
+  }
+}

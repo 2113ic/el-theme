@@ -1,0 +1,33 @@
+@use '@el-theme/common/vars' as *;
+@use '@el-theme/mixins' as *;
+
+@include b('time-range-picker') {
+  width: 354px;
+  overflow: visible;
+
+  @include e('content') {
+    position: relative;
+    z-index: 1;
+    padding: 10px;
+    text-align: center;
+  }
+
+  @include e('cell') {
+    display: inline-block;
+    width: 50%;
+    margin: 0;
+    padding: 4px 7px 7px;
+    box-sizing: border-box;
+  }
+
+  @include e('header') {
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  @include e('body') {
+    border: 1px solid getCSSVar('datepicker', 'border-color');
+    border-radius: 2px;
+  }
+}
