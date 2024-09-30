@@ -1,0 +1,28 @@
+@use 'function' as fn;
+@use 'config' as *;
+
+@mixin gCSSVar($keys, $value) {
+  --#{fn.join($keys)}: #{$value};
+}
+
+@mixin gCSSVarLevels($symbol, $vars) {
+  @each $key, $value in $vars {
+    --#{fn.join(($symbol, $key))}: #{$value};
+  }
+}
+
+@mixin dark() {
+  @if $theme != 'light' {
+    .dark & {
+      @content;
+    }
+  }
+}
+
+@mixin light() {
+  @if $theme != 'dark' {
+    :not(.dark) & {
+      @content;
+    }
+  }
+}

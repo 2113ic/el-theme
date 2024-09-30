@@ -1,0 +1,61 @@
+@use 'sass:string';
+@use 'config' as *;
+
+@function joinBlock($list) {
+  $result: '';
+  $len: length($list);
+
+  @for $i from 1 through $len {
+    $item: nth($list, $i);
+    $result: $result + '.' + $prefix + '-' + $item;
+
+    @if $i < $len and $item != '' {
+      $result: $result + ',';
+    }
+  }
+  @return $result;
+}
+
+@function selectorHandle($list, $parent, $mode: 'e') {
+  $result: '';
+
+  @each $item in $parent {
+    @each $unit in $list {
+      @if $mode == 'e' {
+        $result: $result + $item + '__';
+      }
+      @else if $mode == 'm' {
+        $result: $result + $item + '--';
+      }
+      @else {
+        $result: $result + $item + '.' + 'is-';
+      }
+
+      $result: $result + $unit + ',';
+    }
+  }
+  @return $result;
+}
+
+@function hitAllSpecialNestRule($selector) {
+  @return hasModifier($selector) or hasWhenFlag($selector) or hasPseudoClass($selector);
+}
+
+@function selectorToString($selector) {
+  @return '' + $selector;
+}
+
+@function hasModifier($selector) {
+  $selector: selectorToString($selector);
+  @return string.index($selector, '--');
+}
+
+@function hasWhenFlag($selector) {
+  $selector: selectorToString($selector);
+  @return string.index($selector, '.' + 'is-');
+}
+
+@function hasPseudoClass($selector) {
+  $selector: selectorToString($selector);
+  @return string.index($selector, ':');
+}

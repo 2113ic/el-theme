@@ -1,0 +1,58 @@
+@use 'sass:map';
+
+@use 'sass:list';
+@use 'sass:math';
+
+@use 'sass:color';
+@use 'sass:string';
+
+@use 'config' as c;
+
+@function join($list, $separator: '-') {
+  $result: c.$prefix + $separator;
+  $len: length($list);
+
+  @for $i from 1 through $len {
+    $item: nth($list, $i);
+    $result: $result + $item;
+
+    @if $i < $len and $item != '' {
+      $result: $result + $separator;
+    }
+  }
+  @return $result;
+}
+
+@function get($str, $opacity: 1) {
+  $splited: string.split($str, '.');
+
+  @if ($opacity == 1) {
+    @return var(--#{join($splited)});
+  }
+
+  $item: list.nth($splited, 1);
+  $level: list.nth($splited, 2);
+
+  @return color.change(
+    map.get(c.$palette, $item, $level),
+    $alpha: $opacity
+  );
+}
+
+@function theme($token) {
+  $splited: string.split($token, '.');
+  $key: list.nth($splited, 1);
+  $level: list.nth($splited, 2);
+
+  @return map.get(c.$palettes, $key, $level);
+}
+
+@function r($pxs) {
+  $result: ();
+
+  @each $px in $pxs {
+    $result: append($result, math.div($px, 16) * 1rem);
+  }
+
+  @return $result;
+}

@@ -15,11 +15,12 @@ async function start() {
     absolute: true
   })
 
+  // build element-plus resolver
   await build({
     build: {
-      outDir: './package/dist',
+      outDir: './packages/theme/dist',
       lib: {
-        entry: './package/index.ts',
+        entry: './packages/theme/index.ts',
         formats: ['es', 'cjs'],
         fileName: 'index',
       },
@@ -29,6 +30,7 @@ async function start() {
     }
   })
 
+  // build element-plus theme
   const result = sass.compile(
     resolve(pkgPath, 'src/base.scss'),
     { style: 'compressed' }

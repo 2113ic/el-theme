@@ -1,0 +1,53 @@
+@use 'sass:string';
+@use 'utils' as *;
+@use 'config' as *;
+
+$-B: '';
+
+@mixin b($blocks...) {
+  $-B: joinBlock($blocks) !global;
+
+  #{$-B} {
+    @content;
+  }
+}
+
+@mixin e($elements...) {
+  $blocks: string.split($-B, ',');
+  $curSelector: selectorHandle($elements, $blocks);
+
+  @if hitAllSpecialNestRule(&) {
+    @at-root & {
+      #{$curSelector} {
+        @content;
+      }
+    }
+  } @else {
+    @at-root #{$curSelector} {
+      @content;
+    }
+  }
+}
+
+@mixin m($modifiers...) {
+  @at-root {
+    #{selectorHandle($modifiers, &, 'm')} {
+      @content;
+    }
+  }
+}
+
+@mixin is($states) {
+  @at-root {
+    #{selectorHandle($states, &, 'is')} {
+      @content;
+    }
+  }
+}
+
+@function bem($block, $element: null, $modifier: null) {
+  $el: if($element, '__' + $element, '');
+  $mod: if($modifier, '--' + $modifier, '');
+
+  @return $ns + '-' + $block + $el + $mod;
+}

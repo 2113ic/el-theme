@@ -1,0 +1,345 @@
+@use 'sass:map';
+
+$prefix: 'el' !default;
+$theme: 'dark' !default;
+
+$white: #ffffff !default;
+$black: #000000 !default;
+
+// color
+$colors-light: () !default;
+$colors-light: map.deep-merge(
+  (
+    'primary': ('base': #58ACF2),
+    'success': ('base': #5AB983),
+    'warning': ('base': #DB9640),
+    'danger' : ('base': #EC8786),
+    'error'  : ('base': #EC8786),
+    'info'   : ('base': #A3A6B5),
+  ),
+  $colors-light
+);
+
+$colors-dark: () !default;
+$colors-dark: map.deep-merge(
+  (
+    'primary': ('base': #3E88C5),
+    'success': ('base': #419466),
+    'warning': ('base': #B17629),
+    'danger' : ('base': #C06868),
+    'error'  : ('base': #C06868),
+    'info'   : ('base': #808392),
+  ),
+  $colors-dark
+);
+
+// background
+$bg-light: () !default;
+$bg-light: map.merge(
+  (
+    ''        : #ffffff,
+    'page'    : #f2f3f5,
+    'overlay' : #ffffff,
+  ),
+  $bg-light
+);
+
+$bg-dark: () !default;
+$bg-dark: map.merge(
+  (
+    ''        : #141414,
+    'page'    : #0a0a0a,
+    'overlay' : #1d1e1f,
+  ),
+  $bg-dark
+);
+
+// text
+$text-light: () !default;
+$text-light: map.merge(
+  (
+    'primary'     : #303133,
+    'regular'     : #606266,
+    'secondary'   : #909399,
+    'placeholder' : #a8abb2,
+    'disabled'    : #c0c4cc,
+  ),
+  $text-light
+);
+
+$text-color-base: #f0f5ff;
+$text-dark: () !default;
+$text-dark: map.merge(
+  (
+    'primary'     : rgba($text-color-base, 0.95),
+    'regular'     : rgba($text-color-base, 0.85),
+    'secondary'   : rgba($text-color-base, 0.65),
+    'placeholder' : rgba($text-color-base, 0.55),
+    'disabled'    : rgba($text-color-base, 0.4),
+  ),
+  $text-dark
+);
+
+// fill
+$fill-light: () !default;
+$fill-light: map.merge(
+  (
+    'extra-light': #fafcff,
+    'lighter'    : #fafafa,
+    'light'      : #f5f7fa,
+    ''           : #f0f2f5,
+    'dark'       : #ebedf0,
+    'darker'     : #e6e8eb,
+    'blank'      : #ffffff,
+  ),
+  $fill-light
+);
+
+$fill-color-base: #fafcff;
+$fill-dark: () !default;
+$fill-dark: map.merge(
+  (
+    'darker'      : rgba($fill-color-base, 0.2),
+    'dark'        : rgba($fill-color-base, 0.16),
+    ''            : rgba($fill-color-base, 0.12),
+    'light'       : rgba($fill-color-base, 0.08),
+    'lighter'     : rgba($fill-color-base, 0.04),
+    'extra-light' : rgba($fill-color-base, 0.02),
+    'blank'       : transparent,
+  ),
+  $fill-dark
+);
+
+// border
+$border-light: () !default;
+$border-light: map.merge(
+  (
+    'extra-light': #f2f6fc,
+    'lighter'    : #ebeef5,
+    'light'      : #e4e7ed,
+    ''           : #dcdfe6,
+    'dark'       : #d4d7de,
+    'darker'     : #cdd0d6,
+  ),
+  $border-light
+);
+
+$border-color-base: #f5f8ff !default;
+$border-dark: () !default;
+$border-dark: map.merge(
+  (
+    'extra-light' : rgba($border-color-base, 0.1),
+    'lighter'     : rgba($border-color-base, 0.15),
+    'light'       : rgba($border-color-base, 0.2),
+    ''            : rgba($border-color-base, 0.25),
+    'dark'        : rgba($border-color-base, 0.3),
+    'darker'      : rgba($border-color-base, 0.35),
+  ),
+  $border-dark
+);
+
+// box-shadow
+$shadow-light: () !default;
+$shadow-light: map.merge(
+  (
+    '': (
+      0px 12px 32px 4px rgba(0, 0, 0, 0.04),
+      0px 8px 20px rgba(0, 0, 0, 0.08),
+    ),
+    'light'  : (0px 0px 12px rgba(0, 0, 0, 0.12)),
+    'lighter': (0px 0px 6px rgba(0, 0, 0, 0.12)),
+    'dark': (
+      0px 16px 48px 16px rgba(0, 0, 0, 0.08),
+      0px 12px 32px rgba(0, 0, 0, 0.12),
+      0px 8px 16px -8px rgba(0, 0, 0, 0.16),
+    ),
+  ),
+  $shadow-light
+);
+
+$shadow-dark: () !default;
+$shadow-dark: map.merge(
+  (
+    '': (
+      0px 12px 32px 4px rgba(0, 0, 0, 0.36),
+      0px 8px 20px rgba(0, 0, 0, 0.72),
+    ),
+    'light': (0px 0px 12px rgba(0, 0, 0, 0.72)),
+    'lighter': (0px 0px 6px rgba(0, 0, 0, 0.72)),
+    'dark': (
+      0px 16px 48px 16px rgba(0, 0, 0, 0.72),
+      0px 12px 32px #000000,
+      0px 8px 16px -8px #000000,
+    ),
+  ),
+  $shadow-dark
+);
+
+// overlay
+$overlay-light: () !default;
+$overlay-light: map.merge(
+  (
+    ''        : rgba(0, 0, 0, 0.8),
+    'light'   : rgba(0, 0, 0, 0.7),
+    'lighter' : rgba(0, 0, 0, 0.5),
+  ),
+  $overlay-light
+);
+
+// mask
+$mask-light: () !default;
+$mask-light: map.merge(
+  (
+    ''           : rgba(255, 255, 255, 0.9),
+    'extra-light': rgba(255, 255, 255, 0.3),
+  ),
+  $mask-light
+);
+
+$mask-dark: () !default;
+$mask-dark: map.merge(
+  (
+    '': rgba(0, 0, 0, 0.8),
+    'extra-light': rgba(0, 0, 0, 0.3),
+  ),
+  $mask-dark
+);
+
+// font-size
+$font-size: () !default;
+$font-size: map.merge(
+  (
+    'mini'  : 12px,
+    'small' : 13px,
+    'base'  : 14px,
+    'medium': 16px,
+    'large' : 18px,
+    'xlarge': 20px,
+  ),
+  $font-size
+);
+
+// font-family
+$font-family: "'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif" !default;
+
+// border & radius
+$border-width: 1px !default;
+$border-style: solid !default;
+$border-color-hover: get('text.color.disabled') !default;
+
+$border-radius: () !default;
+$border-radius: map.merge(
+  (
+    'base'  : 4px,
+    'small' : 2px,
+    'round' : 20px,
+    'circle': 100%,
+  ),
+  $border-radius
+);
+
+// disable
+$disabled: () !default;
+$disabled: map.merge(
+  (
+    'bg-color'    : fn.getCSSVar('fill-color', 'light'),
+    'text-color'  : fn.getCSSVar('text-color', 'placeholder'),
+    'border-color': fn.getCSSVar('border-color', 'light'),
+  ),
+  $disabled
+);
+
+// common component size
+$common-component-size: () !default;
+$common-component-size: map.merge(
+  (
+    'small'   : 24px,
+    'default' : 32px,
+    'large'   : 40px,
+  ),
+  $common-component-size
+);
+
+// z-index
+$z-index: () !default;
+$z-index: map.merge(
+  (
+    'normal'  : 1,
+    'top'     : 1000,
+    'popper'  : 2000,
+  ),
+  $z-index
+);
+
+// transition
+$transition: () !default;
+
+$duration     : get('transition.duration');
+$duration-fast: get('transition.duration.fast');
+
+$fast-bezier  : get('transition.function.fast-bezier');
+$ease-in-out-bezier: get('transition.function.ease-in-out-bezier');
+
+$transition: map.merge(
+  (
+    'all'        : all $duration $ease-in-out-bezier,
+    'fade'       : opacity $duration $fast-bezier,
+    'fade-linear': opacity $duration-fast linear,
+    'md-fade'    : (transform $duration $fast-bezier, opacity $duration $fast-bezier),
+
+    'color'      : color $duration-fast $ease-in-out-bezier,
+    'border'     : border-color $duration-fast $ease-in-out-bezier,
+    'box-shadow' : box-shadow $duration-fast $ease-in-out-bezier,
+  ),
+  $transition
+);
+
+$transition-duration: () !default;
+$transition-duration: map.merge(
+  (
+    ''      : 0.3s,
+    'fast'  : 0.2s,
+  ),
+  $transition-duration
+);
+
+$transition-function: () !default;
+$transition-function: map.merge(
+  (
+    'fast-bezier'       : cubic-bezier(0.23, 1, 0.32, 1),
+    'ease-in-out-bezier': cubic-bezier(0.645, 0.045, 0.355, 1),
+  ),
+  $transition-function
+);
+
+// break-point
+$sm: 768px !default;
+$md: 992px !default;
+$lg: 1200px !default;
+$xl: 1920px !default;
+
+$breakpoints: (
+  'xs': '(max-width: #{$sm - 1})',
+  'sm': '(min-width: #{$sm})',
+  'md': '(min-width: #{$md})',
+  'lg': '(min-width: #{$lg})',
+  'xl': '(min-width: #{$xl})',
+) !default;
+
+$breakpoints-spec: (
+  'xs-only'     : '(max-width: #{$sm - 1})',
+
+  'sm-and-up'   : '(min-width: #{$sm})',
+  'sm-only'     : '(min-width: #{$sm}) and (max-width: #{$md - 1})',
+  'sm-and-down' : '(max-width: #{$md - 1})',
+
+  'md-and-up'   : '(min-width: #{$md})',
+  'md-only'     : '(min-width: #{$md}) and (max-width: #{$lg - 1})',
+  'md-and-down' : '(max-width: #{$lg - 1})',
+
+  'lg-and-up'   : '(min-width: #{$lg})',
+  'lg-only'     : '(min-width: #{$lg}) and (max-width: #{$xl - 1})',
+  'lg-and-down' : '(max-width: #{$xl - 1})',
+
+  'xl-only'     : '(min-width: #{$xl})',
+) !default;
