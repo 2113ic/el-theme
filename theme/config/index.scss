@@ -1,21 +1,81 @@
 @use 'sass:map';
+@use 'sass:list';
+@use 'sass:color';
+@use 'sass:string';
+
+@use 'colors' as c;
 
 $prefix: 'el' !default;
 $theme: 'dark' !default;
+$gray: 'zinc' !default;
 
-$white: #ffffff !default;
-$black: #000000 !default;
+$white: #fff !default;
+$black: #000 !default;
+
+$types: 'primary', 'success', 'warning', 'danger', 'info' !default;
+
+@function join($list, $separator: '-') {
+  $result: $prefix + $separator;
+  $len: length($list);
+
+  @for $i from 1 through $len {
+    $item: nth($list, $i);
+    $result: $result + $item;
+
+    @if $i < $len and $item != '' {
+      $result: $result + $separator;
+    }
+  }
+  @return $result;
+}
+
+@function get($str, $opacity: 1) {
+  $splited: string.split($str, '.');
+
+  @if ($opacity == 1) {
+    @return var(--#{join($splited)});
+  }
+
+  $item: list.nth($splited, 1);
+  $level: list.nth($splited, 2);
+
+  @return color.adjust(
+    map.get(c.$palettes, $item, $level),
+    $alpha: $opacity
+  );
+}
+
+@function theme($token) {
+  $splited: string.split($token, '.');
+  $key: list.nth($splited, 1);
+  $level: list.nth($splited, 2);
+
+  @return map.get(c.$palettes, $key, $level);
+}
+
+@function getGray($level) {
+  @return map.get(c.$palettes, c.$gray, $level);
+}
+
+@function r($pxs) {
+  $result: ();
+
+  @each $px in $pxs {
+    $result: append($result, math.div($px, 16) * 1rem);
+  }
+
+  @return $result;
+}
 
 // color
 $colors-light: () !default;
 $colors-light: map.deep-merge(
   (
-    'primary': ('base': #58ACF2),
-    'success': ('base': #5AB983),
-    'warning': ('base': #DB9640),
-    'danger' : ('base': #EC8786),
-    'error'  : ('base': #EC8786),
-    'info'   : ('base': #A3A6B5),
+    'primary': ('base': get('blue', 500)),
+    'success': ('base': get('green', 500)),
+    'warning': ('base': get('amber', 500)),
+    'danger' : ('base': get('red', 500)),
+    'info'   : ('base': get($gray, 500)),
   ),
   $colors-light
 );
@@ -23,12 +83,11 @@ $colors-light: map.deep-merge(
 $colors-dark: () !default;
 $colors-dark: map.deep-merge(
   (
-    'primary': ('base': #3E88C5),
-    'success': ('base': #419466),
-    'warning': ('base': #B17629),
-    'danger' : ('base': #C06868),
-    'error'  : ('base': #C06868),
-    'info'   : ('base': #808392),
+    'primary': ('base': get('blue', 600)),
+    'success': ('base': get('green', 600)),
+    'warning': ('base': get('amber', 600)),
+    'danger' : ('base': get('red', 600)),
+    'info'   : ('base': get($gray, 600)),
   ),
   $colors-dark
 );
@@ -58,11 +117,11 @@ $bg-dark: map.merge(
 $text-light: () !default;
 $text-light: map.merge(
   (
-    'primary'     : #303133,
-    'regular'     : #606266,
-    'secondary'   : #909399,
-    'placeholder' : #a8abb2,
-    'disabled'    : #c0c4cc,
+    'primary'     : fn.getGray(800),
+    'regular'     : fn.getGray(700),
+    'secondary'   : fn.getGray(600),
+    'placeholder' : fn.getGray(300),
+    'disabled'    : fn.getGray(300),
   ),
   $text-light
 );
@@ -220,7 +279,7 @@ $font-size: map.merge(
 );
 
 // font-family
-$font-family: "'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif" !default;
+$font-family: "'Segoe UI', Helvetica, Arial, sans-serif" !default;
 
 // border & radius
 $border-width: 1px !default;

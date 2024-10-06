@@ -1,0 +1,12 @@
+@use 'base' as *;
+
+:root {
+  @include gCSSVar('white', $white);
+  @include gCSSVar('black', $black);
+
+  @each $type in $types {
+    $color: map.get($colors, $type);
+
+    @include gCSSVar($type, $color);
+  }
+}

@@ -1,0 +1,7 @@
+@use '../../base' as *;
+
+@include b('affix') {
+  @include m('fixed') {
+    position: fixed;
+  }
+}

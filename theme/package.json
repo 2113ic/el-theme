@@ -12,11 +12,7 @@
     "./c/*": "./dist/styles/*",
     "./default": "./default.scss"
   },
-  "files": [
-    "dist",
-    "src",
-    "*.ts"
-  ],
+  "files": ["dist", "src", "*.ts"],
   "keywords": [
     "element-plus",
     "theme"

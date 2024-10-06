@@ -1,5 +1,6 @@
 @use 'sass:string';
-@use 'config' as *;
+
+@use '../config' as c;
 
 @function joinBlock($list) {
   $result: '';
@@ -7,7 +8,7 @@
 
   @for $i from 1 through $len {
     $item: nth($list, $i);
-    $result: $result + '.' + $prefix + '-' + $item;
+    $result: $result + '.' + c.$prefix + '-' + $item;
 
     @if $i < $len and $item != '' {
       $result: $result + ',';
@@ -38,7 +39,9 @@
 }
 
 @function hitAllSpecialNestRule($selector) {
-  @return hasModifier($selector) or hasWhenFlag($selector) or hasPseudoClass($selector);
+  @return hasModifier($selector) or
+    hasWhenFlag($selector) or
+    hasPseudoClass($selector);
 }
 
 @function selectorToString($selector) {

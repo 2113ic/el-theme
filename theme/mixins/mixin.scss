@@ -1,5 +1,4 @@
 @use 'function' as fn;
-@use 'config' as *;
 
 @mixin gCSSVar($keys, $value) {
   --#{fn.join($keys)}: #{$value};
@@ -11,17 +10,17 @@
   }
 }
 
-@mixin dark() {
-  @if $theme != 'light' {
-    .dark & {
+@mixin light() {
+  @if $theme != 'dark' {
+    :not(.dark) & {
       @content;
     }
   }
 }
 
-@mixin light() {
-  @if $theme != 'dark' {
-    :not(.dark) & {
+@mixin dark() {
+  @if $theme != 'light' {
+    .dark & {
       @content;
     }
   }

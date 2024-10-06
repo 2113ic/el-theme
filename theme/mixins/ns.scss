@@ -1,11 +1,12 @@
 @use 'sass:string';
-@use 'utils' as *;
-@use 'config' as *;
+
+@use 'utils' as u;
+@use '../config' as c;
 
 $-B: '';
 
 @mixin b($blocks...) {
-  $-B: joinBlock($blocks) !global;
+  $-B: u.joinBlock($blocks) !global;
 
   #{$-B} {
     @content;
@@ -14,9 +15,9 @@ $-B: '';
 
 @mixin e($elements...) {
   $blocks: string.split($-B, ',');
-  $curSelector: selectorHandle($elements, $blocks);
+  $curSelector: u.selectorHandle($elements, $blocks);
 
-  @if hitAllSpecialNestRule(&) {
+  @if u.hitAllSpecialNestRule(&) {
     @at-root & {
       #{$curSelector} {
         @content;
@@ -31,7 +32,7 @@ $-B: '';
 
 @mixin m($modifiers...) {
   @at-root {
-    #{selectorHandle($modifiers, &, 'm')} {
+    #{u.selectorHandle($modifiers, &, 'm')} {
       @content;
     }
   }
@@ -39,7 +40,7 @@ $-B: '';
 
 @mixin is($states) {
   @at-root {
-    #{selectorHandle($states, &, 'is')} {
+    #{u.selectorHandle($states, &, 'is')} {
       @content;
     }
   }
@@ -49,5 +50,5 @@ $-B: '';
   $el: if($element, '__' + $element, '');
   $mod: if($modifier, '--' + $modifier, '');
 
-  @return $ns + '-' + $block + $el + $mod;
+  @return c.$prefix + '-' + $block + $el + $mod;
 }

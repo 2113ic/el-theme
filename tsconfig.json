@@ -3,5 +3,5 @@
     "strict": true,
     "noEmit": true,
   },
-  "include": ["package/theme/index.ts"]
+  "include": ["theme/index.ts"]
 }
